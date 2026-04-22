@@ -28,3 +28,8 @@ dist-ssr
 
 # Large video files (hosted on Cloudflare R2)
 *.mp4
+
+# Environment variables (use .env.example as template)
+.env
+.env.local
+.env.*.local

@@ -1,4 +1,5 @@
 import { mkdir, writeFile } from 'node:fs/promises'
+import { flushCache, hasDeepLKey, translate, translateMany } from './translate.js'
 
 const PRODUCTS_URL = 'https://fender-design.com/products.json?limit=250'
 const COLLECTIONS_URL = 'https://fender-design.com/collections.json?limit=250'
@@ -10,7 +11,7 @@ interface ShopifyVariant {
   id: number
   title: string
   price: string
-  sku: string
+  sku: string | null
   available: boolean
 }
 
@@ -57,7 +58,7 @@ interface Product {
   type: string
   tags: string[]
   price: string
-  variants: Array<{ id: number; title: string; price: string; sku: string; available: boolean }>
+  variants: Array<{ id: number; title: string; price: string; sku: string | null; available: boolean }>
   images: Array<{ src: string; alt: string | null }>
 }
 
@@ -76,11 +77,8 @@ async function fetchJson<T>(url: string): Promise<T> {
   return res.json() as Promise<T>
 }
 
-async function syncProducts(): Promise<void> {
-  console.log(`Fetching ${PRODUCTS_URL}`)
-  const { products: raw } = await fetchJson<ShopifyProductsResponse>(PRODUCTS_URL)
-
-  const products: Product[] = raw.map((p) => ({
+function mapProduct(p: ShopifyProduct): Product {
+  return {
     id: p.id,
     title: p.title,
     handle: p.handle,
@@ -97,13 +95,59 @@ async function syncProducts(): Promise<void> {
       available: v.available,
     })),
     images: p.images.map((i) => ({ src: i.src, alt: i.alt })),
-  }))
-
-  await writeFile(PRODUCTS_OUTPUT, JSON.stringify(products, null, 2) + '\n')
-  console.log(`Synced ${products.length} products → src/data/products.json`)
+  }
 }
 
-async function syncCollections(): Promise<void> {
+async function translateProducts(products: Product[]): Promise<void> {
+  // Batch-translate all short text fields in one call, plus HTML descriptions separately
+  const textFields: Array<{ source: string; apply: (result: string) => void }> = []
+  const htmlFields: Array<{ source: string; apply: (result: string) => void }> = []
+
+  for (const p of products) {
+    textFields.push({ source: p.title, apply: (r) => (p.title = r) })
+    if (p.type) textFields.push({ source: p.type, apply: (r) => (p.type = r) })
+    p.tags.forEach((tag, i) => {
+      textFields.push({ source: tag, apply: (r) => (p.tags[i] = r) })
+    })
+    p.variants.forEach((v, i) => {
+      textFields.push({ source: v.title, apply: (r) => (p.variants[i].title = r) })
+    })
+    if (p.description) {
+      htmlFields.push({ source: p.description, apply: (r) => (p.description = r) })
+    }
+  }
+
+  const textResults = await translateMany(textFields.map((f) => f.source))
+  textFields.forEach((f, i) => f.apply(textResults[i]))
+
+  const htmlResults = await translateMany(
+    htmlFields.map((f) => f.source),
+    { html: true },
+  )
+  htmlFields.forEach((f, i) => f.apply(htmlResults[i]))
+}
+
+async function translateCollections(collections: Collection[]): Promise<void> {
+  const titles = collections.map((c) => c.title)
+  const translatedTitles = await translateMany(titles)
+  collections.forEach((c, i) => (c.title = translatedTitles[i]))
+
+  for (const c of collections) {
+    if (c.description) {
+      c.description = await translate(c.description, { html: true })
+    }
+  }
+}
+
+async function syncProducts(): Promise<Product[]> {
+  console.log(`Fetching ${PRODUCTS_URL}`)
+  const { products: raw } = await fetchJson<ShopifyProductsResponse>(PRODUCTS_URL)
+  const products: Product[] = raw.map(mapProduct)
+  console.log(`Fetched ${products.length} products`)
+  return products
+}
+
+async function syncCollections(): Promise<Collection[]> {
   console.log(`Fetching ${COLLECTIONS_URL}`)
   const { collections: raw } = await fetchJson<ShopifyCollectionsResponse>(COLLECTIONS_URL)
 
@@ -121,14 +165,30 @@ async function syncCollections(): Promise<void> {
       }
     }),
   )
-
-  await writeFile(COLLECTIONS_OUTPUT, JSON.stringify(collections, null, 2) + '\n')
-  console.log(`Synced ${collections.length} collections → src/data/collections.json`)
+  console.log(`Fetched ${collections.length} collections`)
+  return collections
 }
 
 async function main(): Promise<void> {
   await mkdir(DATA_DIR, { recursive: true })
-  await Promise.all([syncProducts(), syncCollections()])
+
+  const [products, collections] = await Promise.all([syncProducts(), syncCollections()])
+
+  if (hasDeepLKey()) {
+    console.log('Translating DE → ES with DeepL...')
+    await translateProducts(products)
+    await translateCollections(collections)
+    await flushCache()
+    console.log('Translation done')
+  } else {
+    console.warn('DEEPL_API_KEY not set — skipping translation (content stays in German)')
+  }
+
+  await writeFile(PRODUCTS_OUTPUT, JSON.stringify(products, null, 2) + '\n')
+  console.log(`Wrote src/data/products.json (${products.length} products)`)
+
+  await writeFile(COLLECTIONS_OUTPUT, JSON.stringify(collections, null, 2) + '\n')
+  console.log(`Wrote src/data/collections.json (${collections.length} collections)`)
 }
 
 main().catch((err) => {
