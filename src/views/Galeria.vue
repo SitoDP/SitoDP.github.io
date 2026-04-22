@@ -52,6 +52,14 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useLanguage } from '../composables/useLanguage'
+import imgDulcinea1 from '../assets/dulcinea1.jpeg'
+import imgDulcineaConsulting from '../assets/dulcineaConsulting.jpeg'
+import imgMarcela1 from '../assets/marcela1.jpeg'
+import imgMarcela2 from '../assets/marcela2.jpeg'
+import imgAlex from '../assets/alex.png'
+import imgCalix from '../assets/calix.jpeg'
+import imgHero from '../assets/hero.png'
+
 const { useT } = useLanguage()
 const t = useT('galeria')
 
@@ -71,6 +79,13 @@ const images: GalleryImage[] = [
   { src: BASE + 'img_20220420_090516-yYEsKX76VSkhJu6A.jpg', alt: 'Logistica de embarcacion' },
   { src: BASE + 'dji_fly_20250715_135058_892_1752580280260_photo_optimized-pVFBPFMOjxZr06es.JPG', alt: 'Fotografia aerea de yate' },
   { src: BASE + 'img_1747-GatsfpyBmklZgI6y.jpg', alt: 'Servicio nautico profesional' },
+  { src: imgDulcinea1, alt: 'Dulcinea en el puerto de Vigo' },
+  { src: imgDulcineaConsulting, alt: 'Dulcinea — Yacht Consulting' },
+  { src: imgMarcela1, alt: 'Marcela en el mar' },
+  { src: imgMarcela2, alt: 'Marcela — traslado' },
+  { src: imgAlex, alt: 'Alejandro — cofundador Boat Solutions' },
+  { src: imgCalix, alt: 'Calixto — cofundador Boat Solutions' },
+  { src: imgHero, alt: 'Boat Solutions International' },
 ]
 
 const lightboxOpen = ref(false)
