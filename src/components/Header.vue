@@ -65,6 +65,7 @@
         </div>
 
         <router-link :to="to('/galeria')" class="nav-link" @click="close">{{ lbl.gallery }}</router-link>
+        <router-link :to="to('/tienda')" class="nav-link" @click="close">{{ lbl.shop }}</router-link>
         <router-link :to="to('/contacto')" class="nav-link" @click="close">{{ lbl.contact }}</router-link>
 
         <!-- Mobile-only services list -->
@@ -77,6 +78,15 @@
         </div>
 
       </nav>
+
+      <router-link :to="to('/carrito')" class="cart-icon" :aria-label="lbl.cart">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="9" cy="21" r="1"/>
+          <circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        <span v-if="itemCount > 0" class="cart-badge">{{ itemCount }}</span>
+      </router-link>
 
       <button class="btn btn-primary btn-reserve" @click="$emit('open-booking', 'consulting')">
         {{ lbl.reserve }}
@@ -100,11 +110,13 @@
 import { ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useLanguage } from '../composables/useLanguage'
+import { useCart } from '../composables/useCart'
 
 defineEmits<{ 'open-booking': [type: string] }>()
 
 const route = useRoute()
 const { lang, to, switchLang } = useLanguage()
+const { itemCount } = useCart()
 
 const menuOpen = ref(false)
 const servicesOpen = ref(false)
@@ -121,8 +133,10 @@ const lbl = computed(() => lang.value === 'en' ? {
   projects: 'Projects',
   services: 'Services',
   gallery: 'Gallery',
+  shop: 'Shop',
   contact: 'Contact',
   reserve: 'Book appointment',
+  cart: 'Cart',
   consultingDesc: 'Advisory & trading',
   managementDesc: 'Full management + Checklist',
   logisticsDesc: 'Transport + Calculator',
@@ -133,8 +147,10 @@ const lbl = computed(() => lang.value === 'en' ? {
   projects: 'Proyectos',
   services: 'Servicios',
   gallery: 'Galería',
+  shop: 'Tienda',
   contact: 'Contacto',
   reserve: 'Reserva cita',
+  cart: 'Carrito',
   consultingDesc: 'Asesoría y compraventa',
   managementDesc: 'Gestión integral + Checklist',
   logisticsDesc: 'Traslados + Calculadora',
@@ -315,6 +331,49 @@ const close = () => {
 .dropdown-leave-to {
   opacity: 0;
   transform: translateX(-50%) translateY(-8px);
+}
+
+/* ── Cart icon ── */
+.cart-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  color: var(--color-dark);
+  flex-shrink: 0;
+  transition: background 0.2s, color 0.2s;
+}
+
+.cart-icon:hover {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.cart-icon.router-link-active {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.cart-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: var(--color-primary);
+  color: white;
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+  line-height: 1;
 }
 
 /* ── Reserve button ── */

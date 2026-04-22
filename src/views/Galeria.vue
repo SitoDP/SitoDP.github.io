@@ -56,9 +56,6 @@ import imgDulcinea1 from '../assets/dulcinea1.jpeg'
 import imgDulcineaConsulting from '../assets/dulcineaConsulting.jpeg'
 import imgMarcela1 from '../assets/marcela1.jpeg'
 import imgMarcela2 from '../assets/marcela2.jpeg'
-import imgAlex from '../assets/alex.png'
-import imgCalix from '../assets/calix.jpeg'
-import imgHero from '../assets/hero.png'
 
 const { useT } = useLanguage()
 const t = useT('galeria')
@@ -83,9 +80,6 @@ const images: GalleryImage[] = [
   { src: imgDulcineaConsulting, alt: 'Dulcinea — Yacht Consulting' },
   { src: imgMarcela1, alt: 'Marcela en el mar' },
   { src: imgMarcela2, alt: 'Marcela — traslado' },
-  { src: imgAlex, alt: 'Alejandro — cofundador Boat Solutions' },
-  { src: imgCalix, alt: 'Calixto — cofundador Boat Solutions' },
-  { src: imgHero, alt: 'Boat Solutions International' },
 ]
 
 const lightboxOpen = ref(false)

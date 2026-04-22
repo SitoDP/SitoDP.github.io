@@ -10,6 +10,9 @@ import YachtLogistics from '../views/YachtLogistics.vue'
 import YachtDetailing from '../views/YachtDetailing.vue'
 import PoliticaPrivacidad from '../views/PoliticaPrivacidad.vue'
 import TerminosCondiciones from '../views/TerminosCondiciones.vue'
+import Tienda from '../views/Tienda.vue'
+import ProductoDetalle from '../views/ProductoDetalle.vue'
+import Carrito from '../views/Carrito.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -25,6 +28,9 @@ const router = createRouter({
     { path: '/yacht-detailing', name: 'yacht-detailing', component: YachtDetailing },
     { path: '/politica-de-privacidad', name: 'politica-privacidad', component: PoliticaPrivacidad },
     { path: '/terminos-y-condiciones', name: 'terminos-condiciones', component: TerminosCondiciones },
+    { path: '/tienda', name: 'tienda', component: Tienda },
+    { path: '/tienda/:handle', name: 'producto-detalle', component: ProductoDetalle },
+    { path: '/carrito', name: 'carrito', component: Carrito },
     // Legacy redirect
     { path: '/servicios', redirect: '/yacht-consulting' },
     // EN routes
@@ -37,6 +43,9 @@ const router = createRouter({
     { path: '/en/yacht-management', name: 'yacht-management-en', component: YachtManagement },
     { path: '/en/yacht-logistics', name: 'yacht-logistics-en', component: YachtLogistics },
     { path: '/en/yacht-detailing', name: 'yacht-detailing-en', component: YachtDetailing },
+    { path: '/en/tienda', name: 'tienda-en', component: Tienda },
+    { path: '/en/tienda/:handle', name: 'producto-detalle-en', component: ProductoDetalle },
+    { path: '/en/carrito', name: 'carrito-en', component: Carrito },
   ],
   scrollBehavior() {
     return { top: 0 }
