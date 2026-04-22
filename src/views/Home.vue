@@ -2,7 +2,7 @@
   <div class="home">
     <section class="hero">
       <video class="hero-bg" autoplay muted loop playsinline>
-        <source src="/videoHome.mp4" type="video/mp4" />
+        <source src="https://pub-e19f3243d179441cbc3adda22f8d74fc.r2.dev/videoHome.mp4" type="video/mp4" />
       </video>
       <div class="hero-overlay"></div>
       <div class="container hero-content">

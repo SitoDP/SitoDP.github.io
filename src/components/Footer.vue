@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <video class="footer-video" autoplay muted loop playsinline>
-      <source src="/footer-bg.mp4" type="video/mp4" />
+      <source src="https://pub-e19f3243d179441cbc3adda22f8d74fc.r2.dev/footer-bg.mp4" type="video/mp4" />
     </video>
     <div class="footer-overlay"></div>
     <div class="container">
