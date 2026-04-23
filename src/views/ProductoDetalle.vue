@@ -24,7 +24,7 @@
         </div>
 
         <div class="info">
-          <router-link :to="to('/tienda')" class="back-link">← {{ t.back }}</router-link>
+          <a href="#" class="back-link" @click.prevent="goBack">← {{ t.back }}</a>
           <span v-if="product.configurable" class="product-tag configurable-tag">{{ t.configurable }}</span>
           <span v-else-if="product.type" class="product-tag">{{ product.type }}</span>
           <h1>{{ product.title }}</h1>
@@ -97,7 +97,7 @@
 
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useLanguage } from '../composables/useLanguage'
 import { useCart } from '../composables/useCart'
 import productsData from '../data/products.json'
@@ -105,8 +105,20 @@ import type { Product } from '../types/shop'
 import QuoteModal from '../components/QuoteModal.vue'
 
 const route = useRoute()
+const router = useRouter()
 const { lang, to } = useLanguage()
 const { addItem } = useCart()
+
+function goBack() {
+  // Vue Router stores the previous URL in history.state.back when navigating within the SPA.
+  // If null, the user landed here directly (external referrer) — fall back to /tienda.
+  const prev = (window.history.state as { back?: string } | null)?.back
+  if (prev && prev.startsWith('/')) {
+    router.back()
+  } else {
+    router.push(to('/tienda'))
+  }
+}
 
 const products = productsData as Product[]
 const product = computed(() => products.find((p) => p.handle === route.params.handle))

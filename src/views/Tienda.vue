@@ -122,6 +122,7 @@
 
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { useLanguage } from '../composables/useLanguage'
 import productsData from '../data/products.json'
 import collectionsData from '../data/collections.json'
@@ -129,13 +130,35 @@ import { categoryTree } from '../data/category-tree'
 import type { Product, Collection } from '../types/shop'
 
 const { lang, to } = useLanguage()
+const route = useRoute()
+const router = useRouter()
 
 const products = productsData as Product[]
 const collections = collectionsData as Collection[]
 const collectionMap = new Map(collections.map((c) => [c.handle, c]))
 
-const selectedTop = ref<string | null>(null)
-const selectedSub = ref<string | null>(null)
+const selectedTop = ref<string | null>((route.query.cat as string) || null)
+const selectedSub = ref<string | null>((route.query.sub as string) || null)
+
+// Sync selection → URL (using replace to avoid polluting history)
+watch([selectedTop, selectedSub], ([top, sub]) => {
+  const query: Record<string, string> = {}
+  if (top) query.cat = top
+  if (sub) query.sub = sub
+  if ((route.query.cat ?? null) === top && (route.query.sub ?? null) === sub) return
+  router.replace({ query })
+})
+
+// Sync URL → selection (when user uses browser back/forward)
+watch(
+  () => route.query,
+  (q) => {
+    const cat = (q.cat as string) || null
+    const sub = (q.sub as string) || null
+    if (selectedTop.value !== cat) selectedTop.value = cat
+    if (selectedSub.value !== sub) selectedSub.value = sub
+  },
+)
 
 const activeTop = computed(() => categoryTree.find((c) => c.id === selectedTop.value) ?? null)
 
