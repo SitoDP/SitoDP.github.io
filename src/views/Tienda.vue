@@ -51,7 +51,8 @@
               </div>
               <div class="product-info">
                 <h3>{{ p.title }}</h3>
-                <p class="product-price">{{ formatPrice(p.price) }}</p>
+                <p v-if="p.configurable" class="product-price configurable">{{ t.quotePrice }}</p>
+                <p v-else class="product-price">{{ formatPrice(p.price) }}</p>
               </div>
             </router-link>
           </div>
@@ -103,6 +104,7 @@ const t = computed(() =>
         all: 'All products',
         results: 'products',
         empty: 'No products in this category.',
+        quotePrice: 'Request a quote',
       }
     : {
         label: 'Tienda',
@@ -112,6 +114,7 @@ const t = computed(() =>
         all: 'Todos los productos',
         results: 'productos',
         empty: 'No hay productos en esta categoría.',
+        quotePrice: 'Consultar precio',
       },
 )
 </script>
@@ -269,6 +272,13 @@ const t = computed(() =>
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--color-primary);
+}
+
+.product-price.configurable {
+  font-size: 0.85rem;
+  color: var(--color-gray);
+  font-style: italic;
+  font-weight: 600;
 }
 
 .empty-state {

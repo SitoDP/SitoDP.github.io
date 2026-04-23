@@ -58,6 +58,7 @@ interface Product {
   type: string
   tags: string[]
   price: string
+  configurable: boolean
   variants: Array<{ id: number; title: string; price: string; sku: string | null; available: boolean }>
   images: Array<{ src: string; alt: string | null }>
 }
@@ -78,6 +79,8 @@ async function fetchJson<T>(url: string): Promise<T> {
 }
 
 function mapProduct(p: ShopifyProduct): Product {
+  const allZero = p.variants.every((v) => Number(v.price) === 0)
+  const configurable = allZero || p.tags.some((t) => /configurador/i.test(t))
   return {
     id: p.id,
     title: p.title,
@@ -87,6 +90,7 @@ function mapProduct(p: ShopifyProduct): Product {
     type: p.product_type,
     tags: p.tags,
     price: p.variants[0]?.price ?? '0',
+    configurable,
     variants: p.variants.map((v) => ({
       id: v.id,
       title: v.title,

@@ -25,48 +25,67 @@
 
         <div class="info">
           <router-link :to="to('/tienda')" class="back-link">← {{ t.back }}</router-link>
-          <span v-if="product.type" class="product-tag">{{ product.type }}</span>
+          <span v-if="product.configurable" class="product-tag configurable-tag">{{ t.configurable }}</span>
+          <span v-else-if="product.type" class="product-tag">{{ product.type }}</span>
           <h1>{{ product.title }}</h1>
-          <p class="price">{{ formatPrice(selectedVariant?.price ?? product.price) }}</p>
 
-          <div v-if="product.variants.length > 1" class="variants">
-            <label>{{ t.variant }}</label>
-            <div class="variant-buttons">
-              <button
-                v-for="v in product.variants"
-                :key="v.id"
-                :class="['variant-btn', { active: selectedVariantId === v.id, unavailable: !v.available }]"
-                :disabled="!v.available"
-                @click="selectedVariantId = v.id"
-              >
-                {{ v.title }}
-              </button>
+          <p v-if="product.configurable" class="price configurable">{{ t.quotePrice }}</p>
+          <p v-else class="price">{{ formatPrice(selectedVariant?.price ?? product.price) }}</p>
+
+          <template v-if="!product.configurable">
+            <div v-if="product.variants.length > 1" class="variants">
+              <label>{{ t.variant }}</label>
+              <div class="variant-buttons">
+                <button
+                  v-for="v in product.variants"
+                  :key="v.id"
+                  :class="['variant-btn', { active: selectedVariantId === v.id, unavailable: !v.available }]"
+                  :disabled="!v.available"
+                  @click="selectedVariantId = v.id"
+                >
+                  {{ v.title }}
+                </button>
+              </div>
             </div>
-          </div>
 
-          <div class="quantity">
-            <label>{{ t.quantity }}</label>
-            <div class="qty-control">
-              <button @click="quantity = Math.max(1, quantity - 1)">−</button>
-              <span>{{ quantity }}</span>
-              <button @click="quantity++">+</button>
+            <div class="quantity">
+              <label>{{ t.quantity }}</label>
+              <div class="qty-control">
+                <button @click="quantity = Math.max(1, quantity - 1)">−</button>
+                <span>{{ quantity }}</span>
+                <button @click="quantity++">+</button>
+              </div>
             </div>
-          </div>
 
-          <button
-            class="btn btn-primary add-to-cart"
-            :disabled="!selectedVariant?.available"
-            @click="handleAdd"
-          >
-            {{ selectedVariant?.available ? t.addToCart : t.unavailable }}
-          </button>
+            <button
+              class="btn btn-primary add-to-cart"
+              :disabled="!selectedVariant?.available"
+              @click="handleAdd"
+            >
+              {{ selectedVariant?.available ? t.addToCart : t.unavailable }}
+            </button>
 
-          <div v-if="justAdded" class="added-feedback">{{ t.added }}</div>
+            <div v-if="justAdded" class="added-feedback">{{ t.added }}</div>
+          </template>
+
+          <template v-else>
+            <p class="configurable-note">{{ t.configurableNote }}</p>
+            <button class="btn btn-primary add-to-cart" @click="quoteOpen = true">
+              {{ t.requestQuote }}
+            </button>
+          </template>
 
           <div v-if="product.description" class="description" v-html="product.description"></div>
         </div>
       </div>
     </section>
+
+    <QuoteModal
+      :is-open="quoteOpen"
+      :product-title="product.title"
+      :product-handle="product.handle"
+      @close="quoteOpen = false"
+    />
   </div>
   <div v-else class="not-found">
     <div class="container">
@@ -83,6 +102,7 @@ import { useLanguage } from '../composables/useLanguage'
 import { useCart } from '../composables/useCart'
 import productsData from '../data/products.json'
 import type { Product } from '../types/shop'
+import QuoteModal from '../components/QuoteModal.vue'
 
 const route = useRoute()
 const { lang, to } = useLanguage()
@@ -95,6 +115,7 @@ const selectedVariantId = ref<number | null>(null)
 const quantity = ref(1)
 const activeImage = ref(0)
 const justAdded = ref(false)
+const quoteOpen = ref(false)
 
 watch(
   product,
@@ -135,6 +156,10 @@ const t = computed(() =>
         unavailable: 'Unavailable',
         added: '✓ Added to cart',
         notFound: 'Product not found',
+        configurable: 'Made to order',
+        quotePrice: 'Request a quote',
+        configurableNote: 'This product is made to measure. Price depends on dimensions, fabric and personalization. Request a quote and we will reply within 24h.',
+        requestQuote: 'Request quote',
       }
     : {
         back: 'Volver a la tienda',
@@ -144,6 +169,10 @@ const t = computed(() =>
         unavailable: 'No disponible',
         added: '✓ Añadido al carrito',
         notFound: 'Producto no encontrado',
+        configurable: 'Hecho a medida',
+        quotePrice: 'Consultar precio',
+        configurableNote: 'Este producto se fabrica a medida. El precio depende de las dimensiones, el tejido y la personalización. Solicita un presupuesto y te responderemos en menos de 24h.',
+        requestQuote: 'Solicitar presupuesto',
       },
 )
 </script>
@@ -239,6 +268,27 @@ const t = computed(() =>
   font-size: 1.6rem;
   font-weight: 700;
   color: var(--color-primary);
+}
+
+.price.configurable {
+  font-size: 1.1rem;
+  color: var(--color-gray);
+  font-style: italic;
+  font-weight: 600;
+}
+
+.configurable-tag {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.configurable-note {
+  background: var(--color-gray-light);
+  padding: 14px 18px;
+  border-radius: 10px;
+  color: var(--color-gray);
+  font-size: 0.88rem;
+  line-height: 1.6;
 }
 
 .variants label,

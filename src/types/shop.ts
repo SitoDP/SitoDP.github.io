@@ -20,6 +20,7 @@ export interface Product {
   type: string
   tags: string[]
   price: string
+  configurable?: boolean
   variants: ProductVariant[]
   images: ProductImage[]
 }
