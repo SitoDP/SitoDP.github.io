@@ -130,12 +130,12 @@
     "tags": [
       "Configurador"
     ],
-    "price": "29.90",
+    "price": "25.13",
     "variants": [
       {
         "id": 54482404245849,
         "title": "Título por defecto",
-        "price": "29.90",
+        "price": "25.13",
         "sku": null,
         "available": true
       }
@@ -171,89 +171,89 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "53.50",
+    "price": "44.96",
     "variants": [
       {
         "id": 54645572436313,
         "title": "F1: Ø 15 x 61 cm / blanco (cabezas azules / cuerpo blanco)",
-        "price": "53.50",
+        "price": "44.96",
         "sku": "",
         "available": true
       },
       {
         "id": 54645572469081,
         "title": "F1: Ø 15 x 61 cm / negro (completamente negro)",
-        "price": "59.00",
+        "price": "49.58",
         "sku": "",
         "available": true
       },
       {
         "id": 54645572501849,
         "title": "F2: Ø 21 x 64 cm / blanco (cabezas azules / cuerpo blanco)",
-        "price": "67.00",
+        "price": "56.30",
         "sku": "",
         "available": true
       },
       {
         "id": 54645572534617,
         "title": "F2: Ø 21 x 64 cm / negro (completamente negro)",
-        "price": "74.00",
+        "price": "62.18",
         "sku": "",
         "available": true
       },
       {
         "id": 54645572567385,
         "title": "F3: Ø 22 x 76 cm / blanco (cabezas azules / cuerpo blanco)",
-        "price": "76.00",
+        "price": "63.87",
         "sku": "",
         "available": true
       },
       {
         "id": 54645572600153,
         "title": "F3: Ø 22 x 76 cm / negro (completamente negro)",
-        "price": "84.00",
+        "price": "70.59",
         "sku": "",
         "available": true
       },
       {
         "id": 54645572632921,
         "title": "F4: Ø 22 x 104 cm / blanco (cabezas azules / cuerpo blanco)",
-        "price": "118.50",
+        "price": "99.58",
         "sku": "",
         "available": true
       },
       {
         "id": 54645572665689,
         "title": "F4: Ø 22 x 104 cm / negro (completamente negro)",
-        "price": "130.50",
+        "price": "109.66",
         "sku": "",
         "available": true
       },
       {
         "id": 54645572698457,
         "title": "F5: Ø 28 x 76 cm / blanco (cabezas azules / cuerpo blanco)",
-        "price": "145.50",
+        "price": "122.27",
         "sku": "",
         "available": true
       },
       {
         "id": 54645572731225,
         "title": "F5: Ø 28 x 76 cm / negro (completamente negro)",
-        "price": "160.50",
+        "price": "134.87",
         "sku": "",
         "available": true
       },
       {
         "id": 54645572763993,
         "title": "F6: Ø 28 x 107 cm / blanco (cabezas azules / cuerpo blanco)",
-        "price": "214.50",
+        "price": "180.25",
         "sku": "",
         "available": true
       },
       {
         "id": 54645572796761,
         "title": "F6: Ø 28 x 107 cm / negro (completamente negro)",
-        "price": "236.50",
+        "price": "198.74",
         "sku": "",
         "available": true
       }
@@ -280,12 +280,12 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "69.90",
+    "price": "58.74",
     "variants": [
       {
         "id": 57069704642905,
         "title": "Título por defecto",
-        "price": "69.90",
+        "price": "58.74",
         "sku": "4262452330555",
         "available": true
       }
@@ -328,54 +328,54 @@
       "guardabarros y accesorios",
       "innovaciones"
     ],
-    "price": "129.00",
+    "price": "108.40",
     "variants": [
       {
         "id": 57059969597785,
         "title": "INF1: Ø 23 x 76 cm (9\" x 30\")",
-        "price": "129.00",
+        "price": "108.40",
         "sku": null,
         "available": true
       },
       {
         "id": 57059969630553,
         "title": "INF2: Ø 30 x 90 cm (12\" x 35\")",
-        "price": "169.00",
+        "price": "142.02",
         "sku": null,
         "available": true
       },
       {
         "id": 57059969663321,
         "title": "INF3: Ø 46 x 107 cm (18\" x 42\")",
-        "price": "279.00",
+        "price": "234.45",
         "sku": null,
         "available": true
       },
       {
         "id": 57059969696089,
         "title": "INF4: Ø 46 x 122 cm (18\" x 48\")",
-        "price": "289.00",
+        "price": "242.86",
         "sku": null,
         "available": true
       },
       {
         "id": 57059969728857,
         "title": "INF5: Ø 61 x 107 cm (24\" x 42\")",
-        "price": "319.00",
+        "price": "268.07",
         "sku": null,
         "available": true
       },
       {
         "id": 57060010328409,
         "title": "INF6: Ø 61 x 147 cm (24\" x 58\")",
-        "price": "369.00",
+        "price": "310.08",
         "sku": null,
         "available": true
       },
       {
         "id": 57060010361177,
         "title": "INF7: Ø 97 x 122 cm (38\" x 48\")",
-        "price": "569.00",
+        "price": "478.15",
         "sku": null,
         "available": true
       }
@@ -415,26 +415,26 @@
       "guardabarros y accesorios",
       "innovaciones"
     ],
-    "price": "39.90",
+    "price": "33.53",
     "variants": [
       {
         "id": 57059672883545,
         "title": "Ø 32 x 50 cm",
-        "price": "39.90",
+        "price": "33.53",
         "sku": null,
         "available": true
       },
       {
         "id": 57059672916313,
         "title": "Ø 37 x 58 cm",
-        "price": "69.90",
+        "price": "58.74",
         "sku": null,
         "available": true
       },
       {
         "id": 57059672949081,
         "title": "Ø 51 x 65 cm",
-        "price": "119.90",
+        "price": "100.76",
         "sku": null,
         "available": true
       }
@@ -456,40 +456,40 @@
       "guardabarros y accesorios",
       "innovaciones"
     ],
-    "price": "39.90",
+    "price": "33.53",
     "variants": [
       {
         "id": 56865164820825,
         "title": "F1: Ø 15 x 61 cm",
-        "price": "39.90",
+        "price": "33.53",
         "sku": null,
         "available": true
       },
       {
         "id": 56865164886361,
         "title": "F2: Ø 21 x 64 cm",
-        "price": "49.90",
+        "price": "41.93",
         "sku": null,
         "available": true
       },
       {
         "id": 56865164951897,
         "title": "F3: Ø 22 x 76 cm",
-        "price": "54.90",
+        "price": "46.13",
         "sku": null,
         "available": true
       },
       {
         "id": 56865165017433,
         "title": "F4: Ø 22 x 104 cm",
-        "price": "79.90",
+        "price": "67.14",
         "sku": null,
         "available": true
       },
       {
         "id": 56865165082969,
         "title": "F5: Ø 28 x 76 cm",
-        "price": "99.90",
+        "price": "83.95",
         "sku": null,
         "available": true
       }
@@ -510,54 +510,54 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "4.90",
+    "price": "4.12",
     "variants": [
       {
         "id": 56747797741913,
         "title": "Individualmente (sin embalaje) / Gotas de anclaje",
-        "price": "4.90",
+        "price": "4.12",
         "sku": null,
         "available": true
       },
       {
         "id": 56747797774681,
         "title": "Individualmente (sin embalaje) / Harbour Chique",
-        "price": "4.90",
+        "price": "4.12",
         "sku": null,
         "available": true
       },
       {
         "id": 56747852988761,
         "title": "Individual (sin embalaje) / Ancla azul",
-        "price": "4.90",
+        "price": "4.12",
         "sku": null,
         "available": true
       },
       {
         "id": 56747797807449,
         "title": "⭐ 3 piezas - value pack 🔖 / Gotas de ancla",
-        "price": "12.00",
+        "price": "10.08",
         "sku": null,
         "available": true
       },
       {
         "id": 56747797840217,
         "title": "⭐ 3 piezas - value pack 🔖 / Harbour Chique",
-        "price": "12.00",
+        "price": "10.08",
         "sku": null,
         "available": true
       },
       {
         "id": 56747853021529,
         "title": "⭐ 3 piezas - value pack 🔖 / Ancla azul",
-        "price": "12.00",
+        "price": "10.08",
         "sku": null,
         "available": true
       },
       {
         "id": 57031065141593,
         "title": "⭐ 3 piezas - value pack 🔖 / Mix: 1 pieza por diseño",
-        "price": "12.00",
+        "price": "10.08",
         "sku": null,
         "available": true
       }
@@ -602,19 +602,19 @@
     "tags": [
       "guardabarros y accesorios"
     ],
-    "price": "199.00",
+    "price": "167.23",
     "variants": [
       {
         "id": 56737958920537,
         "title": "Negro / 100 x 30 x 20 cm",
-        "price": "199.00",
+        "price": "167.23",
         "sku": null,
         "available": true
       },
       {
         "id": 56737958953305,
         "title": "Negro / 150 x 65 x 30 cm",
-        "price": "289.00",
+        "price": "242.86",
         "sku": null,
         "available": true
       }
@@ -662,75 +662,75 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "109.90",
+    "price": "92.35",
     "variants": [
       {
         "id": 56633607782745,
         "title": "845 MUD - Gris / ⭐ 5m value pack🔖",
-        "price": "109.90",
+        "price": "92.35",
         "sku": "4262452330562",
         "available": true
       },
       {
         "id": 56633607815513,
         "title": "845 MUD - Gris / longitud en m libremente seleccionable",
-        "price": "23.90",
+        "price": "20.08",
         "sku": null,
         "available": true
       },
       {
         "id": 56633634259289,
         "title": "510 SAHARA / ⭐ Paquete económico de 5 m🔖",
-        "price": "109.90",
+        "price": "92.35",
         "sku": "4262452330579",
         "available": true
       },
       {
         "id": 56633634292057,
         "title": "510 SAHARA / longitud en m libremente seleccionable",
-        "price": "23.90",
+        "price": "20.08",
         "sku": null,
         "available": true
       },
       {
         "id": 56633634324825,
         "title": "014 OFFWHITE / ⭐ 5m value pack🔖",
-        "price": "109.90",
+        "price": "92.35",
         "sku": "4262452330586",
         "available": true
       },
       {
         "id": 56633634357593,
         "title": "014 OFFWHITE / longitud en m libremente seleccionable",
-        "price": "23.90",
+        "price": "20.08",
         "sku": null,
         "available": true
       },
       {
         "id": 57774655111513,
         "title": "025 AZUL MARINO / ⭐ 5m value pack🔖",
-        "price": "109.90",
+        "price": "92.35",
         "sku": null,
         "available": true
       },
       {
         "id": 57774655144281,
         "title": "025 AZUL NAVY / longitud en m libremente seleccionable",
-        "price": "23.90",
+        "price": "20.08",
         "sku": null,
         "available": true
       },
       {
         "id": 57774655177049,
         "title": "099 NEGRO / ⭐ 5m value pack🔖",
-        "price": "109.90",
+        "price": "92.35",
         "sku": null,
         "available": true
       },
       {
         "id": 57774655209817,
         "title": "099 NEGRO / longitud en m libremente seleccionable",
-        "price": "23.90",
+        "price": "20.08",
         "sku": null,
         "available": true
       }
@@ -800,33 +800,33 @@
     "vendor": "fender-design",
     "type": "",
     "tags": [],
-    "price": "9.90",
+    "price": "8.32",
     "variants": [
       {
         "id": 56360663187801,
         "title": "estrecho (ancho de patilla hasta aprox. 6 mm) / amarillo neón",
-        "price": "9.90",
+        "price": "8.32",
         "sku": null,
         "available": true
       },
       {
         "id": 56360663220569,
         "title": "estrecho (ancho de patilla hasta aprox. 6 mm) / azul marino",
-        "price": "9.90",
+        "price": "8.32",
         "sku": null,
         "available": true
       },
       {
         "id": 56360663286105,
         "title": "ancho (ancho de patilla 7 - 15mm) / amarillo neón",
-        "price": "9.90",
+        "price": "8.32",
         "sku": null,
         "available": true
       },
       {
         "id": 56360663318873,
         "title": "ancho (ancho de patilla 7 - 15mm) / azul marino",
-        "price": "9.90",
+        "price": "8.32",
         "sku": null,
         "available": true
       }
@@ -868,40 +868,40 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "22.90",
+    "price": "19.24",
     "variants": [
       {
         "id": 56346886898009,
         "title": "Placa base 20 x 30 cm",
-        "price": "22.90",
+        "price": "19.24",
         "sku": null,
         "available": true
       },
       {
         "id": 56346886930777,
         "title": "Placa base 30 x 40 cm",
-        "price": "44.90",
+        "price": "37.73",
         "sku": null,
         "available": true
       },
       {
         "id": 56346886963545,
         "title": "Pinzas para copas (3 copas)",
-        "price": "11.90",
+        "price": "10.00",
         "sku": null,
         "available": true
       },
       {
         "id": 56346886996313,
         "title": "Clips para tazas (3 tazas)",
-        "price": "12.90",
+        "price": "10.84",
         "sku": null,
         "available": true
       },
       {
         "id": 56346887029081,
         "title": "Clips para pilas de placas (2 pilas)",
-        "price": "12.90",
+        "price": "10.84",
         "sku": null,
         "available": true
       }
@@ -958,12 +958,12 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "24.90",
+    "price": "20.92",
     "variants": [
       {
         "id": 56264627388761,
         "title": "Título por defecto",
-        "price": "24.90",
+        "price": "20.92",
         "sku": null,
         "available": true
       }
@@ -987,12 +987,12 @@
     "tags": [
       "Configurador"
     ],
-    "price": "20.00",
+    "price": "16.81",
     "variants": [
       {
         "id": 56218204733785,
         "title": "Título por defecto",
-        "price": "20.00",
+        "price": "16.81",
         "sku": null,
         "available": true
       }
@@ -1061,19 +1061,19 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "29.90",
+    "price": "25.13",
     "variants": [
       {
         "id": 55779035021657,
         "title": "⭐ Value pack🔖 incl. guante de microfibra \"Harald\"",
-        "price": "29.90",
+        "price": "25.13",
         "sku": "4262452330593",
         "available": true
       },
       {
         "id": 55779034988889,
         "title": "Agarrador de yates - paquete individual",
-        "price": "25.90",
+        "price": "21.76",
         "sku": "4262452330081",
         "available": true
       }
@@ -1124,19 +1124,19 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "6.00",
+    "price": "5.04",
     "variants": [
       {
         "id": 54685270966617,
         "title": "por pieza",
-        "price": "6.00",
+        "price": "5.04",
         "sku": "",
         "available": false
       },
       {
         "id": 54685270999385,
         "title": "⭐ 3 piezas - value pack 🔖",
-        "price": "15.00",
+        "price": "12.61",
         "sku": "",
         "available": false
       }
@@ -1164,12 +1164,12 @@
     "vendor": "fender-design",
     "type": "",
     "tags": [],
-    "price": "29.90",
+    "price": "25.13",
     "variants": [
       {
         "id": 54645465055577,
         "title": "Título por defecto",
-        "price": "29.90",
+        "price": "25.13",
         "sku": null,
         "available": true
       }
@@ -1197,33 +1197,33 @@
     "vendor": "fender-design",
     "type": "",
     "tags": [],
-    "price": "3.90",
+    "price": "3.28",
     "variants": [
       {
         "id": 54645179973977,
         "title": "verde neón / mini",
-        "price": "3.90",
+        "price": "3.28",
         "sku": null,
         "available": false
       },
       {
         "id": 54645184921945,
         "title": "verde neón / maxi",
-        "price": "4.90",
+        "price": "4.12",
         "sku": null,
         "available": false
       },
       {
         "id": 54645180039513,
         "title": "azul marino / Mini",
-        "price": "3.90",
+        "price": "3.28",
         "sku": null,
         "available": false
       },
       {
         "id": 54645184954713,
         "title": "azul marino / maxi",
-        "price": "4.90",
+        "price": "4.12",
         "sku": null,
         "available": false
       }
@@ -1244,75 +1244,75 @@
     "tags": [
       "accesorios"
     ],
-    "price": "6.90",
+    "price": "5.80",
     "variants": [
       {
         "id": 57208687460697,
         "title": "negro/marrón / 20 x 30 cm",
-        "price": "6.90",
+        "price": "5.80",
         "sku": null,
         "available": true
       },
       {
         "id": 57208687493465,
         "title": "negro/marrón / 30 x 40 cm",
-        "price": "9.90",
+        "price": "8.32",
         "sku": null,
         "available": true
       },
       {
         "id": 57208687526233,
         "title": "negro/marrón / 40 x 155 cm",
-        "price": "29.90",
+        "price": "25.13",
         "sku": null,
         "available": true
       },
       {
         "id": 57208687559001,
         "title": "negro/marrón / 100 x 110 cm",
-        "price": "49.90",
+        "price": "41.93",
         "sku": null,
         "available": true
       },
       {
         "id": 57826717368665,
         "title": "negro/marrón / por metro lineal (ancho: 155 cm)",
-        "price": "59.90",
+        "price": "50.34",
         "sku": null,
         "available": false
       },
       {
         "id": 57208687624537,
         "title": "azul/gris / 20 x 30 cm",
-        "price": "6.90",
+        "price": "5.80",
         "sku": null,
         "available": true
       },
       {
         "id": 57208687657305,
         "title": "azul/gris / 30 x 40 cm",
-        "price": "9.90",
+        "price": "8.32",
         "sku": null,
         "available": true
       },
       {
         "id": 57208687690073,
         "title": "azul/gris / 40 x 155 cm",
-        "price": "29.90",
+        "price": "25.13",
         "sku": null,
         "available": true
       },
       {
         "id": 57208687722841,
         "title": "azul/gris / 100 x 110 cm",
-        "price": "49.90",
+        "price": "41.93",
         "sku": null,
         "available": true
       },
       {
         "id": 57826717401433,
         "title": "azul/gris / por metro lineal (ancho: 155 cm)",
-        "price": "59.90",
+        "price": "50.34",
         "sku": null,
         "available": true
       }
@@ -1346,47 +1346,47 @@
     "vendor": "fender-design",
     "type": "",
     "tags": [],
-    "price": "4.90",
+    "price": "4.12",
     "variants": [
       {
         "id": 56034155921753,
         "title": "estrecho (ancho de patilla hasta aprox. 6 mm) / negro",
-        "price": "4.90",
+        "price": "4.12",
         "sku": null,
         "available": true
       },
       {
         "id": 56360379908441,
         "title": "estrecho (ancho de patilla hasta aprox. 6 mm) / amarillo neón",
-        "price": "4.90",
+        "price": "4.12",
         "sku": null,
         "available": true
       },
       {
         "id": 56360379941209,
         "title": "estrecho (ancho de patilla hasta aprox. 6 mm) / azul marino",
-        "price": "4.90",
+        "price": "4.12",
         "sku": null,
         "available": true
       },
       {
         "id": 56034155954521,
         "title": "ancho (ancho de patilla 7 - 15mm) / negro",
-        "price": "4.90",
+        "price": "4.12",
         "sku": null,
         "available": true
       },
       {
         "id": 56360379973977,
         "title": "ancho (ancho de patilla 7 - 15mm) / amarillo neón",
-        "price": "4.90",
+        "price": "4.12",
         "sku": null,
         "available": true
       },
       {
         "id": 56360380006745,
         "title": "ancho (ancho de patilla 7 - 15mm) / azul marino",
-        "price": "4.90",
+        "price": "4.12",
         "sku": null,
         "available": true
       }
@@ -1425,12 +1425,12 @@
     "tags": [
       "Configurador"
     ],
-    "price": "99.00",
+    "price": "83.19",
     "variants": [
       {
         "id": 54616841191769,
         "title": "Título por defecto",
-        "price": "99.00",
+        "price": "83.19",
         "sku": null,
         "available": true
       }
@@ -1466,12 +1466,12 @@
     "tags": [
       "Configurador"
     ],
-    "price": "50.00",
+    "price": "42.02",
     "variants": [
       {
         "id": 54595089760601,
         "title": "Título por defecto",
-        "price": "50.00",
+        "price": "42.02",
         "sku": null,
         "available": true
       }
@@ -1495,19 +1495,19 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "29.90",
+    "price": "25.13",
     "variants": [
       {
         "id": 54633847095641,
         "title": "Azul marino",
-        "price": "29.90",
+        "price": "25.13",
         "sku": "",
         "available": true
       },
       {
         "id": 54633847128409,
         "title": "Negro",
-        "price": "29.90",
+        "price": "25.13",
         "sku": "",
         "available": true
       }
@@ -1575,12 +1575,12 @@
     "tags": [
       "Configurador"
     ],
-    "price": "145.00",
+    "price": "121.85",
     "variants": [
       {
         "id": 54482436882777,
         "title": "Título por defecto",
-        "price": "145.00",
+        "price": "121.85",
         "sku": null,
         "available": true
       }
@@ -1631,12 +1631,12 @@
     "vendor": "Fender Design",
     "type": "",
     "tags": [],
-    "price": "50.00",
+    "price": "42.02",
     "variants": [
       {
         "id": 54480457105753,
         "title": "Título por defecto",
-        "price": "50.00",
+        "price": "42.02",
         "sku": null,
         "available": true
       }
@@ -1655,12 +1655,12 @@
     "vendor": "Fender Design",
     "type": "",
     "tags": [],
-    "price": "50.00",
+    "price": "42.02",
     "variants": [
       {
         "id": 54480454254937,
         "title": "Título por defecto",
-        "price": "50.00",
+        "price": "42.02",
         "sku": "",
         "available": true
       }
@@ -1880,12 +1880,12 @@
     "tags": [
       "Configurador"
     ],
-    "price": "39.90",
+    "price": "33.53",
     "variants": [
       {
         "id": 54362219774297,
         "title": "Título por defecto",
-        "price": "39.90",
+        "price": "33.53",
         "sku": null,
         "available": true
       }
@@ -1918,12 +1918,12 @@
     "tags": [
       "Configurador"
     ],
-    "price": "129.00",
+    "price": "108.40",
     "variants": [
       {
         "id": 54305665057113,
         "title": "Título por defecto",
-        "price": "129.00",
+        "price": "108.40",
         "sku": null,
         "available": true
       }
@@ -1950,12 +1950,12 @@
     "tags": [
       "Configurador"
     ],
-    "price": "59.90",
+    "price": "50.34",
     "variants": [
       {
         "id": 54305654833497,
         "title": "Título por defecto",
-        "price": "59.90",
+        "price": "50.34",
         "sku": null,
         "available": true
       }
@@ -1982,12 +1982,12 @@
     "tags": [
       "Configurador"
     ],
-    "price": "69.90",
+    "price": "58.74",
     "variants": [
       {
         "id": 54305641693529,
         "title": "Título por defecto",
-        "price": "69.90",
+        "price": "58.74",
         "sku": "",
         "available": true
       }
@@ -2338,12 +2338,12 @@
     "tags": [
       "Configurador"
     ],
-    "price": "10.00",
+    "price": "8.40",
     "variants": [
       {
         "id": 54298964427097,
         "title": "Título por defecto",
-        "price": "10.00",
+        "price": "8.40",
         "sku": null,
         "available": true
       }
@@ -2766,12 +2766,12 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "14.90",
+    "price": "12.52",
     "variants": [
       {
         "id": 54182439846233,
         "title": "Título por defecto",
-        "price": "14.90",
+        "price": "12.52",
         "sku": "",
         "available": true
       }
@@ -2801,19 +2801,19 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "44.90",
+    "price": "37.73",
     "variants": [
       {
         "id": 54450862031193,
         "title": "Azul marino",
-        "price": "44.90",
+        "price": "37.73",
         "sku": "",
         "available": true
       },
       {
         "id": 54450862063961,
         "title": "Negro",
-        "price": "44.90",
+        "price": "37.73",
         "sku": "",
         "available": true
       }
@@ -2837,12 +2837,12 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "69.90",
+    "price": "58.74",
     "variants": [
       {
         "id": 54182342918489,
         "title": "Título por defecto",
-        "price": "69.90",
+        "price": "58.74",
         "sku": "",
         "available": true
       }
@@ -2999,117 +2999,117 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "45.00",
+    "price": "37.82",
     "variants": [
       {
         "id": 54611828015449,
         "title": "Azul marino / S Ø 15 - 21 cm / ⭐ 5m value pack🔖",
-        "price": "45.00",
+        "price": "37.82",
         "sku": null,
         "available": true
       },
       {
         "id": 54107888222553,
         "title": "Azul marino / S Ø 15 - 21 cm / longitud en m libremente seleccionable",
-        "price": "10.00",
+        "price": "8.40",
         "sku": "",
         "available": true
       },
       {
         "id": 54611828048217,
         "title": "Azul marino / M Ø 22 - 27 cm / ⭐ 5m value pack🔖",
-        "price": "55.00",
+        "price": "46.22",
         "sku": null,
         "available": true
       },
       {
         "id": 54108489154905,
         "title": "Azul marino / M Ø 22 - 27 cm / longitud en m libremente seleccionable",
-        "price": "12.00",
+        "price": "10.08",
         "sku": "",
         "available": true
       },
       {
         "id": 54611828080985,
         "title": "Azul marino / L Ø 28 - 34 cm / ⭐ 5m value pack🔖",
-        "price": "65.00",
+        "price": "54.62",
         "sku": null,
         "available": true
       },
       {
         "id": 54109190291801,
         "title": "Azul marino / L Ø 28 - 34 cm / longitud en m libremente seleccionable",
-        "price": "14.00",
+        "price": "11.76",
         "sku": "",
         "available": true
       },
       {
         "id": 54611828113753,
         "title": "Azul marino / XL Ø 40 - 50 cm / ⭐ 5m value pack🔖",
-        "price": "100.00",
+        "price": "84.03",
         "sku": null,
         "available": true
       },
       {
         "id": 54109190324569,
         "title": "Azul marino / XL Ø 40 - 50 cm / longitud en m libremente seleccionable",
-        "price": "21.00",
+        "price": "17.65",
         "sku": "",
         "available": true
       },
       {
         "id": 54611828146521,
         "title": "Negro / S Ø 15 - 21 cm / ⭐ 5m value pack🔖",
-        "price": "45.00",
+        "price": "37.82",
         "sku": null,
         "available": true
       },
       {
         "id": 54107888255321,
         "title": "Negro / S Ø 15 - 21 cm / longitud en m libremente seleccionable",
-        "price": "10.00",
+        "price": "8.40",
         "sku": "",
         "available": true
       },
       {
         "id": 54611828179289,
         "title": "Negro / M Ø 22 - 27 cm / ⭐ 5m value pack🔖",
-        "price": "55.00",
+        "price": "46.22",
         "sku": null,
         "available": true
       },
       {
         "id": 54108489220441,
         "title": "Negro / M Ø 22 - 27 cm / longitud en m libremente seleccionable",
-        "price": "12.00",
+        "price": "10.08",
         "sku": "",
         "available": true
       },
       {
         "id": 54611828212057,
         "title": "Negro / L Ø 28 - 34 cm / ⭐ 5m value pack🔖",
-        "price": "65.00",
+        "price": "54.62",
         "sku": null,
         "available": true
       },
       {
         "id": 54109190357337,
         "title": "Negro / L Ø 28 - 34 cm / longitud en m libremente seleccionable",
-        "price": "14.00",
+        "price": "11.76",
         "sku": "",
         "available": true
       },
       {
         "id": 54611828244825,
         "title": "Negro / XL Ø 40 - 50 cm / ⭐ 5m value pack🔖",
-        "price": "100.00",
+        "price": "84.03",
         "sku": null,
         "available": true
       },
       {
         "id": 54109190390105,
         "title": "Negro / XL Ø 40 - 50 cm / longitud en m libremente seleccionable",
-        "price": "21.00",
+        "price": "17.65",
         "sku": "",
         "available": true
       }
@@ -3307,12 +3307,12 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "199.00",
+    "price": "167.23",
     "variants": [
       {
         "id": 53851271987545,
         "title": "Título por defecto",
-        "price": "199.00",
+        "price": "167.23",
         "sku": "",
         "available": true
       }
