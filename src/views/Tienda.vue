@@ -9,6 +9,7 @@
       </div>
     </section>
 
+    <!-- Top-level category tabs -->
     <section class="filter-section">
       <div class="container filter-container">
         <button
@@ -24,22 +25,22 @@
 
         <div class="chips-scroll" ref="chipsEl" @scroll="updateScrollState">
           <button
-            class="chip"
-            :class="{ active: selectedCollection === null }"
-            @click="selectedCollection = null"
+            class="chip chip-top"
+            :class="{ active: selectedTop === null }"
+            @click="selectTop(null)"
           >
             {{ t.all }}
             <span class="chip-count">{{ products.length }}</span>
           </button>
           <button
-            v-for="c in sortedCollections"
-            :key="c.id"
-            class="chip"
-            :class="{ active: selectedCollection === c.handle }"
-            @click="selectedCollection = c.handle"
+            v-for="cat in categoryTree"
+            :key="cat.id"
+            class="chip chip-top"
+            :class="{ active: selectedTop === cat.id }"
+            @click="selectTop(cat.id)"
           >
-            {{ c.title }}
-            <span class="chip-count">{{ c.productIds.length }}</span>
+            {{ lang === 'en' ? cat.title.en : cat.title.es }}
+            <span class="chip-count">{{ countForTop(cat.id) }}</span>
           </button>
         </div>
 
@@ -54,14 +55,39 @@
           </svg>
         </button>
       </div>
+
+      <!-- Subcategory chip bar -->
+      <Transition name="subchips">
+        <div v-if="activeTop" class="sub-section">
+          <div class="container">
+            <div class="chips-scroll sub-chips">
+              <button
+                class="chip chip-sub"
+                :class="{ active: selectedSub === null }"
+                @click="selectedSub = null"
+              >
+                {{ t.seeAllIn }} {{ lang === 'en' ? activeTop.title.en : activeTop.title.es }}
+              </button>
+              <button
+                v-for="handle in availableSubs"
+                :key="handle"
+                class="chip chip-sub"
+                :class="{ active: selectedSub === handle }"
+                @click="selectedSub = handle"
+              >
+                {{ collectionMap.get(handle)?.title ?? handle }}
+                <span class="chip-count">{{ collectionMap.get(handle)?.productIds.length ?? 0 }}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </Transition>
     </section>
 
     <section class="section products-section">
       <div class="container">
         <div class="results-header">
-          <h2 class="current-category">
-            {{ selectedCollection ? (sortedCollections.find(c => c.handle === selectedCollection)?.title ?? t.all) : t.all }}
-          </h2>
+          <h2 class="current-category">{{ currentTitle }}</h2>
           <p class="result-count">{{ filteredProducts.length }} {{ t.results }}</p>
         </div>
 
@@ -99,18 +125,75 @@ import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useLanguage } from '../composables/useLanguage'
 import productsData from '../data/products.json'
 import collectionsData from '../data/collections.json'
+import { categoryTree } from '../data/category-tree'
 import type { Product, Collection } from '../types/shop'
 
 const { lang, to } = useLanguage()
 
 const products = productsData as Product[]
 const collections = collectionsData as Collection[]
-const sortedCollections = computed(() =>
-  [...collections].filter((c) => c.productIds.length > 0).sort((a, b) => a.title.localeCompare(b.title)),
-)
+const collectionMap = new Map(collections.map((c) => [c.handle, c]))
 
-const selectedCollection = ref<string | null>(null)
+const selectedTop = ref<string | null>(null)
+const selectedSub = ref<string | null>(null)
 
+const activeTop = computed(() => categoryTree.find((c) => c.id === selectedTop.value) ?? null)
+
+const availableSubs = computed(() => {
+  if (!activeTop.value) return []
+  return activeTop.value.subcategories.filter((h) => {
+    const col = collectionMap.get(h)
+    return col && col.productIds.length > 0
+  })
+})
+
+function selectTop(id: string | null) {
+  selectedTop.value = id
+  selectedSub.value = null
+}
+
+function countForTop(id: string): number {
+  const cat = categoryTree.find((c) => c.id === id)
+  if (!cat) return 0
+  const ids = new Set<number>()
+  for (const handle of cat.subcategories) {
+    const col = collectionMap.get(handle)
+    if (col) col.productIds.forEach((pid) => ids.add(pid))
+  }
+  return ids.size
+}
+
+const filteredProducts = computed(() => {
+  if (selectedSub.value) {
+    const col = collectionMap.get(selectedSub.value)
+    if (!col) return products
+    const ids = new Set(col.productIds)
+    return products.filter((p) => ids.has(p.id))
+  }
+  if (activeTop.value) {
+    const ids = new Set<number>()
+    for (const handle of activeTop.value.subcategories) {
+      const col = collectionMap.get(handle)
+      if (col) col.productIds.forEach((pid) => ids.add(pid))
+    }
+    return products.filter((p) => ids.has(p.id))
+  }
+  return products
+})
+
+const currentTitle = computed(() => {
+  if (selectedSub.value) return collectionMap.get(selectedSub.value)?.title ?? t.value.all
+  if (activeTop.value) return lang.value === 'en' ? activeTop.value.title.en : activeTop.value.title.es
+  return t.value.all
+})
+
+const formatPrice = (price: string) =>
+  new Intl.NumberFormat(lang.value === 'en' ? 'en-IE' : 'es-ES', {
+    style: 'currency',
+    currency: 'EUR',
+  }).format(Number(price))
+
+// Horizontal scroll handling
 const chipsEl = ref<HTMLElement | null>(null)
 const canScrollLeft = ref(false)
 const canScrollRight = ref(false)
@@ -137,30 +220,17 @@ onBeforeUnmount(() => {
   window.removeEventListener('resize', updateScrollState)
 })
 
-watch(selectedCollection, () => nextTick(updateScrollState))
-
-const filteredProducts = computed(() => {
-  if (!selectedCollection.value) return products
-  const col = collections.find((c) => c.handle === selectedCollection.value)
-  if (!col) return products
-  const ids = new Set(col.productIds)
-  return products.filter((p) => ids.has(p.id))
-})
-
-const formatPrice = (price: string) =>
-  new Intl.NumberFormat(lang.value === 'en' ? 'en-IE' : 'es-ES', {
-    style: 'currency',
-    currency: 'EUR',
-  }).format(Number(price))
+watch([selectedTop, selectedSub], () => nextTick(updateScrollState))
 
 const t = computed(() =>
   lang.value === 'en'
     ? {
         label: 'Shop',
         title: 'Fender Design Store',
-        subtitle: 'Premium fenders, yacht textiles and nautical accessories. We handle the order and Fender Design ships directly.',
-        categories: 'Categories',
+        subtitle:
+          'Premium fenders, yacht textiles and nautical accessories. We handle the order and Fender Design ships directly.',
         all: 'All products',
+        seeAllIn: 'All in',
         results: 'products',
         empty: 'No products in this category.',
         quotePrice: 'Request a quote',
@@ -168,9 +238,10 @@ const t = computed(() =>
     : {
         label: 'Tienda',
         title: 'Productos Fender Design',
-        subtitle: 'Defensas premium, textiles náuticos y accesorios. Nosotros gestionamos el pedido y Fender Design lo envía directamente.',
-        categories: 'Categorías',
+        subtitle:
+          'Defensas premium, textiles náuticos y accesorios. Nosotros gestionamos el pedido y Fender Design lo envía directamente.',
         all: 'Todos los productos',
+        seeAllIn: 'Todo en',
         results: 'productos',
         empty: 'No hay productos en esta categoría.',
         quotePrice: 'Consultar precio',
@@ -216,14 +287,13 @@ const t = computed(() =>
 
 /* Filter chip bar */
 .filter-section {
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-gray-border);
-  padding: 20px 0;
+  padding: 20px 0 0;
   position: sticky;
   top: 68px;
   z-index: 10;
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.95);
 }
 
 .filter-container {
@@ -238,7 +308,7 @@ const t = computed(() =>
   overflow-x: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  padding: 2px 0;
+  padding: 2px 0 20px;
   flex: 1;
   scroll-behavior: smooth;
   mask-image: linear-gradient(to right, transparent 0, black 40px, black calc(100% - 40px), transparent 100%);
@@ -250,7 +320,7 @@ const t = computed(() =>
 .scroll-arrow {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-60%);
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -269,7 +339,7 @@ const t = computed(() =>
 .scroll-arrow:hover {
   background: var(--color-primary);
   color: white;
-  transform: translateY(-50%) scale(1.08);
+  transform: translateY(-60%) scale(1.08);
 }
 
 .scroll-arrow-left { left: -4px; }
@@ -279,30 +349,53 @@ const t = computed(() =>
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--color-gray-light);
   border: 1.5px solid transparent;
   border-radius: 999px;
-  padding: 9px 18px;
   cursor: pointer;
   font-family: var(--font-heading);
-  font-size: 0.85rem;
   font-weight: 600;
-  color: var(--color-dark);
   transition: all 0.2s ease;
   white-space: nowrap;
   flex-shrink: 0;
 }
 
-.chip:hover {
+.chip-top {
+  background: var(--color-gray-light);
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  color: var(--color-dark);
+}
+
+.chip-top:hover {
   background: var(--color-primary-light);
   color: var(--color-primary);
 }
 
-.chip.active {
+.chip-top.active {
   background: var(--color-primary);
   color: white;
   border-color: var(--color-primary);
   box-shadow: 0 4px 14px rgba(66, 104, 135, 0.3);
+}
+
+.chip-sub {
+  background: transparent;
+  border: 1.5px solid var(--color-gray-border);
+  padding: 7px 14px;
+  font-size: 0.8rem;
+  color: var(--color-gray);
+  font-weight: 500;
+}
+
+.chip-sub:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.chip-sub.active {
+  background: var(--color-dark);
+  color: white;
+  border-color: var(--color-dark);
 }
 
 .chip-count {
@@ -314,7 +407,7 @@ const t = computed(() =>
   border-radius: 999px;
   min-width: 20px;
   text-align: center;
-  opacity: 0.7;
+  opacity: 0.75;
 }
 
 .chip:not(.active) .chip-count {
@@ -322,6 +415,34 @@ const t = computed(() =>
   color: var(--color-gray);
 }
 
+/* Sub-category row */
+.sub-section {
+  background: var(--color-gray-light);
+  border-top: 1px solid var(--color-gray-border);
+  padding: 12px 0;
+}
+
+.sub-chips { padding: 2px 0; }
+
+.subchips-enter-active,
+.subchips-leave-active {
+  transition: opacity 0.25s ease, max-height 0.3s ease;
+  overflow: hidden;
+}
+
+.subchips-enter-from,
+.subchips-leave-to {
+  opacity: 0;
+  max-height: 0;
+}
+
+.subchips-enter-to,
+.subchips-leave-from {
+  opacity: 1;
+  max-height: 80px;
+}
+
+/* Product grid */
 .products-section { padding-top: 40px; }
 
 .results-header {
@@ -425,8 +546,9 @@ const t = computed(() =>
 }
 
 @media (max-width: 700px) {
-  .filter-section { top: 60px; padding: 14px 0; }
-  .chip { padding: 8px 14px; font-size: 0.8rem; }
+  .filter-section { top: 60px; padding: 14px 0 0; }
+  .chip-top { padding: 8px 14px; font-size: 0.8rem; }
+  .chip-sub { padding: 6px 12px; font-size: 0.75rem; }
   .scroll-arrow { display: none; }
   .chips-scroll {
     mask-image: linear-gradient(to right, black 0, black calc(100% - 24px), transparent 100%);
