@@ -9,55 +9,64 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="container tienda-layout">
-        <aside class="sidebar">
-          <h3 class="sidebar-title">{{ t.categories }}</h3>
+    <section class="filter-section">
+      <div class="container">
+        <div class="chips-scroll">
           <button
-            class="category-btn"
+            class="chip"
             :class="{ active: selectedCollection === null }"
             @click="selectedCollection = null"
           >
-            {{ t.all }} <span class="count">({{ products.length }})</span>
+            {{ t.all }}
+            <span class="chip-count">{{ products.length }}</span>
           </button>
           <button
             v-for="c in sortedCollections"
             :key="c.id"
-            class="category-btn"
+            class="chip"
             :class="{ active: selectedCollection === c.handle }"
             @click="selectedCollection = c.handle"
           >
-            {{ c.title }} <span class="count">({{ c.productIds.length }})</span>
+            {{ c.title }}
+            <span class="chip-count">{{ c.productIds.length }}</span>
           </button>
-        </aside>
-
-        <div class="grid-wrap">
-          <p class="result-count">{{ filteredProducts.length }} {{ t.results }}</p>
-          <div class="products-grid" v-if="filteredProducts.length">
-            <router-link
-              v-for="p in filteredProducts"
-              :key="p.id"
-              :to="to(`/tienda/${p.handle}`)"
-              class="product-card"
-            >
-              <div class="product-image">
-                <img
-                  v-if="p.images[0]"
-                  :src="p.images[0].src"
-                  :alt="p.images[0].alt ?? p.title"
-                  loading="lazy"
-                />
-                <div v-else class="no-image">—</div>
-              </div>
-              <div class="product-info">
-                <h3>{{ p.title }}</h3>
-                <p v-if="p.configurable" class="product-price configurable">{{ t.quotePrice }}</p>
-                <p v-else class="product-price">{{ formatPrice(p.price) }}</p>
-              </div>
-            </router-link>
-          </div>
-          <p v-else class="empty-state">{{ t.empty }}</p>
         </div>
+      </div>
+    </section>
+
+    <section class="section products-section">
+      <div class="container">
+        <div class="results-header">
+          <h2 class="current-category">
+            {{ selectedCollection ? (sortedCollections.find(c => c.handle === selectedCollection)?.title ?? t.all) : t.all }}
+          </h2>
+          <p class="result-count">{{ filteredProducts.length }} {{ t.results }}</p>
+        </div>
+
+        <div class="products-grid" v-if="filteredProducts.length">
+          <router-link
+            v-for="p in filteredProducts"
+            :key="p.id"
+            :to="to(`/tienda/${p.handle}`)"
+            class="product-card"
+          >
+            <div class="product-image">
+              <img
+                v-if="p.images[0]"
+                :src="p.images[0].src"
+                :alt="p.images[0].alt ?? p.title"
+                loading="lazy"
+              />
+              <div v-else class="no-image">—</div>
+            </div>
+            <div class="product-info">
+              <h3>{{ p.title }}</h3>
+              <p v-if="p.configurable" class="product-price configurable">{{ t.quotePrice }}</p>
+              <p v-else class="product-price">{{ formatPrice(p.price) }}</p>
+            </div>
+          </router-link>
+        </div>
+        <p v-else class="empty-state">{{ t.empty }}</p>
       </div>
     </section>
   </div>
@@ -155,58 +164,98 @@ const t = computed(() =>
 .hero-title { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; margin-bottom: 20px; }
 .hero-subtitle { font-size: 1.05rem; opacity: 0.9; line-height: 1.7; max-width: 680px; }
 
-.tienda-layout {
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 40px;
-  align-items: start;
-}
-
-.sidebar {
+/* Filter chip bar */
+.filter-section {
+  background: white;
+  border-bottom: 1px solid var(--color-gray-border);
+  padding: 20px 0;
   position: sticky;
-  top: 100px;
+  top: 68px;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.chips-scroll {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 2px 0;
 }
 
-.sidebar-title {
-  font-family: var(--font-heading);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--color-gray);
-  margin-bottom: 12px;
-}
+.chips-scroll::-webkit-scrollbar { display: none; }
 
-.category-btn {
-  text-align: left;
-  background: none;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 8px;
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-gray-light);
+  border: 1.5px solid transparent;
+  border-radius: 999px;
+  padding: 9px 18px;
   cursor: pointer;
-  font-family: var(--font-body);
-  font-size: 0.92rem;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
   color: var(--color-dark);
-  transition: background 0.2s, color 0.2s;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.category-btn:hover { background: var(--color-gray-light); }
+.chip:hover {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
 
-.category-btn.active {
+.chip.active {
   background: var(--color-primary);
   color: white;
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 14px rgba(66, 104, 135, 0.3);
 }
 
-.count { opacity: 0.55; font-size: 0.8rem; margin-left: 4px; }
+.chip-count {
+  background: rgba(255, 255, 255, 0.25);
+  color: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 1px 8px;
+  border-radius: 999px;
+  min-width: 20px;
+  text-align: center;
+  opacity: 0.7;
+}
+
+.chip:not(.active) .chip-count {
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--color-gray);
+}
+
+.products-section { padding-top: 40px; }
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-gray-border);
+}
+
+.current-category {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-dark);
+}
 
 .result-count {
   font-family: var(--font-heading);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--color-gray);
-  margin-bottom: 20px;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -287,16 +336,15 @@ const t = computed(() =>
   padding: 60px 20px;
 }
 
-@media (max-width: 900px) {
-  .tienda-layout { grid-template-columns: 1fr; }
-  .sidebar {
-    position: static;
-    flex-direction: row;
-    overflow-x: auto;
-    gap: 8px;
-    padding-bottom: 12px;
+@media (max-width: 700px) {
+  .filter-section { top: 60px; padding: 14px 0; }
+  .chip { padding: 8px 14px; font-size: 0.8rem; }
+  .results-header {
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+    margin-bottom: 24px;
   }
-  .sidebar-title { display: none; }
-  .category-btn { white-space: nowrap; flex-shrink: 0; }
+  .current-category { font-size: 1.4rem; }
 }
 </style>
