@@ -10,8 +10,19 @@
     </section>
 
     <section class="filter-section">
-      <div class="container">
-        <div class="chips-scroll">
+      <div class="container filter-container">
+        <button
+          v-show="canScrollLeft"
+          class="scroll-arrow scroll-arrow-left"
+          @click="scrollChips('left')"
+          aria-label="Anterior"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+
+        <div class="chips-scroll" ref="chipsEl" @scroll="updateScrollState">
           <button
             class="chip"
             :class="{ active: selectedCollection === null }"
@@ -31,6 +42,17 @@
             <span class="chip-count">{{ c.productIds.length }}</span>
           </button>
         </div>
+
+        <button
+          v-show="canScrollRight"
+          class="scroll-arrow scroll-arrow-right"
+          @click="scrollChips('right')"
+          aria-label="Siguiente"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </button>
       </div>
     </section>
 
@@ -73,7 +95,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useLanguage } from '../composables/useLanguage'
 import productsData from '../data/products.json'
 import collectionsData from '../data/collections.json'
@@ -88,6 +110,34 @@ const sortedCollections = computed(() =>
 )
 
 const selectedCollection = ref<string | null>(null)
+
+const chipsEl = ref<HTMLElement | null>(null)
+const canScrollLeft = ref(false)
+const canScrollRight = ref(false)
+
+function updateScrollState() {
+  const el = chipsEl.value
+  if (!el) return
+  canScrollLeft.value = el.scrollLeft > 4
+  canScrollRight.value = el.scrollLeft + el.clientWidth < el.scrollWidth - 4
+}
+
+function scrollChips(dir: 'left' | 'right') {
+  const el = chipsEl.value
+  if (!el) return
+  el.scrollBy({ left: dir === 'left' ? -el.clientWidth * 0.7 : el.clientWidth * 0.7, behavior: 'smooth' })
+}
+
+onMounted(() => {
+  nextTick(updateScrollState)
+  window.addEventListener('resize', updateScrollState)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', updateScrollState)
+})
+
+watch(selectedCollection, () => nextTick(updateScrollState))
 
 const filteredProducts = computed(() => {
   if (!selectedCollection.value) return products
@@ -176,6 +226,12 @@ const t = computed(() =>
   background: rgba(255, 255, 255, 0.95);
 }
 
+.filter-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
 .chips-scroll {
   display: flex;
   gap: 8px;
@@ -183,9 +239,41 @@ const t = computed(() =>
   scrollbar-width: none;
   -ms-overflow-style: none;
   padding: 2px 0;
+  flex: 1;
+  scroll-behavior: smooth;
+  mask-image: linear-gradient(to right, transparent 0, black 40px, black calc(100% - 40px), transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 40px, black calc(100% - 40px), transparent 100%);
 }
 
 .chips-scroll::-webkit-scrollbar { display: none; }
+
+.scroll-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid var(--color-gray-border);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-dark);
+  z-index: 2;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+}
+
+.scroll-arrow:hover {
+  background: var(--color-primary);
+  color: white;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.scroll-arrow-left { left: -4px; }
+.scroll-arrow-right { right: -4px; }
 
 .chip {
   display: inline-flex;
@@ -339,6 +427,11 @@ const t = computed(() =>
 @media (max-width: 700px) {
   .filter-section { top: 60px; padding: 14px 0; }
   .chip { padding: 8px 14px; font-size: 0.8rem; }
+  .scroll-arrow { display: none; }
+  .chips-scroll {
+    mask-image: linear-gradient(to right, black 0, black calc(100% - 24px), transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 0, black calc(100% - 24px), transparent 100%);
+  }
   .results-header {
     flex-direction: column;
     gap: 6px;
