@@ -133,6 +133,7 @@
       "Configurador"
     ],
     "price": "25.13",
+    "configurable": false,
     "variants": [
       {
         "id": 54482404245849,
@@ -174,6 +175,7 @@
       "innovaciones"
     ],
     "price": "44.96",
+    "configurable": false,
     "variants": [
       {
         "id": 54645572436313,
@@ -283,6 +285,7 @@
       "innovaciones"
     ],
     "price": "58.74",
+    "configurable": false,
     "variants": [
       {
         "id": 57069704642905,
@@ -331,6 +334,7 @@
       "innovaciones"
     ],
     "price": "108.40",
+    "configurable": false,
     "variants": [
       {
         "id": 57059969597785,
@@ -418,6 +422,7 @@
       "innovaciones"
     ],
     "price": "33.53",
+    "configurable": false,
     "variants": [
       {
         "id": 57059672883545,
@@ -459,6 +464,7 @@
       "innovaciones"
     ],
     "price": "33.53",
+    "configurable": false,
     "variants": [
       {
         "id": 56865164820825,
@@ -513,6 +519,7 @@
       "innovaciones"
     ],
     "price": "4.12",
+    "configurable": false,
     "variants": [
       {
         "id": 56747797741913,
@@ -605,6 +612,7 @@
       "guardabarros y accesorios"
     ],
     "price": "167.23",
+    "configurable": false,
     "variants": [
       {
         "id": 56737958920537,
@@ -665,6 +673,7 @@
       "innovaciones"
     ],
     "price": "92.35",
+    "configurable": false,
     "variants": [
       {
         "id": 56633607782745,
@@ -803,6 +812,7 @@
     "type": "",
     "tags": [],
     "price": "8.32",
+    "configurable": false,
     "variants": [
       {
         "id": 56360663187801,
@@ -871,6 +881,7 @@
       "innovaciones"
     ],
     "price": "19.24",
+    "configurable": false,
     "variants": [
       {
         "id": 56346886898009,
@@ -961,6 +972,7 @@
       "innovaciones"
     ],
     "price": "20.92",
+    "configurable": false,
     "variants": [
       {
         "id": 56264627388761,
@@ -990,6 +1002,7 @@
       "Configurador"
     ],
     "price": "16.81",
+    "configurable": false,
     "variants": [
       {
         "id": 56218204733785,
@@ -1064,6 +1077,7 @@
       "innovaciones"
     ],
     "price": "25.13",
+    "configurable": false,
     "variants": [
       {
         "id": 55779035021657,
@@ -1127,6 +1141,7 @@
       "innovaciones"
     ],
     "price": "5.04",
+    "configurable": false,
     "variants": [
       {
         "id": 54685270966617,
@@ -1167,6 +1182,7 @@
     "type": "",
     "tags": [],
     "price": "25.13",
+    "configurable": false,
     "variants": [
       {
         "id": 54645465055577,
@@ -1200,6 +1216,7 @@
     "type": "",
     "tags": [],
     "price": "3.28",
+    "configurable": false,
     "variants": [
       {
         "id": 54645179973977,
@@ -1247,6 +1264,7 @@
       "accesorios"
     ],
     "price": "5.80",
+    "configurable": false,
     "variants": [
       {
         "id": 57208687460697,
@@ -1349,6 +1367,7 @@
     "type": "",
     "tags": [],
     "price": "4.12",
+    "configurable": false,
     "variants": [
       {
         "id": 56034155921753,
@@ -1428,6 +1447,7 @@
       "Configurador"
     ],
     "price": "83.19",
+    "configurable": false,
     "variants": [
       {
         "id": 54616841191769,
@@ -1469,6 +1489,7 @@
       "Configurador"
     ],
     "price": "42.02",
+    "configurable": false,
     "variants": [
       {
         "id": 54595089760601,
@@ -1498,6 +1519,7 @@
       "innovaciones"
     ],
     "price": "25.13",
+    "configurable": false,
     "variants": [
       {
         "id": 54633847095641,
@@ -1579,6 +1601,7 @@
       "Configurador"
     ],
     "price": "121.85",
+    "configurable": false,
     "variants": [
       {
         "id": 54482436882777,
@@ -1636,6 +1659,7 @@
     "type": "",
     "tags": [],
     "price": "42.02",
+    "configurable": false,
     "variants": [
       {
         "id": 54480457105753,
@@ -1660,6 +1684,7 @@
     "type": "",
     "tags": [],
     "price": "42.02",
+    "configurable": false,
     "variants": [
       {
         "id": 54480454254937,
@@ -1887,6 +1912,7 @@
       "Configurador"
     ],
     "price": "33.53",
+    "configurable": false,
     "variants": [
       {
         "id": 54362219774297,
@@ -1925,6 +1951,7 @@
       "Configurador"
     ],
     "price": "108.40",
+    "configurable": false,
     "variants": [
       {
         "id": 54305665057113,
@@ -1957,6 +1984,7 @@
       "Configurador"
     ],
     "price": "50.34",
+    "configurable": false,
     "variants": [
       {
         "id": 54305654833497,
@@ -1989,6 +2017,7 @@
       "Configurador"
     ],
     "price": "58.74",
+    "configurable": false,
     "variants": [
       {
         "id": 54305641693529,
@@ -2354,6 +2383,7 @@
       "Configurador"
     ],
     "price": "8.40",
+    "configurable": false,
     "variants": [
       {
         "id": 54298964427097,
@@ -2789,6 +2819,7 @@
       "innovaciones"
     ],
     "price": "12.52",
+    "configurable": false,
     "variants": [
       {
         "id": 54182439846233,
@@ -2824,6 +2855,7 @@
       "innovaciones"
     ],
     "price": "37.73",
+    "configurable": false,
     "variants": [
       {
         "id": 54450862031193,
@@ -2860,6 +2892,7 @@
       "innovaciones"
     ],
     "price": "58.74",
+    "configurable": false,
     "variants": [
       {
         "id": 54182342918489,
@@ -3023,6 +3056,7 @@
       "innovaciones"
     ],
     "price": "37.82",
+    "configurable": false,
     "variants": [
       {
         "id": 54611828015449,
@@ -3334,6 +3368,7 @@
       "innovaciones"
     ],
     "price": "167.23",
+    "configurable": false,
     "variants": [
       {
         "id": 53851271987545,
