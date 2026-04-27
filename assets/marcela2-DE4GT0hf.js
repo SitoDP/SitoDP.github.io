@@ -1,0 +1,1 @@
+var e=`/assets/marcela2-BE-anGsq.jpeg`;export{e as t};

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /carrito
+Disallow: /en/carrito
+
+Sitemap: https://boat-solutions.es/sitemap.xml

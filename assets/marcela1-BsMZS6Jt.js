@@ -1,0 +1,1 @@
+var e=`/assets/dulcinea1-BTxAHeML.jpeg`,t=`/assets/marcela1-CiO1Qq1b.jpeg`;export{e as n,t};

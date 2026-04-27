@@ -1,0 +1,1 @@
+var e=`/assets/dulcineaConsulting-DkgFAVuD.jpeg`;export{e as t};
