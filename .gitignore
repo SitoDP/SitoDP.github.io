@@ -29,6 +29,9 @@ dist-ssr
 # Local Claude Code settings
 .claude/
 
+# TypeScript build cache
+*.tsbuildinfo
+
 # Large video files (hosted on Cloudflare R2)
 *.mp4
 
