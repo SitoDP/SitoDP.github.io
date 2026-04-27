@@ -1,8 +1,5 @@
 import { computed, ref, watch } from 'vue'
-import productsData from '../data/products.json'
 import type { Product } from '../types/shop'
-
-const products = productsData as Product[]
 
 interface CartItem {
   productId: number
@@ -26,31 +23,14 @@ const items = ref<CartItem[]>(load())
 
 watch(items, (v) => localStorage.setItem(STORAGE_KEY, JSON.stringify(v)), { deep: true })
 
-function findProduct(productId: number) {
-  return products.find((p) => p.id === productId)
-}
-
-function findVariant(productId: number, variantId: number) {
-  return findProduct(productId)?.variants.find((v) => v.id === variantId)
-}
-
+/**
+ * Lightweight cart composable. Holds only the cart items + count, no
+ * product catalog dependency. Use `useCartDetails` from views that need
+ * full product info (Carrito, checkout) so the catalog JSON only ships
+ * to the routes that actually need it.
+ */
 export function useCart() {
-  const detailedItems = computed(() =>
-    items.value
-      .map((item) => {
-        const product = findProduct(item.productId)
-        const variant = findVariant(item.productId, item.variantId)
-        if (!product || !variant) return null
-        return { ...item, product, variant }
-      })
-      .filter((x): x is NonNullable<typeof x> => x !== null),
-  )
-
   const itemCount = computed(() => items.value.reduce((sum, i) => sum + i.quantity, 0))
-
-  const subtotal = computed(() =>
-    detailedItems.value.reduce((sum, i) => sum + Number(i.variant.price) * i.quantity, 0),
-  )
 
   function addItem(productId: number, variantId: number, quantity = 1) {
     const existing = items.value.find(
@@ -87,12 +67,36 @@ export function useCart() {
 
   return {
     items,
-    detailedItems,
     itemCount,
-    subtotal,
     addItem,
     updateQuantity,
     removeItem,
     clearCart,
   }
+}
+
+/**
+ * Cart with full product/variant lookup. Imports `products.json`, so
+ * only call from routes that actually render product info (Carrito,
+ * useCheckout). The Header should keep using `useCart()` for the badge.
+ */
+export function useCartDetails(products: Product[]) {
+  const productMap = new Map(products.map((p) => [p.id, p]))
+
+  const detailedItems = computed(() =>
+    items.value
+      .map((item) => {
+        const product = productMap.get(item.productId)
+        const variant = product?.variants.find((v) => v.id === item.variantId)
+        if (!product || !variant) return null
+        return { ...item, product, variant }
+      })
+      .filter((x): x is NonNullable<typeof x> => x !== null),
+  )
+
+  const subtotal = computed(() =>
+    detailedItems.value.reduce((sum, i) => sum + Number(i.variant.price) * i.quantity, 0),
+  )
+
+  return { detailedItems, subtotal }
 }

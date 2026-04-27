@@ -62,6 +62,7 @@
               {{ processing ? t.processing : t.checkout }}
             </button>
             <p v-if="error" class="error">{{ error }}</p>
+            <button type="button" class="clear-cart-btn" @click="handleClearCart">{{ t.clear }}</button>
             <router-link :to="to('/tienda')" class="continue-link">← {{ t.continueShopping }}</router-link>
           </aside>
         </div>
@@ -71,16 +72,32 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { useLanguage } from '../composables/useLanguage'
-import { useCart } from '../composables/useCart'
+import { useCart, useCartDetails } from '../composables/useCart'
 import { useCheckout } from '../composables/useCheckout'
+import { usePageMeta } from '../composables/useMeta'
+import productsData from '../data/products.json'
+import type { Product } from '../types/shop'
+
+usePageMeta({
+  es: {
+    title: 'Carrito',
+    description: 'Revisa tu carrito y finaliza tu pedido en la tienda Fender Design.',
+  },
+  en: {
+    title: 'Cart',
+    description: 'Review your cart and complete your Fender Design order.',
+  },
+})
 
 const route = useRoute()
-const { lang, to } = useLanguage()
-const { detailedItems, subtotal, updateQuantity, removeItem, clearCart } = useCart()
-const { checkout } = useCheckout()
+const { lang, to, useT } = useLanguage()
+const t = useT('cart')
+const { updateQuantity, removeItem, clearCart } = useCart()
+const { detailedItems, subtotal } = useCartDetails(productsData as Product[])
+const { checkout } = useCheckout(detailedItems)
 
 const processing = ref(false)
 const error = ref('')
@@ -116,41 +133,13 @@ async function handleCheckout() {
   }
 }
 
-const t = computed(() =>
-  lang.value === 'en'
-    ? {
-        title: 'Cart',
-        empty: 'Your cart is empty.',
-        goShop: 'Go to shop',
-        summary: 'Order summary',
-        subtotal: 'Subtotal',
-        shipping: 'Shipping',
-        shippingNote: 'Calculated at checkout',
-        total: 'Total',
-        checkout: 'Checkout',
-        processing: 'Processing...',
-        continueShopping: 'Continue shopping',
-        remove: 'Remove',
-        paymentSuccess: 'Payment completed. We will process your order with Fender Design shortly.',
-        paymentCancelled: 'Payment cancelled. Your cart is still here.',
-      }
-    : {
-        title: 'Carrito',
-        empty: 'Tu carrito está vacío.',
-        goShop: 'Ir a la tienda',
-        summary: 'Resumen del pedido',
-        subtotal: 'Subtotal',
-        shipping: 'Envío',
-        shippingNote: 'Se calcula en el pago',
-        total: 'Total',
-        checkout: 'Pagar',
-        processing: 'Procesando...',
-        continueShopping: 'Seguir comprando',
-        remove: 'Eliminar',
-        paymentSuccess: 'Pago completado. En breve tramitaremos tu pedido con Fender Design.',
-        paymentCancelled: 'Pago cancelado. Tu carrito sigue disponible.',
-      },
-)
+function handleClearCart() {
+  if (detailedItems.value.length === 0) return
+  if (window.confirm(t.value.clearConfirm)) {
+    clearCart()
+  }
+}
+
 </script>
 
 <style scoped>
@@ -315,6 +304,26 @@ const t = computed(() =>
 }
 
 .checkout-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.clear-cart-btn {
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px;
+  background: none;
+  border: 1px solid var(--color-gray-border);
+  border-radius: 8px;
+  color: var(--color-gray);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.clear-cart-btn:hover {
+  border-color: #dc2626;
+  color: #dc2626;
+}
 
 .continue-link {
   display: block;

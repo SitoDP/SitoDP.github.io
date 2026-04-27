@@ -77,6 +77,21 @@
   </div>
 </template>
 
+<script setup lang="ts">
+import { usePageMeta } from '../composables/useMeta'
+
+usePageMeta({
+  es: {
+    title: 'Términos y Condiciones',
+    description: 'Términos y condiciones de uso del sitio web de Boat Solutions International.',
+  },
+  en: {
+    title: 'Terms & Conditions',
+    description: 'Terms and conditions for the Boat Solutions International website.',
+  },
+})
+</script>
+
 <style scoped>
 .hero {
   background: var(--color-meteorite-dark);

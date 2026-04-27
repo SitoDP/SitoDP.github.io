@@ -1,18 +1,22 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import Nosotros from '../views/Nosotros.vue'
-import Proyectos from '../views/Proyectos.vue'
-import Galeria from '../views/Galeria.vue'
-import Contacto from '../views/Contacto.vue'
-import YachtConsulting from '../views/YachtConsulting.vue'
-import YachtManagement from '../views/YachtManagement.vue'
-import YachtLogistics from '../views/YachtLogistics.vue'
-import YachtDetailing from '../views/YachtDetailing.vue'
-import PoliticaPrivacidad from '../views/PoliticaPrivacidad.vue'
-import TerminosCondiciones from '../views/TerminosCondiciones.vue'
-import Tienda from '../views/Tienda.vue'
-import ProductoDetalle from '../views/ProductoDetalle.vue'
-import Carrito from '../views/Carrito.vue'
+
+// Eagerly import the home view (most likely landing page) so first paint
+// doesn't wait on a chunk fetch. Every other view is lazy-loaded.
+const Nosotros = () => import('../views/Nosotros.vue')
+const Proyectos = () => import('../views/Proyectos.vue')
+const Galeria = () => import('../views/Galeria.vue')
+const Contacto = () => import('../views/Contacto.vue')
+const YachtConsulting = () => import('../views/YachtConsulting.vue')
+const YachtManagement = () => import('../views/YachtManagement.vue')
+const YachtLogistics = () => import('../views/YachtLogistics.vue')
+const YachtDetailing = () => import('../views/YachtDetailing.vue')
+const PoliticaPrivacidad = () => import('../views/PoliticaPrivacidad.vue')
+const TerminosCondiciones = () => import('../views/TerminosCondiciones.vue')
+const Tienda = () => import('../views/Tienda.vue')
+const ProductoDetalle = () => import('../views/ProductoDetalle.vue')
+const Carrito = () => import('../views/Carrito.vue')
+const NotFound = () => import('../views/NotFound.vue')
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -46,10 +50,19 @@ const router = createRouter({
     { path: '/en/tienda', name: 'tienda-en', component: Tienda },
     { path: '/en/tienda/:handle', name: 'producto-detalle-en', component: ProductoDetalle },
     { path: '/en/carrito', name: 'carrito-en', component: Carrito },
+    // Catch-all
+    { path: '/:pathMatch(.*)*', name: 'not-found', component: NotFound },
   ],
   scrollBehavior() {
     return { top: 0 }
   },
+})
+
+// Keep <html lang> in sync with the active locale (improves SEO + a11y)
+router.afterEach((to) => {
+  if (typeof document !== 'undefined') {
+    document.documentElement.lang = to.path.startsWith('/en') ? 'en' : 'es'
+  }
 })
 
 export default router

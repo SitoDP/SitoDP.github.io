@@ -141,7 +141,7 @@
               </div>
             </div>
 
-            <button class="btn btn-outline btn-full" @click="openBooking">
+            <button class="btn btn-outline btn-full" @click="openBooking('consulting')">
               {{ t.bookBtn }}
             </button>
           </div>
@@ -155,6 +155,19 @@
 import { ref } from 'vue'
 import CalendarWidget from '../components/CalendarWidget.vue'
 import { useLanguage } from '../composables/useLanguage'
+import { useBooking } from '../composables/useBooking'
+import { usePageMeta } from '../composables/useMeta'
+
+usePageMeta({
+  es: {
+    title: 'Contacto',
+    description: 'Hablemos sobre tu barco. Reserva una cita gratuita o escríbenos a info@boat-solutions.es.',
+  },
+  en: {
+    title: 'Contact',
+    description: 'Let’s talk about your yacht. Book a free meeting or write to info@boat-solutions.es.',
+  },
+})
 
 interface ContactForm {
   name: string; email: string; phone: string; boatType: string
@@ -165,7 +178,7 @@ interface FormErrors {
   name: string; email: string; subject: string; message: string; privacy: string
 }
 
-const emit = defineEmits<{ 'open-booking': [type: string] }>()
+const { open: openBooking } = useBooking()
 const { useT } = useLanguage()
 const t = useT('contacto')
 
@@ -222,10 +235,8 @@ const handleSubmit = async () => {
 }
 
 const handleDateSelect = (data: { date: unknown; time: string | null }) => {
-  if (data.date && data.time) openBooking()
+  if (data.date && data.time) openBooking('consulting')
 }
-
-const openBooking = () => emit('open-booking', 'consulting')
 </script>
 
 <style scoped>

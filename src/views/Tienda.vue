@@ -1,13 +1,10 @@
 <template>
   <div class="tienda">
-    <section class="hero">
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <p class="hero-label">{{ t.label }}</p>
-        <h1 class="hero-title">{{ t.title }}</h1>
-        <p class="hero-subtitle">{{ t.subtitle }}</p>
-      </div>
-    </section>
+    <HeroSection min-height="40vh" max-width="820px" overlay="darkest">
+      <p class="hero-label">{{ t.label }}</p>
+      <h1 class="hero-title">{{ t.title }}</h1>
+      <p class="hero-subtitle">{{ t.subtitle }}</p>
+    </HeroSection>
 
     <!-- Top-level category tabs -->
     <section class="filter-section">
@@ -84,6 +81,26 @@
       </Transition>
     </section>
 
+    <!-- Search bar -->
+    <section class="search-section">
+      <div class="container">
+        <div class="search-wrap">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input
+            v-model="searchQuery"
+            type="search"
+            :placeholder="t.searchPlaceholder"
+            :aria-label="t.searchAriaLabel"
+            class="search-input"
+          />
+          <button v-if="searchQuery" class="search-clear" :aria-label="t.clearSearch" @click="searchQuery = ''">×</button>
+        </div>
+      </div>
+    </section>
+
     <section class="section products-section">
       <div class="container">
         <div class="results-header">
@@ -123,13 +140,27 @@
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import HeroSection from '../components/HeroSection.vue'
 import { useLanguage } from '../composables/useLanguage'
+import { usePageMeta } from '../composables/useMeta'
 import productsData from '../data/products.json'
 import collectionsData from '../data/collections.json'
 import { categoryTree } from '../data/category-tree'
 import type { Product, Collection } from '../types/shop'
 
-const { lang, to } = useLanguage()
+usePageMeta({
+  es: {
+    title: 'Tienda Fender Design',
+    description: 'Defensas premium, textiles náuticos y accesorios Fender Design. Pedido gestionado por Boat Solutions, envío directo desde Fender.',
+  },
+  en: {
+    title: 'Fender Design Shop',
+    description: 'Premium fenders, yacht textiles and Fender Design accessories. Boat Solutions handles the order, Fender ships directly.',
+  },
+})
+
+const { lang, to, useT } = useLanguage()
+const t = useT('shop')
 const route = useRoute()
 const router = useRouter()
 
@@ -139,13 +170,19 @@ const collectionMap = new Map(collections.map((c) => [c.handle, c]))
 
 const selectedTop = ref<string | null>((route.query.cat as string) || null)
 const selectedSub = ref<string | null>((route.query.sub as string) || null)
+const searchQuery = ref<string>((route.query.q as string) || '')
 
 // Sync selection → URL (using replace to avoid polluting history)
-watch([selectedTop, selectedSub], ([top, sub]) => {
+watch([selectedTop, selectedSub, searchQuery], ([top, sub, q]) => {
   const query: Record<string, string> = {}
   if (top) query.cat = top
   if (sub) query.sub = sub
-  if ((route.query.cat ?? null) === top && (route.query.sub ?? null) === sub) return
+  if (q) query.q = q
+  if (
+    (route.query.cat ?? null) === top &&
+    (route.query.sub ?? null) === sub &&
+    (route.query.q ?? '') === (q || '')
+  ) return
   router.replace({ query })
 })
 
@@ -155,8 +192,10 @@ watch(
   (q) => {
     const cat = (q.cat as string) || null
     const sub = (q.sub as string) || null
+    const search = (q.q as string) || ''
     if (selectedTop.value !== cat) selectedTop.value = cat
     if (selectedSub.value !== sub) selectedSub.value = sub
+    if (searchQuery.value !== search) searchQuery.value = search
   },
 )
 
@@ -187,21 +226,34 @@ function countForTop(id: string): number {
 }
 
 const filteredProducts = computed(() => {
+  let result = products
+
   if (selectedSub.value) {
     const col = collectionMap.get(selectedSub.value)
-    if (!col) return products
-    const ids = new Set(col.productIds)
-    return products.filter((p) => ids.has(p.id))
-  }
-  if (activeTop.value) {
+    if (col) {
+      const ids = new Set(col.productIds)
+      result = result.filter((p) => ids.has(p.id))
+    }
+  } else if (activeTop.value) {
     const ids = new Set<number>()
     for (const handle of activeTop.value.subcategories) {
       const col = collectionMap.get(handle)
       if (col) col.productIds.forEach((pid) => ids.add(pid))
     }
-    return products.filter((p) => ids.has(p.id))
+    result = result.filter((p) => ids.has(p.id))
   }
-  return products
+
+  const q = searchQuery.value.trim().toLowerCase()
+  if (q) {
+    result = result.filter((p) => {
+      if (p.title.toLowerCase().includes(q)) return true
+      if (p.type && p.type.toLowerCase().includes(q)) return true
+      if (p.tags.some((tag) => tag.toLowerCase().includes(q))) return true
+      return false
+    })
+  }
+
+  return result
 })
 
 const currentTitle = computed(() => {
@@ -245,56 +297,9 @@ onBeforeUnmount(() => {
 
 watch([selectedTop, selectedSub], () => nextTick(updateScrollState))
 
-const t = computed(() =>
-  lang.value === 'en'
-    ? {
-        label: 'Shop',
-        title: 'Fender Design Store',
-        subtitle:
-          'Premium fenders, yacht textiles and nautical accessories. We handle the order and Fender Design ships directly.',
-        all: 'All products',
-        seeAllIn: 'All in',
-        results: 'products',
-        empty: 'No products in this category.',
-        quotePrice: 'Request a quote',
-      }
-    : {
-        label: 'Tienda',
-        title: 'Productos Fender Design',
-        subtitle:
-          'Defensas premium, textiles náuticos y accesorios. Nosotros gestionamos el pedido y Fender Design lo envía directamente.',
-        all: 'Todos los productos',
-        seeAllIn: 'Todo en',
-        results: 'productos',
-        empty: 'No hay productos en esta categoría.',
-        quotePrice: 'Consultar precio',
-      },
-)
 </script>
 
 <style scoped>
-.hero {
-  min-height: 40vh;
-  display: flex;
-  align-items: center;
-  position: relative;
-  background: var(--color-meteorite-dark);
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(8, 16, 24, 0.92) 0%, rgba(66, 104, 135, 0.75) 100%);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  color: var(--color-light);
-  padding: 140px 20px 60px;
-  max-width: 820px;
-}
-
 .hero-label {
   font-family: var(--font-heading);
   font-size: 0.8rem;
@@ -466,6 +471,56 @@ const t = computed(() =>
 }
 
 /* Product grid */
+/* Search bar */
+.search-section {
+  padding: 24px 0 0;
+  background: white;
+}
+
+.search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-gray-light);
+  border-radius: 999px;
+  padding: 10px 18px;
+  max-width: 480px;
+  border: 1.5px solid transparent;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.search-wrap:focus-within {
+  border-color: var(--color-primary);
+  background: white;
+}
+
+.search-wrap svg { color: var(--color-gray); flex-shrink: 0; }
+
+.search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-dark);
+  min-width: 0;
+}
+
+.search-input::placeholder { color: var(--color-gray); }
+
+.search-clear {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--color-gray);
+  padding: 0 4px;
+}
+
+.search-clear:hover { color: var(--color-dark); }
+
 .products-section { padding-top: 40px; }
 
 .results-header {

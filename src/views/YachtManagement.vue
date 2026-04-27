@@ -1,17 +1,11 @@
 <template>
   <div class="yacht-management">
-    <section class="hero">
-      <video class="hero-bg" autoplay muted loop playsinline>
-        <source src="https://pub-e19f3243d179441cbc3adda22f8d74fc.r2.dev/dulcineaManagement.mp4" type="video/mp4" />
-      </video>
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <p class="hero-label">{{ t.heroLabel }}</p>
-        <h1 class="hero-title">{{ t.heroTitle }}</h1>
-        <p class="hero-subtitle">{{ t.heroSubtitle }}</p>
-        <button class="btn btn-primary" @click="emit('open-booking', 'consulting')">{{ t.heroBtn }}</button>
-      </div>
-    </section>
+    <HeroSection :bg-video="cdnVideo('dulcineaManagement.mp4')" max-width="860px">
+      <p class="hero-label">{{ t.heroLabel }}</p>
+      <h1 class="hero-title">{{ t.heroTitle }}</h1>
+      <p class="hero-subtitle">{{ t.heroSubtitle }}</p>
+      <button class="btn btn-primary" @click="openBooking('consulting')">{{ t.heroBtn }}</button>
+    </HeroSection>
 
     <section class="section intro">
       <div class="container">
@@ -140,7 +134,7 @@
               </div>
             </div>
 
-            <button class="btn btn-primary" @click="emit('open-booking', 'consulting')">
+            <button class="btn btn-primary" @click="openBooking('consulting')">
               {{ t.bookBtn }}
             </button>
           </div>
@@ -153,9 +147,24 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import CalendarWidget from '../components/CalendarWidget.vue'
+import HeroSection from '../components/HeroSection.vue'
 import { useLanguage } from '../composables/useLanguage'
+import { useBooking } from '../composables/useBooking'
+import { usePageMeta } from '../composables/useMeta'
+import { cdnVideo } from '../config'
 
-const emit = defineEmits<{ 'open-booking': [type: string] }>()
+usePageMeta({
+  es: {
+    title: 'Yacht Management',
+    description: 'Planificación, ejecución y supervisión integral de tu embarcación durante todo el año. Mantenimientos, proveedores y revisiones bajo control.',
+  },
+  en: {
+    title: 'Yacht Management',
+    description: 'Year-round planning, execution and supervision for your yacht. Maintenance, suppliers and inspections fully managed.',
+  },
+})
+
+const { open: openBooking } = useBooking()
 const { useT } = useLanguage()
 const t = useT('management')
 const tc = useT('checklist')
@@ -176,41 +185,11 @@ const checklist = computed(() =>
 )
 
 const handleDateSelect = (data: { date: unknown; time: string | null }) => {
-  if (data.date && data.time) emit('open-booking', 'consulting')
+  if (data.date && data.time) openBooking('consulting')
 }
 </script>
 
 <style scoped>
-.hero {
-  min-height: 70vh;
-  display: flex;
-  align-items: center;
-  position: relative;
-  background: var(--color-meteorite-dark);
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(8, 16, 24, 0.82) 0%, rgba(66, 104, 135, 0.65) 100%);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  color: var(--color-light);
-  padding: 140px 20px 80px;
-  max-width: 860px;
-}
-
 .hero-label {
   font-family: var(--font-heading);
   font-size: 0.8rem;

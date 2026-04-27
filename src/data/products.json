@@ -62,7 +62,8 @@
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Gemini_Generated_Image_9jbunc9jbunc9jbu.png?v=1774867087"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Gemini_Generated_Image_9jbunc9jbunc9jbu.png?v=1774867087",
+        "alt": null
       }
     ]
   },
@@ -132,34 +133,41 @@
     "tags": [
       "Configurador"
     ],
-    "price": "25.13",
+    "price": "29.90",
+    "configurable": false,
     "variants": [
       {
         "id": 54482404245849,
         "title": "Título por defecto",
-        "price": "25.13",
+        "price": "29.90",
         "sku": null,
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/ChatGPT_Image_13._Feb._2026_23_07_25.png?v=1771020945"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/ChatGPT_Image_13._Feb._2026_23_07_25.png?v=1771020945",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/lasercutcap2.jpg?v=1771103141"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/lasercutcap2.jpg?v=1771103141",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/kollektionen-crewbekleidung-1500x1500.jpg?v=1771020945"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/kollektionen-crewbekleidung-1500x1500.jpg?v=1771020945",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/lasercutcap3.jpg?v=1771103162"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/lasercutcap3.jpg?v=1771103162",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/lasercutcap1.jpg?v=1771103185"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/lasercutcap1.jpg?v=1771103185",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/cap-maritim.png?v=1771020945"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/cap-maritim.png?v=1771020945",
+        "alt": null
       }
     ]
   },
@@ -173,102 +181,106 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "44.96",
+    "price": "53.50",
+    "configurable": false,
     "variants": [
       {
         "id": 54645572436313,
         "title": "F1: Ø 15 x 61 cm / blanco (cabezas azules / cuerpo blanco)",
-        "price": "44.96",
+        "price": "53.50",
         "sku": "",
         "available": true
       },
       {
         "id": 54645572469081,
         "title": "F1: Ø 15 x 61 cm / negro (completamente negro)",
-        "price": "49.58",
+        "price": "59.00",
         "sku": "",
         "available": true
       },
       {
         "id": 54645572501849,
         "title": "F2: Ø 21 x 64 cm / blanco (cabezas azules / cuerpo blanco)",
-        "price": "56.30",
+        "price": "67.00",
         "sku": "",
         "available": true
       },
       {
         "id": 54645572534617,
         "title": "F2: Ø 21 x 64 cm / negro (completamente negro)",
-        "price": "62.18",
+        "price": "74.00",
         "sku": "",
         "available": true
       },
       {
         "id": 54645572567385,
         "title": "F3: Ø 22 x 76 cm / blanco (cabezas azules / cuerpo blanco)",
-        "price": "63.87",
+        "price": "76.00",
         "sku": "",
         "available": true
       },
       {
         "id": 54645572600153,
         "title": "F3: Ø 22 x 76 cm / negro (completamente negro)",
-        "price": "70.59",
+        "price": "84.00",
         "sku": "",
         "available": true
       },
       {
         "id": 54645572632921,
         "title": "F4: Ø 22 x 104 cm / blanco (cabezas azules / cuerpo blanco)",
-        "price": "99.58",
+        "price": "118.50",
         "sku": "",
         "available": true
       },
       {
         "id": 54645572665689,
         "title": "F4: Ø 22 x 104 cm / negro (completamente negro)",
-        "price": "109.66",
+        "price": "130.50",
         "sku": "",
         "available": true
       },
       {
         "id": 54645572698457,
         "title": "F5: Ø 28 x 76 cm / blanco (cabezas azules / cuerpo blanco)",
-        "price": "122.27",
+        "price": "145.50",
         "sku": "",
         "available": true
       },
       {
         "id": 54645572731225,
         "title": "F5: Ø 28 x 76 cm / negro (completamente negro)",
-        "price": "134.87",
+        "price": "160.50",
         "sku": "",
         "available": true
       },
       {
         "id": 54645572763993,
         "title": "F6: Ø 28 x 107 cm / blanco (cabezas azules / cuerpo blanco)",
-        "price": "180.25",
+        "price": "214.50",
         "sku": "",
         "available": true
       },
       {
         "id": 54645572796761,
         "title": "F6: Ø 28 x 107 cm / negro (completamente negro)",
-        "price": "198.74",
+        "price": "236.50",
         "sku": "",
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/FSeriie2.png?v=1748291486"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/FSeriie2.png?v=1748291486",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/F_Serie_9f49238e-dac7-4140-874e-6b54f766af12.png?v=1768944881"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/F_Serie_9f49238e-dac7-4140-874e-6b54f766af12.png?v=1768944881",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/F_Seriie_3.png?v=1768944849"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/F_Seriie_3.png?v=1768944849",
+        "alt": null
       }
     ]
   },
@@ -282,40 +294,49 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "58.74",
+    "price": "69.90",
+    "configurable": false,
     "variants": [
       {
         "id": 57069704642905,
         "title": "Título por defecto",
-        "price": "58.74",
+        "price": "69.90",
         "sku": "4262452330555",
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/LUMAGSOLAR-BildmitName_small_27ffd2ea-f8ba-4013-a2d1-9e302e06462b.jpg?v=1768426549"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/LUMAGSOLAR-BildmitName_small_27ffd2ea-f8ba-4013-a2d1-9e302e06462b.jpg?v=1768426549",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/LUMAGSOLAR_AZ1.png?v=1776029851"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/LUMAGSOLAR_AZ1.png?v=1776029851",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/LUMAGSOLAR_AZ2.png?v=1776029851"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/LUMAGSOLAR_AZ2.png?v=1776029851",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/lumagsolar_AZ4_1.png?v=1776029851"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/lumagsolar_AZ4_1.png?v=1776029851",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/ChatGPT_Image_14._Jan._2026_22_41_01.png?v=1776029851"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/ChatGPT_Image_14._Jan._2026_22_41_01.png?v=1776029851",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/ChatGPT_Image_6._Aug._2025_07_00_26.png?v=1776029851"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/ChatGPT_Image_6._Aug._2025_07_00_26.png?v=1776029851",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_7998.heic?v=1776029851"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_7998.heic?v=1776029851",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Lumagsolar_AZ3.png?v=1776029851"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Lumagsolar_AZ3.png?v=1776029851",
+        "alt": null
       }
     ]
   },
@@ -330,79 +351,87 @@
       "guardabarros y accesorios",
       "innovaciones"
     ],
-    "price": "108.40",
+    "price": "129.00",
+    "configurable": false,
     "variants": [
       {
         "id": 57059969597785,
         "title": "INF1: Ø 23 x 76 cm (9\" x 30\")",
-        "price": "108.40",
+        "price": "129.00",
         "sku": null,
         "available": true
       },
       {
         "id": 57059969630553,
         "title": "INF2: Ø 30 x 90 cm (12\" x 35\")",
-        "price": "142.02",
+        "price": "169.00",
         "sku": null,
         "available": true
       },
       {
         "id": 57059969663321,
         "title": "INF3: Ø 46 x 107 cm (18\" x 42\")",
-        "price": "234.45",
+        "price": "279.00",
         "sku": null,
         "available": true
       },
       {
         "id": 57059969696089,
         "title": "INF4: Ø 46 x 122 cm (18\" x 48\")",
-        "price": "242.86",
+        "price": "289.00",
         "sku": null,
         "available": true
       },
       {
         "id": 57059969728857,
         "title": "INF5: Ø 61 x 107 cm (24\" x 42\")",
-        "price": "268.07",
+        "price": "319.00",
         "sku": null,
         "available": true
       },
       {
         "id": 57060010328409,
         "title": "INF6: Ø 61 x 147 cm (24\" x 58\")",
-        "price": "310.08",
+        "price": "369.00",
         "sku": null,
         "available": true
       },
       {
         "id": 57060010361177,
         "title": "INF7: Ø 97 x 122 cm (38\" x 48\")",
-        "price": "478.15",
+        "price": "569.00",
         "sku": null,
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_9677_d72a1ff6-68a5-4870-bd1a-708f93f6eb73.jpg?v=1768824560"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_9677_d72a1ff6-68a5-4870-bd1a-708f93f6eb73.jpg?v=1768824560",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_9675.jpg?v=1768824560"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_9675.jpg?v=1768824560",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_9682.jpg?v=1768824560"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_9682.jpg?v=1768824560",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_9681.jpg?v=1768824560"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_9681.jpg?v=1768824560",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_9683.jpg?v=1768824560"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_9683.jpg?v=1768824560",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/aufblasbare_Fender_1.png?v=1768824560"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/aufblasbare_Fender_1.png?v=1768824560",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/aufblasbare_Fender_2.png?v=1768824560"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/aufblasbare_Fender_2.png?v=1768824560",
+        "alt": null
       }
     ]
   },
@@ -417,33 +446,35 @@
       "guardabarros y accesorios",
       "innovaciones"
     ],
-    "price": "33.53",
+    "price": "39.90",
+    "configurable": false,
     "variants": [
       {
         "id": 57059672883545,
         "title": "Ø 32 x 50 cm",
-        "price": "33.53",
+        "price": "39.90",
         "sku": null,
         "available": true
       },
       {
         "id": 57059672916313,
         "title": "Ø 37 x 58 cm",
-        "price": "58.74",
+        "price": "69.90",
         "sku": null,
         "available": true
       },
       {
         "id": 57059672949081,
         "title": "Ø 51 x 65 cm",
-        "price": "100.76",
+        "price": "119.90",
         "sku": null,
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Kugelfender_mit_Groessenangaben_923b5ead-35f9-418f-9fc2-fd0ce5e8ba66.png?v=1768342840"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Kugelfender_mit_Groessenangaben_923b5ead-35f9-418f-9fc2-fd0ce5e8ba66.png?v=1768342840",
+        "alt": null
       }
     ]
   },
@@ -458,47 +489,49 @@
       "guardabarros y accesorios",
       "innovaciones"
     ],
-    "price": "33.53",
+    "price": "39.90",
+    "configurable": false,
     "variants": [
       {
         "id": 56865164820825,
         "title": "F1: Ø 15 x 61 cm",
-        "price": "33.53",
+        "price": "39.90",
         "sku": null,
         "available": true
       },
       {
         "id": 56865164886361,
         "title": "F2: Ø 21 x 64 cm",
-        "price": "41.93",
+        "price": "49.90",
         "sku": null,
         "available": true
       },
       {
         "id": 56865164951897,
         "title": "F3: Ø 22 x 76 cm",
-        "price": "46.13",
+        "price": "54.90",
         "sku": null,
         "available": true
       },
       {
         "id": 56865165017433,
         "title": "F4: Ø 22 x 104 cm",
-        "price": "67.14",
+        "price": "79.90",
         "sku": null,
         "available": true
       },
       {
         "id": 56865165082969,
         "title": "F5: Ø 28 x 76 cm",
-        "price": "83.95",
+        "price": "99.90",
         "sku": null,
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fender-design_Fender.png?v=1765799558"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fender-design_Fender.png?v=1765799558",
+        "alt": null
       }
     ]
   },
@@ -512,85 +545,95 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "4.12",
+    "price": "4.90",
+    "configurable": false,
     "variants": [
       {
         "id": 56747797741913,
         "title": "Individualmente (sin embalaje) / Gotas de anclaje",
-        "price": "4.12",
+        "price": "4.90",
         "sku": null,
         "available": true
       },
       {
         "id": 56747797774681,
         "title": "Individualmente (sin embalaje) / Harbour Chique",
-        "price": "4.12",
+        "price": "4.90",
         "sku": null,
         "available": true
       },
       {
         "id": 56747852988761,
         "title": "Individual (sin embalaje) / Ancla azul",
-        "price": "4.12",
+        "price": "4.90",
         "sku": null,
         "available": true
       },
       {
         "id": 56747797807449,
         "title": "⭐ 3 piezas - value pack 🔖 / Gotas de ancla",
-        "price": "10.08",
+        "price": "12.00",
         "sku": null,
         "available": true
       },
       {
         "id": 56747797840217,
         "title": "⭐ 3 piezas - value pack 🔖 / Harbour Chique",
-        "price": "10.08",
+        "price": "12.00",
         "sku": null,
         "available": true
       },
       {
         "id": 56747853021529,
         "title": "⭐ 3 piezas - value pack 🔖 / Ancla azul",
-        "price": "10.08",
+        "price": "12.00",
         "sku": null,
         "available": true
       },
       {
         "id": 57031065141593,
         "title": "⭐ 3 piezas - value pack 🔖 / Mix: 1 pieza por diseño",
-        "price": "10.08",
+        "price": "12.00",
         "sku": null,
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/vacuumis_neu.jpg?v=1764243768"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/vacuumis_neu.jpg?v=1764243768",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/C3BDC3A0-F399-4007-815B-6DAE403DEEA4.png?v=1764243831"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/C3BDC3A0-F399-4007-815B-6DAE403DEEA4.png?v=1764243831",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/2CC6EB6F-D876-4B09-8243-ECBD378C9636.png?v=1764243831"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/2CC6EB6F-D876-4B09-8243-ECBD378C9636.png?v=1764243831",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Schlatterer-Foto.jpg?v=1764243831"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Schlatterer-Foto.jpg?v=1764243831",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Vacuumi-DesignEditions.jpg?v=1764243831"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Vacuumi-DesignEditions.jpg?v=1764243831",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/farben.jpg?v=1764243831"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/farben.jpg?v=1764243831",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Vacuumis-howto_neu.jpg?v=1764243831"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Vacuumis-howto_neu.jpg?v=1764243831",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Vacuumi_neu.jpg?v=1764243831"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Vacuumi_neu.jpg?v=1764243831",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Vacuumi_-_Bedienungsanleitung_-_fender-design.png?v=1767953426"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Vacuumi_-_Bedienungsanleitung_-_fender-design.png?v=1767953426",
+        "alt": null
       }
     ]
   },
@@ -604,53 +647,64 @@
     "tags": [
       "guardabarros y accesorios"
     ],
-    "price": "167.23",
+    "price": "199.00",
+    "configurable": false,
     "variants": [
       {
         "id": 56737958920537,
         "title": "Negro / 100 x 30 x 20 cm",
-        "price": "167.23",
+        "price": "199.00",
         "sku": null,
         "available": true
       },
       {
         "id": 56737958953305,
         "title": "Negro / 150 x 65 x 30 cm",
-        "price": "242.86",
+        "price": "289.00",
         "sku": null,
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_9687.jpg?v=1764156307"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_9687.jpg?v=1764156307",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_9674.jpg?v=1764156308"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_9674.jpg?v=1764156308",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_9676.jpg?v=1764156308"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_9676.jpg?v=1764156308",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_9680.jpg?v=1764156308"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_9680.jpg?v=1764156308",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/dockshield-aufbau.jpg?v=1764156306"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/dockshield-aufbau.jpg?v=1764156306",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_9684.jpg?v=1764156308"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_9684.jpg?v=1764156308",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_9679.jpg?v=1764156308"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_9679.jpg?v=1764156308",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/a74618b5-8afd-435b-a49d-13670bd2fb8f.jpg?v=1764156307"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/a74618b5-8afd-435b-a49d-13670bd2fb8f.jpg?v=1764156307",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/b8d688ef-c614-4428-bd50-9bd9a7a6918b.jpg?v=1764156307"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/b8d688ef-c614-4428-bd50-9bd9a7a6918b.jpg?v=1764156307",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/da9b62e7-8ad4-4d6c-8522-e9dd89323157.jpg?v=1764156308"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/da9b62e7-8ad4-4d6c-8522-e9dd89323157.jpg?v=1764156308",
+        "alt": null
       }
     ]
   },
@@ -664,133 +718,152 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "92.35",
+    "price": "109.90",
+    "configurable": false,
     "variants": [
       {
         "id": 56633607782745,
         "title": "845 MUD - Gris / ⭐ 5m value pack🔖",
-        "price": "92.35",
+        "price": "109.90",
         "sku": "4262452330562",
         "available": true
       },
       {
         "id": 56633607815513,
         "title": "845 MUD - Gris / longitud en m libremente seleccionable",
-        "price": "20.08",
+        "price": "23.90",
         "sku": null,
         "available": true
       },
       {
         "id": 56633634259289,
         "title": "510 SAHARA / ⭐ Paquete económico de 5 m🔖",
-        "price": "92.35",
+        "price": "109.90",
         "sku": "4262452330579",
         "available": true
       },
       {
         "id": 56633634292057,
         "title": "510 SAHARA / longitud en m libremente seleccionable",
-        "price": "20.08",
+        "price": "23.90",
         "sku": null,
         "available": true
       },
       {
         "id": 56633634324825,
         "title": "014 OFFWHITE / ⭐ 5m value pack🔖",
-        "price": "92.35",
+        "price": "109.90",
         "sku": "4262452330586",
         "available": true
       },
       {
         "id": 56633634357593,
         "title": "014 OFFWHITE / longitud en m libremente seleccionable",
-        "price": "20.08",
+        "price": "23.90",
         "sku": null,
         "available": true
       },
       {
         "id": 57774655111513,
         "title": "025 AZUL MARINO / ⭐ 5m value pack🔖",
-        "price": "92.35",
+        "price": "109.90",
         "sku": null,
         "available": true
       },
       {
         "id": 57774655144281,
         "title": "025 AZUL NAVY / longitud en m libremente seleccionable",
-        "price": "20.08",
+        "price": "23.90",
         "sku": null,
         "available": true
       },
       {
         "id": 57774655177049,
         "title": "099 NEGRO / ⭐ 5m value pack🔖",
-        "price": "92.35",
+        "price": "109.90",
         "sku": null,
         "available": true
       },
       {
         "id": 57774655209817,
         "title": "099 NEGRO / longitud en m libremente seleccionable",
-        "price": "20.08",
+        "price": "23.90",
         "sku": null,
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Couch_final.jpg?v=1763155029"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Couch_final.jpg?v=1763155029",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/FlexiCover_-_all_colour.jpg?v=1775770098"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/FlexiCover_-_all_colour.jpg?v=1775770098",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/before-after-flexicovernew-Kopie.png?v=1775770098"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/before-after-flexicovernew-Kopie.png?v=1775770098",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_8068.jpg?v=1775770098"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_8068.jpg?v=1775770098",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/HoneycombStruktur.png?v=1775770098"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/HoneycombStruktur.png?v=1775770098",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_9025.heic?v=1775770098"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_9025.heic?v=1775770098",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/KonturierendesKissenmitTextur_1.png?v=1775770098"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/KonturierendesKissenmitTextur_1.png?v=1775770098",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Snapshot_3.png?v=1775770098"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Snapshot_3.png?v=1775770098",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Snapshot_4.png?v=1775770098"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Snapshot_4.png?v=1775770098",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/TexturierteStoffrollenvonFender.png?v=1775770098"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/TexturierteStoffrollenvonFender.png?v=1775770098",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/168de2c4-a621-4b7b-8a49-9466c99305ae.jpg?v=1775770098"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/168de2c4-a621-4b7b-8a49-9466c99305ae.jpg?v=1775770098",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/294cd5c9-87d3-4ce7-8ce1-9baafa2a316e.jpg?v=1775770098"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/294cd5c9-87d3-4ce7-8ce1-9baafa2a316e.jpg?v=1775770098",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/9e3e44d0-4321-4619-9d78-f2a13c82eabd.jpg?v=1775770098"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/9e3e44d0-4321-4619-9d78-f2a13c82eabd.jpg?v=1775770098",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_8206_jpg.heic?v=1775770098"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_8206_jpg.heic?v=1775770098",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_8209.heic?v=1775770098"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_8209.heic?v=1775770098",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/FlexiCover_mud_grey_square.png?v=1775770098"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/FlexiCover_mud_grey_square.png?v=1775770098",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/FlexiCover_sahara_square.png?v=1775770098"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/FlexiCover_sahara_square.png?v=1775770098",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/FlexiCover_weiss_square.png?v=1775770098"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/FlexiCover_weiss_square.png?v=1775770098",
+        "alt": null
       }
     ]
   },
@@ -802,61 +875,70 @@
     "vendor": "fender-design",
     "type": "",
     "tags": [],
-    "price": "8.32",
+    "price": "9.90",
+    "configurable": false,
     "variants": [
       {
         "id": 56360663187801,
         "title": "estrecho (ancho de patilla hasta aprox. 6 mm) / amarillo neón",
-        "price": "8.32",
+        "price": "9.90",
         "sku": null,
         "available": true
       },
       {
         "id": 56360663220569,
         "title": "estrecho (ancho de patilla hasta aprox. 6 mm) / azul marino",
-        "price": "8.32",
+        "price": "9.90",
         "sku": null,
         "available": true
       },
       {
         "id": 56360663286105,
         "title": "ancho (ancho de patilla 7 - 15mm) / amarillo neón",
-        "price": "8.32",
+        "price": "9.90",
         "sku": null,
         "available": true
       },
       {
         "id": 56360663318873,
         "title": "ancho (ancho de patilla 7 - 15mm) / azul marino",
-        "price": "8.32",
+        "price": "9.90",
         "sku": null,
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_6469_008822f8-c6f0-4614-bb09-6c73353e33d5.jpg?v=1760393348"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_6469_008822f8-c6f0-4614-bb09-6c73353e33d5.jpg?v=1760393348",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Schwimmbrille-schmal-navy_835caeb9-613e-4fc1-8195-27abc5fad09c.jpg?v=1760393348"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Schwimmbrille-schmal-navy_835caeb9-613e-4fc1-8195-27abc5fad09c.jpg?v=1760393348",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_0007_sh_both_yellow_logo_e2b2e386-b582-4a5e-bf5b-f6aa0f04dd78.jpg?v=1760393348"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_0007_sh_both_yellow_logo_e2b2e386-b582-4a5e-bf5b-f6aa0f04dd78.jpg?v=1760393348",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_0001_sh_both_blue_logo_c8d95a49-c9e9-4083-93ce-f0ab0d220c36.jpg?v=1760393348"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_0001_sh_both_blue_logo_c8d95a49-c9e9-4083-93ce-f0ab0d220c36.jpg?v=1760393348",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Schwimmbrille4.jpg?v=1760393348"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Schwimmbrille4.jpg?v=1760393348",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Schwimmbrille-schmal-neon_b051d339-9207-45a4-9be4-98de3408a710.jpg?v=1760393348"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Schwimmbrille-schmal-neon_b051d339-9207-45a4-9be4-98de3408a710.jpg?v=1760393348",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_6491_9bbcdd06-39bb-4987-956c-eb697ac4dcfb.jpg?v=1760393348"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_6491_9bbcdd06-39bb-4987-956c-eb697ac4dcfb.jpg?v=1760393348",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_6455.jpg?v=1760393348"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_6455.jpg?v=1760393348",
+        "alt": null
       }
     ]
   },
@@ -870,83 +952,97 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "19.24",
+    "price": "22.90",
+    "configurable": false,
     "variants": [
       {
         "id": 56346886898009,
         "title": "Placa base 20 x 30 cm",
-        "price": "19.24",
+        "price": "22.90",
         "sku": null,
         "available": true
       },
       {
         "id": 56346886930777,
         "title": "Placa base 30 x 40 cm",
-        "price": "37.73",
+        "price": "44.90",
         "sku": null,
         "available": true
       },
       {
         "id": 56346886963545,
         "title": "Pinzas para copas (3 copas)",
-        "price": "10.00",
+        "price": "11.90",
         "sku": null,
         "available": true
       },
       {
         "id": 56346886996313,
         "title": "Clips para tazas (3 tazas)",
-        "price": "10.84",
+        "price": "12.90",
         "sku": null,
         "available": true
       },
       {
         "id": 56346887029081,
         "title": "Clips para pilas de placas (2 pilas)",
-        "price": "10.84",
+        "price": "12.90",
         "sku": null,
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/ClinkFree_002_3082baca-ad5c-4ec3-96cb-0f5c1cc36801.jpg?v=1760272702"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/ClinkFree_002_3082baca-ad5c-4ec3-96cb-0f5c1cc36801.jpg?v=1760272702",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/FEF76A87-05AF-4E76-B664-F01EB689F5D0.png?v=1760345881"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/FEF76A87-05AF-4E76-B664-F01EB689F5D0.png?v=1760345881",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/029655FC-808E-4315-A476-40EDA8A95823.png?v=1760345881"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/029655FC-808E-4315-A476-40EDA8A95823.png?v=1760345881",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/9668F706-BF86-44CD-B17B-A3C26B5661B3.png?v=1760345881"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/9668F706-BF86-44CD-B17B-A3C26B5661B3.png?v=1760345881",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/38D31B57-1851-435B-BF88-BEF4C24CE452.png?v=1760345881"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/38D31B57-1851-435B-BF88-BEF4C24CE452.png?v=1760345881",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/F9A06F87-857F-40B5-B32A-57E3E966133E.png?v=1760345881"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/F9A06F87-857F-40B5-B32A-57E3E966133E.png?v=1760345881",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/8707556B-1C3A-4B47-9273-75D25A9B47A1.png?v=1760345881"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/8707556B-1C3A-4B47-9273-75D25A9B47A1.png?v=1760345881",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/D50DCE62-F096-4960-B04D-127A49934AD5.png?v=1760345881"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/D50DCE62-F096-4960-B04D-127A49934AD5.png?v=1760345881",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/ClinkFree_Grundplatte.jpg?v=1760345938"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/ClinkFree_Grundplatte.jpg?v=1760345938",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/AF52404D-626D-4B0C-9AFD-AF844588A468.png?v=1760345938"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/AF52404D-626D-4B0C-9AFD-AF844588A468.png?v=1760345938",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_3387.jpg?v=1760345938"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_3387.jpg?v=1760345938",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_3409.jpg?v=1760345938"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_3409.jpg?v=1760345938",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_3388.jpg?v=1760345938"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_3388.jpg?v=1760345938",
+        "alt": null
       }
     ]
   },
@@ -960,22 +1056,25 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "20.92",
+    "price": "24.90",
+    "configurable": false,
     "variants": [
       {
         "id": 56264627388761,
         "title": "Título por defecto",
-        "price": "20.92",
+        "price": "24.90",
         "sku": null,
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/AnchorRoll_LED.png?v=1759221347"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/AnchorRoll_LED.png?v=1759221347",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_2702.jpg?v=1759221340"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_2702.jpg?v=1759221340",
+        "alt": null
       }
     ]
   },
@@ -989,67 +1088,85 @@
     "tags": [
       "Configurador"
     ],
-    "price": "16.81",
+    "price": "20.00",
+    "configurable": false,
     "variants": [
       {
         "id": 56218204733785,
         "title": "Título por defecto",
-        "price": "16.81",
+        "price": "20.00",
         "sku": null,
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezuege-grau-1600-12.jpg?v=1758621543"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezuege-grau-1600-12.jpg?v=1758621543",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-6_ab9a6538-7391-4830-adbe-187f1c18f66b.jpg?v=1758621569"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-6_ab9a6538-7391-4830-adbe-187f1c18f66b.jpg?v=1758621569",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezug-asymmetrisch-76.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezug-asymmetrisch-76.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Acqua2_fb98420f-31cf-4974-a094-09aa9ba7bc29.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Acqua2_fb98420f-31cf-4974-a094-09aa9ba7bc29.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/anleitung-polsterbezuege-3_44b6c490-df67-4bc6-8bda-a90ec89eee87.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/anleitung-polsterbezuege-3_44b6c490-df67-4bc6-8bda-a90ec89eee87.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/anleitung-polsterbezuege-8-1.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/anleitung-polsterbezuege-8-1.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/CIMG2904.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/CIMG2904.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezuege-grau-1600-6.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezuege-grau-1600-6.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/terbloz.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/terbloz.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezug-asymmetrisch-6.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezug-asymmetrisch-6.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-2_5a8ed1a6-bf08-4790-9dde-27d6d1e9c171.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-2_5a8ed1a6-bf08-4790-9dde-27d6d1e9c171.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-20.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-20.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/kilchenmann6.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/kilchenmann6.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Vorderschiff_Liege.png?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Vorderschiff_Liege.png?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Foto_3_002.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Foto_3_002.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/anleitung-polsterbezuege-6.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/anleitung-polsterbezuege-6.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-27.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-27.jpg?v=1756808894",
+        "alt": null
       }
     ]
   },
@@ -1063,56 +1180,68 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "25.13",
+    "price": "29.90",
+    "configurable": false,
     "variants": [
       {
         "id": 55779035021657,
         "title": "⭐ Value pack🔖 incl. guante de microfibra \"Harald\"",
-        "price": "25.13",
+        "price": "29.90",
         "sku": "4262452330593",
         "available": true
       },
       {
         "id": 55779034988889,
         "title": "Agarrador de yates - paquete individual",
-        "price": "21.76",
+        "price": "25.90",
         "sku": "4262452330081",
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Yachtgrabber-packaging_b9004620-4b4a-4242-9754-9fa99eb9dce6.jpg?v=1764935439"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Yachtgrabber-packaging_b9004620-4b4a-4242-9754-9fa99eb9dce6.jpg?v=1764935439",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/DAME_nominated.jpg?v=1764935439"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/DAME_nominated.jpg?v=1764935439",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/71qhZP_GPAL._AC_SL1500.jpg?v=1764935439"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/71qhZP_GPAL._AC_SL1500.jpg?v=1764935439",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/71orwKtpRaL._AC_SL1500.jpg?v=1764935439"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/71orwKtpRaL._AC_SL1500.jpg?v=1764935439",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/71SKXqDivsL._AC_SL1500.jpg?v=1764935439"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/71SKXqDivsL._AC_SL1500.jpg?v=1764935439",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_2151.jpg?v=1764935439"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_2151.jpg?v=1764935439",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/YachtGrabber-neu.jpg?v=1764935439"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/YachtGrabber-neu.jpg?v=1764935439",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_1997.jpg?v=1764935439"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_1997.jpg?v=1764935439",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_1758.jpg?v=1764935439"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_1758.jpg?v=1764935439",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Hbb40c5e150dd450d85c8ebed89bf9c0dI.jpg_720x720q50.avif?v=1764935439"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Hbb40c5e150dd450d85c8ebed89bf9c0dI.jpg_720x720q50.avif?v=1764935439",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/PHOTO-2025-06-21-15-22-11.jpg?v=1764935439"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/PHOTO-2025-06-21-15-22-11.jpg?v=1764935439",
+        "alt": null
       }
     ]
   },
@@ -1126,35 +1255,40 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "5.04",
+    "price": "6.00",
+    "configurable": false,
     "variants": [
       {
         "id": 54685270966617,
         "title": "por pieza",
-        "price": "5.04",
+        "price": "6.00",
         "sku": "",
         "available": false
       },
       {
         "id": 54685270999385,
         "title": "⭐ 3 piezas - value pack 🔖",
-        "price": "12.61",
+        "price": "15.00",
         "sku": "",
         "available": false
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/ChatGPT_Image_22._Okt._2025_12_44_24.png?v=1764244012"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/ChatGPT_Image_22._Okt._2025_12_44_24.png?v=1764244012",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_8030.jpg?v=1764244012"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_8030.jpg?v=1764244012",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Saughaken_im_Badezimmer.png?v=1764243988"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Saughaken_im_Badezimmer.png?v=1764243988",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Saughaken.png?v=1764244008"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Saughaken.png?v=1764244008",
+        "alt": null
       }
     ]
   },
@@ -1166,28 +1300,33 @@
     "vendor": "fender-design",
     "type": "",
     "tags": [],
-    "price": "25.13",
+    "price": "29.90",
+    "configurable": false,
     "variants": [
       {
         "id": 54645465055577,
         "title": "Título por defecto",
-        "price": "25.13",
+        "price": "29.90",
         "sku": null,
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/LEDlight2.jpg?v=1748289253"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/LEDlight2.jpg?v=1748289253",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Erstellung_Bild_mit_Erklaerung_2.jpg?v=1765666709"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Erstellung_Bild_mit_Erklaerung_2.jpg?v=1765666709",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/LED_Lamp_mit_Magnethalterung_und_Fernbedienung.png?v=1765666709"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/LED_Lamp_mit_Magnethalterung_und_Fernbedienung.png?v=1765666709",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Led_Light_Remote.jpg?v=1765666739"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Led_Light_Remote.jpg?v=1765666739",
+        "alt": null
       }
     ]
   },
@@ -1199,40 +1338,42 @@
     "vendor": "fender-design",
     "type": "",
     "tags": [],
-    "price": "3.28",
+    "price": "3.90",
+    "configurable": false,
     "variants": [
       {
         "id": 54645179973977,
         "title": "verde neón / mini",
-        "price": "3.28",
+        "price": "3.90",
         "sku": null,
         "available": false
       },
       {
         "id": 54645184921945,
         "title": "verde neón / maxi",
-        "price": "4.12",
+        "price": "4.90",
         "sku": null,
         "available": false
       },
       {
         "id": 54645180039513,
         "title": "azul marino / Mini",
-        "price": "3.28",
+        "price": "3.90",
         "sku": null,
         "available": false
       },
       {
         "id": 54645184954713,
         "title": "azul marino / maxi",
-        "price": "4.12",
+        "price": "4.90",
         "sku": null,
         "available": false
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_0034_khb_all_stand.jpg?v=1748285989"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_0034_khb_all_stand.jpg?v=1748285989",
+        "alt": null
       }
     ]
   },
@@ -1246,97 +1387,104 @@
     "tags": [
       "accesorios"
     ],
-    "price": "5.80",
+    "price": "6.90",
+    "configurable": false,
     "variants": [
       {
         "id": 57208687460697,
         "title": "negro/marrón / 20 x 30 cm",
-        "price": "5.80",
+        "price": "6.90",
         "sku": null,
         "available": true
       },
       {
         "id": 57208687493465,
         "title": "negro/marrón / 30 x 40 cm",
-        "price": "8.32",
+        "price": "9.90",
         "sku": null,
         "available": true
       },
       {
         "id": 57208687526233,
         "title": "negro/marrón / 40 x 155 cm",
-        "price": "25.13",
+        "price": "29.90",
         "sku": null,
         "available": true
       },
       {
         "id": 57208687559001,
         "title": "negro/marrón / 100 x 110 cm",
-        "price": "41.93",
+        "price": "49.90",
         "sku": null,
         "available": true
       },
       {
         "id": 57826717368665,
         "title": "negro/marrón / por metro lineal (ancho: 155 cm)",
-        "price": "50.34",
+        "price": "59.90",
         "sku": null,
         "available": false
       },
       {
         "id": 57208687624537,
         "title": "azul/gris / 20 x 30 cm",
-        "price": "5.80",
+        "price": "6.90",
         "sku": null,
         "available": true
       },
       {
         "id": 57208687657305,
         "title": "azul/gris / 30 x 40 cm",
-        "price": "8.32",
+        "price": "9.90",
         "sku": null,
         "available": true
       },
       {
         "id": 57208687690073,
         "title": "azul/gris / 40 x 155 cm",
-        "price": "25.13",
+        "price": "29.90",
         "sku": null,
         "available": true
       },
       {
         "id": 57208687722841,
         "title": "azul/gris / 100 x 110 cm",
-        "price": "41.93",
+        "price": "49.90",
         "sku": null,
         "available": true
       },
       {
         "id": 57826717401433,
         "title": "azul/gris / por metro lineal (ancho: 155 cm)",
-        "price": "50.34",
+        "price": "59.90",
         "sku": null,
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_8562.jpg?v=1748242809"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_8562.jpg?v=1748242809",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/GripStar-Pic.jpg?v=1748242790"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/GripStar-Pic.jpg?v=1748242790",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/168099-stock-photo-weiss-ernaehrung-ordnung-sauberkeit-geschirr-teller.jpg?v=1748242790"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/168099-stock-photo-weiss-ernaehrung-ordnung-sauberkeit-geschirr-teller.jpg?v=1748242790",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_2329_small_6467c910-af90-438e-bea4-992fea52ed82.jpg?v=1748242790"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_2329_small_6467c910-af90-438e-bea4-992fea52ed82.jpg?v=1748242790",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_5486.jpg?v=1748242790"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_5486.jpg?v=1748242790",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/UnterBootspolster.jpg?v=1748206568"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/UnterBootspolster.jpg?v=1748206568",
+        "alt": null
       }
     ]
   },
@@ -1348,72 +1496,80 @@
     "vendor": "fender-design",
     "type": "",
     "tags": [],
-    "price": "4.12",
+    "price": "4.90",
+    "configurable": false,
     "variants": [
       {
         "id": 56034155921753,
         "title": "estrecho (ancho de patilla hasta aprox. 6 mm) / negro",
-        "price": "4.12",
+        "price": "4.90",
         "sku": null,
         "available": true
       },
       {
         "id": 56360379908441,
         "title": "estrecho (ancho de patilla hasta aprox. 6 mm) / amarillo neón",
-        "price": "4.12",
+        "price": "4.90",
         "sku": null,
         "available": true
       },
       {
         "id": 56360379941209,
         "title": "estrecho (ancho de patilla hasta aprox. 6 mm) / azul marino",
-        "price": "4.12",
+        "price": "4.90",
         "sku": null,
         "available": true
       },
       {
         "id": 56034155954521,
         "title": "ancho (ancho de patilla 7 - 15mm) / negro",
-        "price": "4.12",
+        "price": "4.90",
         "sku": null,
         "available": true
       },
       {
         "id": 56360379973977,
         "title": "ancho (ancho de patilla 7 - 15mm) / amarillo neón",
-        "price": "4.12",
+        "price": "4.90",
         "sku": null,
         "available": true
       },
       {
         "id": 56360380006745,
         "title": "ancho (ancho de patilla 7 - 15mm) / azul marino",
-        "price": "4.12",
+        "price": "4.90",
         "sku": null,
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_6466-Kopie.jpg?v=1748203248"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_6466-Kopie.jpg?v=1748203248",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Brillenband2.jpg?v=1748203202"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Brillenband2.jpg?v=1748203202",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Brillenband3.jpg?v=1748203202"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Brillenband3.jpg?v=1748203202",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Brillenband.jpg?v=1748203202"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Brillenband.jpg?v=1748203202",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_6466.jpg?v=1760387576"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_6466.jpg?v=1760387576",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_6480.jpg?v=1760387614"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_6480.jpg?v=1760387614",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_6492.jpg?v=1760387727"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_6492.jpg?v=1760387727",
+        "alt": null
       }
     ]
   },
@@ -1427,34 +1583,41 @@
     "tags": [
       "Configurador"
     ],
-    "price": "83.19",
+    "price": "99.00",
+    "configurable": false,
     "variants": [
       {
         "id": 54616841191769,
         "title": "Título por defecto",
-        "price": "83.19",
+        "price": "99.00",
         "sku": null,
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/20130616_181008.jpg?v=1747735625"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/20130616_181008.jpg?v=1747735625",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/8f13b404-334a-490f-ac51-9d00256cabce.jpg?v=1747735625"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/8f13b404-334a-490f-ac51-9d00256cabce.jpg?v=1747735625",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegetuch.jpg?v=1747735643"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegetuch.jpg?v=1747735643",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/c4a077cf-b958-42c1-ac3c-0415fe362133.jpg?v=1747735663"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/c4a077cf-b958-42c1-ac3c-0415fe362133.jpg?v=1747735663",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/f1ea0157-834f-4340-9bca-2d63bf3d1bb4.jpg?v=1747735625"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/f1ea0157-834f-4340-9bca-2d63bf3d1bb4.jpg?v=1747735625",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Lilly4.jpg?v=1747735703"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Lilly4.jpg?v=1747735703",
+        "alt": null
       }
     ]
   },
@@ -1468,22 +1631,25 @@
     "tags": [
       "Configurador"
     ],
-    "price": "42.02",
+    "price": "50.00",
+    "configurable": false,
     "variants": [
       {
         "id": 54595089760601,
         "title": "Título por defecto",
-        "price": "42.02",
+        "price": "50.00",
         "sku": null,
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Sondermass.jpg?v=1747251518"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Sondermass.jpg?v=1747251518",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fussmatte-24.jpg?v=1755080535"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fussmatte-24.jpg?v=1755080535",
+        "alt": null
       }
     ]
   },
@@ -1497,38 +1663,44 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "25.13",
+    "price": "29.90",
+    "configurable": false,
     "variants": [
       {
         "id": 54633847095641,
         "title": "Azul marino",
-        "price": "25.13",
+        "price": "29.90",
         "sku": "",
         "available": true
       },
       {
         "id": 54633847128409,
         "title": "Negro",
-        "price": "25.13",
+        "price": "29.90",
         "sku": "",
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_2902.jpg?v=1748033718"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_2902.jpg?v=1748033718",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Rollneck_Kugelfender.jpg?v=1748033734"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Rollneck_Kugelfender.jpg?v=1748033734",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/rollneck-1600-5.jpg?v=1748033751"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/rollneck-1600-5.jpg?v=1748033751",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/rollneck.jpg?v=1748033768"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/rollneck.jpg?v=1748033768",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Kugelfender.jpg?v=1748033783"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Kugelfender.jpg?v=1748033783",
+        "alt": null
       }
     ]
   },
@@ -1555,16 +1727,20 @@
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_5483.jpg?v=1748330807"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_5483.jpg?v=1748330807",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_5534.jpg?v=1748330866"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_5534.jpg?v=1748330866",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_5543.jpg?v=1748330925"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_5543.jpg?v=1748330925",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_5548.jpg?v=1748331205"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_5548.jpg?v=1748331205",
+        "alt": null
       }
     ]
   },
@@ -1578,19 +1754,21 @@
     "tags": [
       "Configurador"
     ],
-    "price": "121.85",
+    "price": "145.00",
+    "configurable": false,
     "variants": [
       {
         "id": 54482436882777,
         "title": "Título por defecto",
-        "price": "121.85",
+        "price": "145.00",
         "sku": null,
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Glaeser-alleArten.jpg?v=1747951518"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Glaeser-alleArten.jpg?v=1747951518",
+        "alt": null
       }
     ]
   },
@@ -1617,13 +1795,16 @@
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Tischset.jpg?v=1747951659"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Tischset.jpg?v=1747951659",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_1260_6a74421b-c061-46bf-bbbb-e331a3716ee7.jpg?v=1747951659"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_1260_6a74421b-c061-46bf-bbbb-e331a3716ee7.jpg?v=1747951659",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_1281.jpg?v=1747951659"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_1281.jpg?v=1747951659",
+        "alt": null
       }
     ]
   },
@@ -1635,19 +1816,21 @@
     "vendor": "Fender Design",
     "type": "",
     "tags": [],
-    "price": "42.02",
+    "price": "50.00",
+    "configurable": false,
     "variants": [
       {
         "id": 54480457105753,
         "title": "Título por defecto",
-        "price": "42.02",
+        "price": "50.00",
         "sku": null,
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Beschriftung_-_Schaltflache_Motivvorlage_d5c7d983-5861-46f2-ae96-bf9c3c0530a2.png?v=1745323036"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Beschriftung_-_Schaltflache_Motivvorlage_d5c7d983-5861-46f2-ae96-bf9c3c0530a2.png?v=1745323036",
+        "alt": null
       }
     ]
   },
@@ -1659,19 +1842,21 @@
     "vendor": "Fender Design",
     "type": "",
     "tags": [],
-    "price": "42.02",
+    "price": "50.00",
+    "configurable": false,
     "variants": [
       {
         "id": 54480454254937,
         "title": "Título por defecto",
-        "price": "42.02",
+        "price": "50.00",
         "sku": "",
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Beschriftung_-_Schaltflache_neues_Logo_33daa31d-7c18-4144-b823-cbe0c54e3d0a.png?v=1744581466"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Beschriftung_-_Schaltflache_neues_Logo_33daa31d-7c18-4144-b823-cbe0c54e3d0a.png?v=1744581466",
+        "alt": null
       }
     ]
   },
@@ -1747,10 +1932,12 @@
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege_8db42647-5459-479e-89aa-1fa967125d6c.jpg?v=1748036482"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege_8db42647-5459-479e-89aa-1fa967125d6c.jpg?v=1748036482",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-25_aeb7133c-5699-427d-916e-05b7b5bcbc2a.jpg?v=1756808927"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-25_aeb7133c-5699-427d-916e-05b7b5bcbc2a.jpg?v=1756808927",
+        "alt": null
       }
     ]
   },
@@ -1824,55 +2011,72 @@
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/anleitung-polsterbezuege-10.jpg?v=1749723575"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/anleitung-polsterbezuege-10.jpg?v=1749723575",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-6.jpg?v=1743006811"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-6.jpg?v=1743006811",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-4.jpg?v=1743006811"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-4.jpg?v=1743006811",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-17.jpg?v=1743006811"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-17.jpg?v=1743006811",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-3.jpg?v=1743006811"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-3.jpg?v=1743006811",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/anleitung-polsterbezuege-3_44b6c490-df67-4bc6-8bda-a90ec89eee87.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/anleitung-polsterbezuege-3_44b6c490-df67-4bc6-8bda-a90ec89eee87.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-18.jpg?v=1743006811"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-18.jpg?v=1743006811",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-2.jpg?v=1743006811"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-2.jpg?v=1743006811",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-24.jpg?v=1749723288"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-24.jpg?v=1749723288",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-5.jpg?v=1743006811"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-5.jpg?v=1743006811",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-16.jpg?v=1756808927"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-16.jpg?v=1756808927",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-8.jpg?v=1756808927"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-8.jpg?v=1756808927",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-20.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-20.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-9.jpg?v=1743006811"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-9.jpg?v=1743006811",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-14.jpg?v=1743006811"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-14.jpg?v=1743006811",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-12.jpg?v=1756808927"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-12.jpg?v=1756808927",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/terbloz_5f15cd50-69f1-49ed-b020-5eb3805ee535.jpg?v=1743006811"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/terbloz_5f15cd50-69f1-49ed-b020-5eb3805ee535.jpg?v=1743006811",
+        "alt": null
       }
     ]
   },
@@ -1886,31 +2090,37 @@
     "tags": [
       "Configurador"
     ],
-    "price": "33.53",
+    "price": "39.90",
+    "configurable": false,
     "variants": [
       {
         "id": 54362219774297,
         "title": "Título por defecto",
-        "price": "33.53",
+        "price": "39.90",
         "sku": null,
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Poloshirt_Classic_1c99a43d-b823-4fa2-b38f-8169906355cb.jpg?v=1769153610"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Poloshirt_Classic_1c99a43d-b823-4fa2-b38f-8169906355cb.jpg?v=1769153610",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polo1-ml.jpg?v=1769153610"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polo1-ml.jpg?v=1769153610",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polo3.jpg?v=1771019618"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polo3.jpg?v=1771019618",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polo2.jpg?v=1769153610"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polo2.jpg?v=1769153610",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/kollektionen-crewbekleidung-1500x1500.jpg?v=1771020945"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/kollektionen-crewbekleidung-1500x1500.jpg?v=1771020945",
+        "alt": null
       }
     ]
   },
@@ -1924,25 +2134,29 @@
     "tags": [
       "Configurador"
     ],
-    "price": "108.40",
+    "price": "129.00",
+    "configurable": false,
     "variants": [
       {
         "id": 54305665057113,
         "title": "Título por defecto",
-        "price": "108.40",
+        "price": "129.00",
         "sku": null,
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Weinfender_6.jpg?v=1748205069"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Weinfender_6.jpg?v=1748205069",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Weinfender_8.jpg?v=1748205050"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Weinfender_8.jpg?v=1748205050",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/img_8228.jpg?v=1748205050"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/img_8228.jpg?v=1748205050",
+        "alt": null
       }
     ]
   },
@@ -1956,25 +2170,29 @@
     "tags": [
       "Configurador"
     ],
-    "price": "50.34",
+    "price": "59.90",
+    "configurable": false,
     "variants": [
       {
         "id": 54305654833497,
         "title": "Título por defecto",
-        "price": "50.34",
+        "price": "59.90",
         "sku": null,
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_1260_82b23a2e-2524-4655-8711-e5f717943d96.jpg?v=1747951220"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_1260_82b23a2e-2524-4655-8711-e5f717943d96.jpg?v=1747951220",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_1333.jpg?v=1747951200"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_1333.jpg?v=1747951200",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Kuehler_2Glaeser.jpg?v=1747951273"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Kuehler_2Glaeser.jpg?v=1747951273",
+        "alt": null
       }
     ]
   },
@@ -1988,19 +2206,21 @@
     "tags": [
       "Configurador"
     ],
-    "price": "58.74",
+    "price": "69.90",
+    "configurable": false,
     "variants": [
       {
         "id": 54305641693529,
         "title": "Título por defecto",
-        "price": "58.74",
+        "price": "69.90",
         "sku": "",
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Sektkuehler2.jpg?v=1747951423"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Sektkuehler2.jpg?v=1747951423",
+        "alt": null
       }
     ]
   },
@@ -2027,16 +2247,20 @@
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Relingpolster-Drahtreling_6e286f19-1696-49f6-9f94-adca532f581d.jpg?v=1747129725"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Relingpolster-Drahtreling_6e286f19-1696-49f6-9f94-adca532f581d.jpg?v=1747129725",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Querschnitt_-_geschlitzt_mit_Klett.jpg?v=1746569818"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Querschnitt_-_geschlitzt_mit_Klett.jpg?v=1746569818",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Detailfoto_geschlitzt.jpg?v=1747129824"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Detailfoto_geschlitzt.jpg?v=1747129824",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_3771_34854664-a6d3-43dd-98f6-91292509149a.jpg?v=1746569818"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_3771_34854664-a6d3-43dd-98f6-91292509149a.jpg?v=1746569818",
+        "alt": null
       }
     ]
   },
@@ -2063,25 +2287,32 @@
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Relingpolster_-_neues_Bild.jpg?v=1747140066"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Relingpolster_-_neues_Bild.jpg?v=1747140066",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Querschnitt_-_ungeschlitzt_nahtlos.jpg?v=1746570093"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Querschnitt_-_ungeschlitzt_nahtlos.jpg?v=1746570093",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_2416.jpg?v=1746570144"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_2416.jpg?v=1746570144",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_0589.jpg?v=1746570118"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_0589.jpg?v=1746570118",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_2523.jpg?v=1746570164"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_2523.jpg?v=1746570164",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Relingpolster_navy.jpg?v=1746570174"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Relingpolster_navy.jpg?v=1746570174",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_2440.jpg?v=1746570195"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_2440.jpg?v=1746570195",
+        "alt": null
       }
     ]
   },
@@ -2108,16 +2339,20 @@
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_5778_3664766b-5367-4915-869b-6b34630b8c27.jpg?v=1747129991"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_5778_3664766b-5367-4915-869b-6b34630b8c27.jpg?v=1747129991",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Zeichnung_Edelstahlreling.jpg?v=1746569774"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Zeichnung_Edelstahlreling.jpg?v=1746569774",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/20240806_203614.jpg?v=1746569774"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/20240806_203614.jpg?v=1746569774",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_3771.jpg?v=1746569774"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_3771.jpg?v=1746569774",
+        "alt": null
       }
     ]
   },
@@ -2144,13 +2379,16 @@
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/satkugel3_1.jpg?v=1741715428"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/satkugel3_1.jpg?v=1741715428",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/abdeckung-sat-1600-2.jpg?v=1755078909"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/abdeckung-sat-1600-2.jpg?v=1755078909",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/abdeckung-sat-1600-1.jpg?v=1755078909"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/abdeckung-sat-1600-1.jpg?v=1755078909",
+        "alt": null
       }
     ]
   },
@@ -2177,13 +2415,16 @@
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Plicht_a2777905-f87a-45cd-a6df-53109ae0402b.jpg?v=1747728248"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Plicht_a2777905-f87a-45cd-a6df-53109ae0402b.jpg?v=1747728248",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_3520_43d29b2f-059d-4a18-86ed-58cd3519cf5a.jpg?v=1751922206"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_3520_43d29b2f-059d-4a18-86ed-58cd3519cf5a.jpg?v=1751922206",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_3519_9e81acbf-bc9d-41c6-a25b-2415ceaa1e8f.jpg?v=1751922229"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_3519_9e81acbf-bc9d-41c6-a25b-2415ceaa1e8f.jpg?v=1751922229",
+        "alt": null
       }
     ]
   },
@@ -2210,25 +2451,32 @@
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/abdeckung-2.jpg?v=1774990500"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/abdeckung-2.jpg?v=1774990500",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/ChatGPT_Image_31._Maerz_2026_09_14_01.png?v=1774990500"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/ChatGPT_Image_31._Maerz_2026_09_14_01.png?v=1774990500",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/abdeckung-steuerrad-1600-1.jpg?v=1774990500"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/abdeckung-steuerrad-1600-1.jpg?v=1774990500",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/abdeckung-steuerrad-1600-2.jpg?v=1774990500"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/abdeckung-steuerrad-1600-2.jpg?v=1774990500",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/20160326_155026_003.jpg?v=1774990500"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/20160326_155026_003.jpg?v=1774990500",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/abdeckung-steuerrad-1600-3.jpg?v=1774990500"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/abdeckung-steuerrad-1600-3.jpg?v=1774990500",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/20160326_154946_002.jpg?v=1774990500"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/20160326_154946_002.jpg?v=1774990500",
+        "alt": null
       }
     ]
   },
@@ -2255,19 +2503,24 @@
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/ChatGPT_Image_31._Maerz_2026_09_30_37.png?v=1774990816"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/ChatGPT_Image_31._Maerz_2026_09_30_37.png?v=1774990816",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/ChatGPT_Image_30._Maerz_2026_23_27_24.png?v=1774990816"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/ChatGPT_Image_30._Maerz_2026_23_27_24.png?v=1774990816",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/winch-abdeckung.jpg?v=1774990816"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/winch-abdeckung.jpg?v=1774990816",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/ChatGPT_Image_31._Maerz_2026_10_45_47.jpg?v=1774990816"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/ChatGPT_Image_31._Maerz_2026_10_45_47.jpg?v=1774990816",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/ChatGPT_Image_30._Maerz_2026_23_35_36.png?v=1774990816"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/ChatGPT_Image_30._Maerz_2026_23_35_36.png?v=1774990816",
+        "alt": null
       }
     ]
   },
@@ -2294,10 +2547,12 @@
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/dsc00029.jpg?v=1748202728"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/dsc00029.jpg?v=1748202728",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/DSC00033.jpg?v=1769987487"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/DSC00033.jpg?v=1769987487",
+        "alt": null
       }
     ]
   },
@@ -2324,22 +2579,28 @@
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Mutafo_Zuschnitt.jpg?v=1755078418"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Mutafo_Zuschnitt.jpg?v=1755078418",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/abdeckung-luke-rechteck-1600-1.jpg?v=1755078418"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/abdeckung-luke-rechteck-1600-1.jpg?v=1755078418",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/abdeckung-1.jpg?v=1755078418"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/abdeckung-1.jpg?v=1755078418",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/abdeckung-luke-rechteck-1600-2.jpg?v=1755078418"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/abdeckung-luke-rechteck-1600-2.jpg?v=1755078418",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Mit_Gummizug_Ohne_Klebepunkte_a075bcf6-e6da-489e-b28c-813defc80eaf.jpg?v=1755078418"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Mit_Gummizug_Ohne_Klebepunkte_a075bcf6-e6da-489e-b28c-813defc80eaf.jpg?v=1755078418",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/abdeckung-luke-rechteck-1600-3.jpg?v=1755078418"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/abdeckung-luke-rechteck-1600-3.jpg?v=1755078418",
+        "alt": null
       }
     ]
   },
@@ -2353,31 +2614,37 @@
     "tags": [
       "Configurador"
     ],
-    "price": "8.40",
+    "price": "10.00",
+    "configurable": false,
     "variants": [
       {
         "id": 54298964427097,
         "title": "Título por defecto",
-        "price": "8.40",
+        "price": "10.00",
         "sku": null,
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Rechteckig_mass.jpg?v=1747251514"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Rechteckig_mass.jpg?v=1747251514",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fussmatte-1600-2.jpg?v=1755009804"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fussmatte-1600-2.jpg?v=1755009804",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/meros13.jpg?v=1755009804"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/meros13.jpg?v=1755009804",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fussmatte-1600-3.jpg?v=1755009804"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fussmatte-1600-3.jpg?v=1755009804",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/produkte-1600.jpg?v=1755009804"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/produkte-1600.jpg?v=1755009804",
+        "alt": null
       }
     ]
   },
@@ -2404,16 +2671,20 @@
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/halbrund.jpg?v=1747251507"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/halbrund.jpg?v=1747251507",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fussmatte-1600-42.jpg?v=1755011141"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fussmatte-1600-42.jpg?v=1755011141",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/CIMG0410_dba4570b-323d-41e2-91ac-a407a04a8308.jpg?v=1755011141"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/CIMG0410_dba4570b-323d-41e2-91ac-a407a04a8308.jpg?v=1755011141",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fussmatte-1600-5.jpg?v=1755011141"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fussmatte-1600-5.jpg?v=1755011141",
+        "alt": null
       }
     ]
   },
@@ -2440,28 +2711,36 @@
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Rechteckig.jpg?v=1747251529"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Rechteckig.jpg?v=1747251529",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fussmatte-1600-2.jpg?v=1755009804"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fussmatte-1600-2.jpg?v=1755009804",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/CIMG0410_dba4570b-323d-41e2-91ac-a407a04a8308.jpg?v=1755011141"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/CIMG0410_dba4570b-323d-41e2-91ac-a407a04a8308.jpg?v=1755011141",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/produkte-1600.jpg?v=1755009804"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/produkte-1600.jpg?v=1755009804",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/PourNousFM1_ad0b9364-d44b-4786-aa5f-547ea88576d6.jpg?v=1755009724"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/PourNousFM1_ad0b9364-d44b-4786-aa5f-547ea88576d6.jpg?v=1755009724",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Picture_3_Welcome_Mat_e0964602-392b-443e-9ea9-53c66a34f7c8.jpg?v=1755009724"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Picture_3_Welcome_Mat_e0964602-392b-443e-9ea9-53c66a34f7c8.jpg?v=1755009724",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fussmatte-1600-3.jpg?v=1755009804"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fussmatte-1600-3.jpg?v=1755009804",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/meros13.jpg?v=1755009804"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/meros13.jpg?v=1755009804",
+        "alt": null
       }
     ]
   },
@@ -2488,55 +2767,72 @@
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-6_ab9a6538-7391-4830-adbe-187f1c18f66b.jpg?v=1758621569"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-6_ab9a6538-7391-4830-adbe-187f1c18f66b.jpg?v=1758621569",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezuege-grau-1600-12.jpg?v=1758621543"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezuege-grau-1600-12.jpg?v=1758621543",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezug-asymmetrisch-76.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezug-asymmetrisch-76.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Acqua2_fb98420f-31cf-4974-a094-09aa9ba7bc29.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Acqua2_fb98420f-31cf-4974-a094-09aa9ba7bc29.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/anleitung-polsterbezuege-3_44b6c490-df67-4bc6-8bda-a90ec89eee87.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/anleitung-polsterbezuege-3_44b6c490-df67-4bc6-8bda-a90ec89eee87.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/anleitung-polsterbezuege-8-1.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/anleitung-polsterbezuege-8-1.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/CIMG2904.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/CIMG2904.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezuege-grau-1600-6.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezuege-grau-1600-6.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/terbloz.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/terbloz.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezug-asymmetrisch-6.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezug-asymmetrisch-6.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-2_5a8ed1a6-bf08-4790-9dde-27d6d1e9c171.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-2_5a8ed1a6-bf08-4790-9dde-27d6d1e9c171.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-20.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-20.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/kilchenmann6.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/kilchenmann6.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Vorderschiff_Liege.png?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Vorderschiff_Liege.png?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Foto_3_002.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Foto_3_002.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/anleitung-polsterbezuege-6.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/anleitung-polsterbezuege-6.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-27.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-27.jpg?v=1756808894",
+        "alt": null
       }
     ]
   },
@@ -2612,10 +2908,12 @@
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege_8db42647-5459-479e-89aa-1fa967125d6c.jpg?v=1748036482"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege_8db42647-5459-479e-89aa-1fa967125d6c.jpg?v=1748036482",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-25_aeb7133c-5699-427d-916e-05b7b5bcbc2a.jpg?v=1756808927"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-25_aeb7133c-5699-427d-916e-05b7b5bcbc2a.jpg?v=1756808927",
+        "alt": null
       }
     ]
   },
@@ -2642,37 +2940,48 @@
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Fender_Typ_A_2.jpg?v=1747344236"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Fender_Typ_A_2.jpg?v=1747344236",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderbezug-typ-A-2_1e7be631-07c4-4ba3-8a70-8782fd3362e9.jpg?v=1754909293"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderbezug-typ-A-2_1e7be631-07c4-4ba3-8a70-8782fd3362e9.jpg?v=1754909293",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Picture_1.jpg?v=1754909293"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Picture_1.jpg?v=1754909293",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderbezug-typ-A-4_fc1348bd-b0b0-4b84-b5b8-95b3f1de3c58.jpg?v=1754909293"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderbezug-typ-A-4_fc1348bd-b0b0-4b84-b5b8-95b3f1de3c58.jpg?v=1754909293",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderueberzug-typ-f.jpg?v=1754909293"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderueberzug-typ-f.jpg?v=1754909293",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Picture_3.jpg?v=1754909293"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Picture_3.jpg?v=1754909293",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/DALUMI_II.jpg?v=1754909293"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/DALUMI_II.jpg?v=1754909293",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderbezug-typ-A-5_6d306294-43f1-435d-98cf-20af38e1e2c1.jpg?v=1754909293"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderbezug-typ-A-5_6d306294-43f1-435d-98cf-20af38e1e2c1.jpg?v=1754909293",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/loom-2.jpg?v=1754909293"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/loom-2.jpg?v=1754909293",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderbezug-typ-A-1_59f30dbb-b084-484a-9304-a9612e952a97.jpg?v=1754909211"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderbezug-typ-A-1_59f30dbb-b084-484a-9304-a9612e952a97.jpg?v=1754909211",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderbezug-typ-A-3_507c50be-d3f9-4fcc-85aa-69c9996640af.jpg?v=1754909210"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderbezug-typ-A-3_507c50be-d3f9-4fcc-85aa-69c9996640af.jpg?v=1754909210",
+        "alt": null
       }
     ]
   },
@@ -2699,22 +3008,28 @@
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_1132.jpg?v=1747780178"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_1132.jpg?v=1747780178",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/cockpit-kissen-1.jpg?v=1754917924"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/cockpit-kissen-1.jpg?v=1754917924",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/kissen-5_8a51fcc0-5ba2-4275-b7e8-f7c5d6fc5170.jpg?v=1754917924"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/kissen-5_8a51fcc0-5ba2-4275-b7e8-f7c5d6fc5170.jpg?v=1754917924",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/1000018759.jpg?v=1754917924"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/1000018759.jpg?v=1754917924",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_9797.jpg?v=1754917924"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_9797.jpg?v=1754917924",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Kissen_57565fcb-a561-41ff-969e-2a74789e7453.jpg?v=1754917924"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Kissen_57565fcb-a561-41ff-969e-2a74789e7453.jpg?v=1754917924",
+        "alt": null
       }
     ]
   },
@@ -2741,40 +3056,52 @@
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege_8db42647-5459-479e-89aa-1fa967125d6c.jpg?v=1748036482"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege_8db42647-5459-479e-89aa-1fa967125d6c.jpg?v=1748036482",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezug-rechteckig-3.jpg?v=1754910047"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezug-rechteckig-3.jpg?v=1754910047",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezuege-grau-1600-2.jpg?v=1756808927"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezuege-grau-1600-2.jpg?v=1756808927",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-25_aeb7133c-5699-427d-916e-05b7b5bcbc2a.jpg?v=1756808927"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-25_aeb7133c-5699-427d-916e-05b7b5bcbc2a.jpg?v=1756808927",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezug-rechteckig-1.jpg?v=1756808927"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezug-rechteckig-1.jpg?v=1756808927",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezuege-5.jpg?v=1756808927"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezuege-5.jpg?v=1756808927",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezug-rechteckig-2.jpg?v=1756808927"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezug-rechteckig-2.jpg?v=1756808927",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezuege-4.jpg?v=1756808927"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/polsterbezuege-4.jpg?v=1756808927",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-5_78f1aeab-8106-446f-9cc4-99008eb2cc4f.jpg?v=1756808927"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-5_78f1aeab-8106-446f-9cc4-99008eb2cc4f.jpg?v=1756808927",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-16.jpg?v=1756808927"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-16.jpg?v=1756808927",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-12.jpg?v=1756808927"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-12.jpg?v=1756808927",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-8.jpg?v=1756808927"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-8.jpg?v=1756808927",
+        "alt": null
       }
     ]
   },
@@ -2788,28 +3115,33 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "12.52",
+    "price": "14.90",
+    "configurable": false,
     "variants": [
       {
         "id": 54182439846233,
         "title": "Título por defecto",
-        "price": "12.52",
+        "price": "14.90",
         "sku": "",
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/NaviPad2.jpg?v=1739457717"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/NaviPad2.jpg?v=1739457717",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Amotor2b.jpg?v=1739457761"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Amotor2b.jpg?v=1739457761",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_8313.jpg?v=1739457803"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_8313.jpg?v=1739457803",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/NaviPad.jpg?v=1739457718"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/NaviPad.jpg?v=1739457718",
+        "alt": null
       }
     ]
   },
@@ -2823,29 +3155,32 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "37.73",
+    "price": "44.90",
+    "configurable": false,
     "variants": [
       {
         "id": 54450862031193,
         "title": "Azul marino",
-        "price": "37.73",
+        "price": "44.90",
         "sku": "",
         "available": true
       },
       {
         "id": 54450862063961,
         "title": "Negro",
-        "price": "37.73",
+        "price": "44.90",
         "sku": "",
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/plattenfender-2.jpg?v=1739457588"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/plattenfender-2.jpg?v=1739457588",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/plattenfender.jpg?v=1739457588"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/plattenfender.jpg?v=1739457588",
+        "alt": null
       }
     ]
   },
@@ -2859,34 +3194,41 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "58.74",
+    "price": "69.90",
+    "configurable": false,
     "variants": [
       {
         "id": 54182342918489,
         "title": "Título por defecto",
-        "price": "58.74",
+        "price": "69.90",
         "sku": "",
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/flexicush-2.jpg?v=1739457538"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/flexicush-2.jpg?v=1739457538",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Flexicush2.jpg?v=1760295837"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Flexicush2.jpg?v=1760295837",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_2186.jpg?v=1760295860"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_2186.jpg?v=1760295860",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/flexicush-4.jpg?v=1760295860"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/flexicush-4.jpg?v=1760295860",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Flexicush3.jpg?v=1760295860"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Flexicush3.jpg?v=1760295860",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Flexicush1.jpg?v=1760295860"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Flexicush1.jpg?v=1760295860",
+        "alt": null
       }
     ]
   },
@@ -2960,55 +3302,72 @@
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/anleitung-polsterbezuege-10.jpg?v=1749723575"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/anleitung-polsterbezuege-10.jpg?v=1749723575",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-6.jpg?v=1743006811"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-6.jpg?v=1743006811",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-4.jpg?v=1743006811"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-4.jpg?v=1743006811",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-17.jpg?v=1743006811"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-17.jpg?v=1743006811",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-3.jpg?v=1743006811"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-3.jpg?v=1743006811",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/anleitung-polsterbezuege-3_44b6c490-df67-4bc6-8bda-a90ec89eee87.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/anleitung-polsterbezuege-3_44b6c490-df67-4bc6-8bda-a90ec89eee87.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-18.jpg?v=1743006811"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-18.jpg?v=1743006811",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-2.jpg?v=1743006811"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-2.jpg?v=1743006811",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-24.jpg?v=1749723288"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-24.jpg?v=1749723288",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-5.jpg?v=1743006811"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-5.jpg?v=1743006811",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-16.jpg?v=1756808927"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-16.jpg?v=1756808927",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-8.jpg?v=1756808927"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-8.jpg?v=1756808927",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-20.jpg?v=1756808894"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-20.jpg?v=1756808894",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-9.jpg?v=1743006811"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-9.jpg?v=1743006811",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-14.jpg?v=1743006811"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-14.jpg?v=1743006811",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-12.jpg?v=1756808927"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/liegeflaechen-bezuege-12.jpg?v=1756808927",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/terbloz_5f15cd50-69f1-49ed-b020-5eb3805ee535.jpg?v=1743006811"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/terbloz_5f15cd50-69f1-49ed-b020-5eb3805ee535.jpg?v=1743006811",
+        "alt": null
       }
     ]
   },
@@ -3022,157 +3381,170 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "37.82",
+    "price": "45.00",
+    "configurable": false,
     "variants": [
       {
         "id": 54611828015449,
         "title": "Azul marino / S Ø 15 - 21 cm / ⭐ 5m value pack🔖",
-        "price": "37.82",
+        "price": "45.00",
         "sku": null,
         "available": true
       },
       {
         "id": 54107888222553,
         "title": "Azul marino / S Ø 15 - 21 cm / longitud en m libremente seleccionable",
-        "price": "8.40",
+        "price": "10.00",
         "sku": "",
         "available": true
       },
       {
         "id": 54611828048217,
         "title": "Azul marino / M Ø 22 - 27 cm / ⭐ 5m value pack🔖",
-        "price": "46.22",
+        "price": "55.00",
         "sku": null,
         "available": true
       },
       {
         "id": 54108489154905,
         "title": "Azul marino / M Ø 22 - 27 cm / longitud en m libremente seleccionable",
-        "price": "10.08",
+        "price": "12.00",
         "sku": "",
         "available": true
       },
       {
         "id": 54611828080985,
         "title": "Azul marino / L Ø 28 - 34 cm / ⭐ 5m value pack🔖",
-        "price": "54.62",
+        "price": "65.00",
         "sku": null,
         "available": true
       },
       {
         "id": 54109190291801,
         "title": "Azul marino / L Ø 28 - 34 cm / longitud en m libremente seleccionable",
-        "price": "11.76",
+        "price": "14.00",
         "sku": "",
         "available": true
       },
       {
         "id": 54611828113753,
         "title": "Azul marino / XL Ø 40 - 50 cm / ⭐ 5m value pack🔖",
-        "price": "84.03",
+        "price": "100.00",
         "sku": null,
         "available": true
       },
       {
         "id": 54109190324569,
         "title": "Azul marino / XL Ø 40 - 50 cm / longitud en m libremente seleccionable",
-        "price": "17.65",
+        "price": "21.00",
         "sku": "",
         "available": true
       },
       {
         "id": 54611828146521,
         "title": "Negro / S Ø 15 - 21 cm / ⭐ 5m value pack🔖",
-        "price": "37.82",
+        "price": "45.00",
         "sku": null,
         "available": true
       },
       {
         "id": 54107888255321,
         "title": "Negro / S Ø 15 - 21 cm / longitud en m libremente seleccionable",
-        "price": "8.40",
+        "price": "10.00",
         "sku": "",
         "available": true
       },
       {
         "id": 54611828179289,
         "title": "Negro / M Ø 22 - 27 cm / ⭐ 5m value pack🔖",
-        "price": "46.22",
+        "price": "55.00",
         "sku": null,
         "available": true
       },
       {
         "id": 54108489220441,
         "title": "Negro / M Ø 22 - 27 cm / longitud en m libremente seleccionable",
-        "price": "10.08",
+        "price": "12.00",
         "sku": "",
         "available": true
       },
       {
         "id": 54611828212057,
         "title": "Negro / L Ø 28 - 34 cm / ⭐ 5m value pack🔖",
-        "price": "54.62",
+        "price": "65.00",
         "sku": null,
         "available": true
       },
       {
         "id": 54109190357337,
         "title": "Negro / L Ø 28 - 34 cm / longitud en m libremente seleccionable",
-        "price": "11.76",
+        "price": "14.00",
         "sku": "",
         "available": true
       },
       {
         "id": 54611828244825,
         "title": "Negro / XL Ø 40 - 50 cm / ⭐ 5m value pack🔖",
-        "price": "84.03",
+        "price": "100.00",
         "sku": null,
         "available": true
       },
       {
         "id": 54109190390105,
         "title": "Negro / XL Ø 40 - 50 cm / longitud en m libremente seleccionable",
-        "price": "17.65",
+        "price": "21.00",
         "sku": "",
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/RollNeck_fendersock_Zylindrische_Fender.jpg?v=1738141701"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/RollNeck_fendersock_Zylindrische_Fender.jpg?v=1738141701",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/rollneck-1600-8.jpg?v=1738141925"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/rollneck-1600-8.jpg?v=1738141925",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/rollneck-1600-3.jpg?v=1738141925"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/rollneck-1600-3.jpg?v=1738141925",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/rollneck-1600-13.jpg?v=1738141925"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/rollneck-1600-13.jpg?v=1738141925",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/rollneck-1600-5.jpg?v=1748033751"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/rollneck-1600-5.jpg?v=1748033751",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/rollneck-1600-6.jpg?v=1738141925"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/rollneck-1600-6.jpg?v=1738141925",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/produkte-rollneck-1500x1500.jpg?v=1738141925"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/produkte-rollneck-1500x1500.jpg?v=1738141925",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/rollneck-1600-7.jpg?v=1738141925"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/rollneck-1600-7.jpg?v=1738141925",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/rollneck-1600-2.jpg?v=1738141925"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/rollneck-1600-2.jpg?v=1738141925",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/rollneck-3d-isolated-marine-1600-12.jpg?v=1738141925"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/rollneck-3d-isolated-marine-1600-12.jpg?v=1738141925",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/rollneck-1600-12.jpg?v=1738141384"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/rollneck-1600-12.jpg?v=1738141384",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/rollneck-1600-9-black.jpg?v=1738141381"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/rollneck-1600-9-black.jpg?v=1738141381",
+        "alt": null
       }
     ]
   },
@@ -3199,37 +3571,48 @@
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Fender_Typ_SUPERSIZE_2.jpg?v=1747344837"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Fender_Typ_SUPERSIZE_2.jpg?v=1747344837",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderueberzug-supersize-2.jpg?v=1754906059"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderueberzug-supersize-2.jpg?v=1754906059",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/WIN_20170720_12_19_37_Pro.jpg?v=1754906059"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/WIN_20170720_12_19_37_Pro.jpg?v=1754906059",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderueberzug-supersize-3.jpg?v=1754906059"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderueberzug-supersize-3.jpg?v=1754906059",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderueberzug-supersize-4.jpg?v=1754906059"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderueberzug-supersize-4.jpg?v=1754906059",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderueberzug-supersize-6_f9927d12-32f5-4272-bc3a-2f64a5d856a8.jpg?v=1759145665"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderueberzug-supersize-6_f9927d12-32f5-4272-bc3a-2f64a5d856a8.jpg?v=1759145665",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/road2.jpg?v=1759145665"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/road2.jpg?v=1759145665",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderueberzug-supersize-5.jpg?v=1759145665"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderueberzug-supersize-5.jpg?v=1759145665",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/loom-39.jpg?v=1759145665"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/loom-39.jpg?v=1759145665",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/loom-45.jpg?v=1759145665"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/loom-45.jpg?v=1759145665",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderueberzug-supersize-1.jpg?v=1759145665"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderueberzug-supersize-1.jpg?v=1759145665",
+        "alt": null
       }
     ]
   },
@@ -3256,7 +3639,8 @@
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Fender_Typ_G_2.jpg?v=1747344634"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Fender_Typ_G_2.jpg?v=1747344634",
+        "alt": null
       }
     ]
   },
@@ -3283,43 +3667,56 @@
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Fender_Typ_F_2.jpg?v=1747344496"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Fender_Typ_F_2.jpg?v=1747344496",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderbezug-typ-farbgarantie-100.jpg?v=1753359418"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderbezug-typ-farbgarantie-100.jpg?v=1753359418",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderueberzug-typ-f-22-traumfaenger.jpg?v=1754645490"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderueberzug-typ-f-22-traumfaenger.jpg?v=1754645490",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderueberzug-typ-f-4.jpg?v=1754645490"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderueberzug-typ-f-4.jpg?v=1754645490",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Velour_navy_gold.jpg?v=1754645490"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Velour_navy_gold.jpg?v=1754645490",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderbezug-typ-f-sichtbarkeit-100.jpg?v=1754645490"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderbezug-typ-f-sichtbarkeit-100.jpg?v=1754645490",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderueberzug-typ-f-2.jpg?v=1754645490"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderueberzug-typ-f-2.jpg?v=1754645490",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderbezug-typ-f-personalisierung-100.jpg?v=1754645490"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderbezug-typ-f-personalisierung-100.jpg?v=1754645490",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderueberzug-typ-f-14.jpg?v=1754645490"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderueberzug-typ-f-14.jpg?v=1754645490",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderueberzug-typ-f-16.jpg?v=1754645490"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderueberzug-typ-f-16.jpg?v=1754645490",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderueberzug-typ-f-8.jpg?v=1754645490"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderueberzug-typ-f-8.jpg?v=1754645490",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderbezug-typ-f-made-in-germany-100.jpg?v=1754645490"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/fenderbezug-typ-f-made-in-germany-100.jpg?v=1754645490",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/loom-9.jpg?v=1754645490"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/loom-9.jpg?v=1754645490",
+        "alt": null
       }
     ]
   },
@@ -3333,28 +3730,33 @@
     "tags": [
       "innovaciones"
     ],
-    "price": "167.23",
+    "price": "199.00",
+    "configurable": false,
     "variants": [
       {
         "id": 53851271987545,
         "title": "Título por defecto",
-        "price": "167.23",
+        "price": "199.00",
         "sku": "",
         "available": true
       }
     ],
     "images": [
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/AnchorRoll9_3__WWW.jpg?v=1738656576"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/AnchorRoll9_3__WWW.jpg?v=1738656576",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/AnchorRoll_im_Einsatz.jpg?v=1759220226"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/AnchorRoll_im_Einsatz.jpg?v=1759220226",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/AnchorRoll10_4.jpg?v=1759220113"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/AnchorRoll10_4.jpg?v=1759220113",
+        "alt": null
       },
       {
-        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_6441.jpg?v=1759220139"
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_6441.jpg?v=1759220139",
+        "alt": null
       }
     ]
   }

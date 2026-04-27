@@ -65,6 +65,21 @@
   </div>
 </template>
 
+<script setup lang="ts">
+import { usePageMeta } from '../composables/useMeta'
+
+usePageMeta({
+  es: {
+    title: 'Política de Privacidad',
+    description: 'Política de privacidad de Boat Solutions International — cómo tratamos tus datos personales.',
+  },
+  en: {
+    title: 'Privacy Policy',
+    description: 'Boat Solutions International privacy policy — how we handle your personal data.',
+  },
+})
+</script>
+
 <style scoped>
 .hero {
   background: var(--color-meteorite-dark);

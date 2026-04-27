@@ -1,20 +1,19 @@
 <template>
   <div class="home">
-    <section class="hero">
-      <video class="hero-bg" autoplay muted loop playsinline>
-        <source src="https://pub-e19f3243d179441cbc3adda22f8d74fc.r2.dev/videoHome.mp4" type="video/mp4" />
-      </video>
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <h1 class="hero-title">{{ t.heroTitle }}</h1>
-        <p class="hero-subtitle">{{ t.heroSubtitle }}</p>
-        <div class="hero-buttons">
-          <button class="btn btn-primary" @click="emit('open-booking', 'booking')">{{ t.heroBook }}</button>
-          <button class="btn btn-outline" @click="emit('open-booking', 'consulting')">{{ t.heroConsult }}</button>
-        </div>
-        <p class="hero-note">{{ t.heroNote }}</p>
+    <HeroSection
+      :bg-video="cdnVideo('videoHome.mp4')"
+      min-height="100vh"
+      align="center"
+      max-width="900px"
+    >
+      <h1 class="hero-title">{{ t.heroTitle }}</h1>
+      <p class="hero-subtitle">{{ t.heroSubtitle }}</p>
+      <div class="hero-buttons">
+        <button class="btn btn-primary" @click="openBooking('booking')">{{ t.heroBook }}</button>
+        <button class="btn btn-outline" @click="openBooking('consulting')">{{ t.heroConsult }}</button>
       </div>
-    </section>
+      <p class="hero-note">{{ t.heroNote }}</p>
+    </HeroSection>
 
     <section id="servicios" class="section services">
       <div class="container">
@@ -24,35 +23,35 @@
         <div class="services-grid">
           <div class="service-card">
             <div class="service-img-wrap">
-              <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=600,fit=crop/AMqDOgByPghjN30x/img_3592-mp84x25VeJCLqWJL.JPG" alt="Soluciones a medida" />
+              <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=600,fit=crop/AMqDOgByPghjN30x/img_3592-mp84x25VeJCLqWJL.JPG" alt="Soluciones a medida" loading="lazy" />
             </div>
             <div class="service-body">
               <h3>{{ t.service1Title }}</h3>
               <p>{{ t.service1Desc }}</p>
-              <button class="btn btn-outline" @click="emit('open-booking', 'consulting')">{{ t.service1Btn }}</button>
+              <button class="btn btn-outline" @click="openBooking('consulting')">{{ t.service1Btn }}</button>
             </div>
           </div>
 
           <div class="service-card">
             <div class="service-img-wrap">
-              <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=600,fit=crop/AMqDOgByPghjN30x/pulir-baiona-m5K8N07gwlSrDxWn.png" alt="Realce estetico" />
+              <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=600,fit=crop/AMqDOgByPghjN30x/pulir-baiona-m5K8N07gwlSrDxWn.png" alt="Realce estetico" loading="lazy" />
             </div>
             <div class="service-body">
               <h3>{{ t.service2Title }}</h3>
               <p>{{ t.service2Desc }}</p>
-              <button class="btn btn-outline" @click="emit('open-booking', 'consulting')">{{ t.service2Btn }}</button>
+              <button class="btn btn-outline" @click="openBooking('consulting')">{{ t.service2Btn }}</button>
               <span class="service-note">{{ t.service2Note }}</span>
             </div>
           </div>
 
           <div class="service-card">
             <div class="service-img-wrap">
-              <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=600,fit=crop/AMqDOgByPghjN30x/img_20220420_090516-yYEsKX76VSkhJu6A.jpg" alt="Traslados" />
+              <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=600,fit=crop/AMqDOgByPghjN30x/img_20220420_090516-yYEsKX76VSkhJu6A.jpg" alt="Traslados" loading="lazy" />
             </div>
             <div class="service-body">
               <h3>{{ t.service3Title }}</h3>
               <p>{{ t.service3Desc }}</p>
-              <button class="btn btn-outline" @click="emit('open-booking', 'consulting')">{{ t.service3Btn }}</button>
+              <button class="btn btn-outline" @click="openBooking('consulting')">{{ t.service3Btn }}</button>
             </div>
           </div>
         </div>
@@ -65,7 +64,7 @@
 
         <div class="project-card">
           <div class="project-image">
-            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=800,fit=crop/AMqDOgByPghjN30x/img_23233-yxk0N83Y27Icf47I.jpg" alt="Dulcinea" />
+            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=800,fit=crop/AMqDOgByPghjN30x/img_23233-yxk0N83Y27Icf47I.jpg" alt="Dulcinea" loading="lazy" />
           </div>
           <div class="project-info">
             <h3>DULCINEA</h3>
@@ -77,7 +76,7 @@
 
         <div class="project-card reverse">
           <div class="project-image">
-            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=800,fit=crop/AMqDOgByPghjN30x/img_1681-zR73hJx3RTqLfd01.jpg" alt="Marcela" />
+            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=800,fit=crop/AMqDOgByPghjN30x/img_1681-zR73hJx3RTqLfd01.jpg" alt="Marcela" loading="lazy" />
           </div>
           <div class="project-info">
             <h3>MARCELA</h3>
@@ -146,7 +145,7 @@
                 <span class="contact-label">{{ lang === 'en' ? 'Location' : 'Ubicación' }}:</span>
                 <span>{{ t.contactLocation }}</span>
               </div>
-              <button class="btn btn-primary btn-full" @click="emit('open-booking', 'consulting')">
+              <button class="btn btn-primary btn-full" @click="openBooking('consulting')">
                 {{ t.bookBtn }}
               </button>
             </div>
@@ -159,9 +158,24 @@
 
 <script setup lang="ts">
 import CalendarWidget from '../components/CalendarWidget.vue'
+import HeroSection from '../components/HeroSection.vue'
 import { useLanguage } from '../composables/useLanguage'
+import { useBooking } from '../composables/useBooking'
+import { usePageMeta } from '../composables/useMeta'
+import { cdnVideo } from '../config'
 
-const emit = defineEmits<{ 'open-booking': [type: string] }>()
+usePageMeta({
+  es: {
+    title: 'Gestión, mantenimiento y traslado de barcos',
+    description: 'Boat Solutions International acompaña al armador desde la idea hasta la botadura. Consultoría, gestión integral, detailing y traslados náuticos.',
+  },
+  en: {
+    title: 'Yacht management, maintenance and transport',
+    description: 'Boat Solutions International supports yacht owners from concept to launch. Consulting, integral management, detailing and nautical transport.',
+  },
+})
+
+const { open: openBooking } = useBooking()
 const { lang, useT } = useLanguage()
 const t = useT('home')
 
@@ -173,41 +187,11 @@ const galleryImages = [
 ]
 
 const handleDateSelect = (data: { date: unknown; time: string | null }) => {
-  if (data.time) emit('open-booking', 'consulting')
+  if (data.time) openBooking('consulting')
 }
 </script>
 
 <style scoped>
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  position: relative;
-  background: var(--color-meteorite-dark);
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(8, 16, 24, 0.82) 0%, rgba(66, 104, 135, 0.65) 100%);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  color: var(--color-light);
-  padding: 140px 20px 80px;
-}
-
 .hero-title {
   font-size: 3rem;
   font-weight: 700;

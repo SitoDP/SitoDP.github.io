@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <video class="footer-video" autoplay muted loop playsinline>
-      <source src="https://pub-e19f3243d179441cbc3adda22f8d74fc.r2.dev/footer-bg.mp4" type="video/mp4" />
+      <source :src="cdnVideo('footer-bg.mp4')" type="video/mp4" />
     </video>
     <div class="footer-overlay"></div>
     <div class="container">
@@ -45,17 +45,17 @@
 
         <div class="footer-links">
           <h4>Legal</h4>
-          <router-link to="/politica-de-privacidad">{{ lbl.privacy }}</router-link>
-          <router-link to="/terminos-y-condiciones">{{ lbl.terms }}</router-link>
+          <router-link :to="to('/politica-de-privacidad')">{{ lbl.privacy }}</router-link>
+          <router-link :to="to('/terminos-y-condiciones')">{{ lbl.terms }}</router-link>
         </div>
       </div>
 
       <div class="footer-bottom">
         <p>Design and Photos by Calixto Abalo Rodríguez</p>
         <div class="footer-legal-links">
-          <router-link to="/politica-de-privacidad">Privacidad</router-link>
+          <router-link :to="to('/politica-de-privacidad')">{{ lbl.privacy }}</router-link>
           <span>·</span>
-          <router-link to="/terminos-y-condiciones">Términos</router-link>
+          <router-link :to="to('/terminos-y-condiciones')">{{ lbl.terms }}</router-link>
         </div>
         <p>© 2025. All rights reserved.</p>
       </div>
@@ -64,32 +64,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import { useLanguage } from '../composables/useLanguage'
+import { cdnVideo } from '../config'
 
-const { lang, to } = useLanguage()
-
-const lbl = computed(() => lang.value === 'en' ? {
-  contact: 'Contact',
-  contactBtn: 'Contact us',
-  navigation: 'Navigation',
-  home: 'Home',
-  about: 'About Us',
-  projects: 'Projects',
-  gallery: 'Gallery',
-  privacy: 'Privacy Policy',
-  terms: 'Terms & Conditions',
-} : {
-  contact: 'Contacto',
-  contactBtn: 'Contactar',
-  navigation: 'Navegación',
-  home: 'Inicio',
-  about: 'Nosotros',
-  projects: 'Proyectos',
-  gallery: 'Galería',
-  privacy: 'Política de Privacidad',
-  terms: 'Términos y Condiciones',
-})
+const { to, useT } = useLanguage()
+const lbl = useT('footer')
 </script>
 
 <style scoped>

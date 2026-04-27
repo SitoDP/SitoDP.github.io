@@ -1,15 +1,16 @@
 <template>
   <div class="yacht-logistics">
-    <section class="hero">
-      <div class="hero-bg"></div>
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <p class="hero-label">{{ t.heroLabel }}</p>
-        <h1 class="hero-title">{{ t.heroTitle }}</h1>
-        <p class="hero-subtitle">{{ t.heroSubtitle }}</p>
-        <button class="btn btn-primary" @click="emit('open-booking', 'consulting')">{{ t.heroBtn }}</button>
-      </div>
-    </section>
+    <HeroSection
+      bg-image="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1920,fit=crop/AMqDOgByPghjN30x/img_1681-zR73hJx3RTqLfd01.jpg"
+      min-height="65vh"
+      max-width="820px"
+      overlay="strong"
+    >
+      <p class="hero-label">{{ t.heroLabel }}</p>
+      <h1 class="hero-title">{{ t.heroTitle }}</h1>
+      <p class="hero-subtitle">{{ t.heroSubtitle }}</p>
+      <button class="btn btn-primary" @click="openBooking('consulting')">{{ t.heroBtn }}</button>
+    </HeroSection>
 
     <section class="section intro">
       <div class="container intro-inner">
@@ -140,7 +141,7 @@
               <p class="result-label">{{ t.resultLabel }}</p>
               <p class="result-price">{{ formattedPrice }}</p>
               <p class="result-note">{{ t.resultNote }}</p>
-              <button class="btn btn-primary" @click="emit('open-booking', 'consulting')">
+              <button class="btn btn-primary" @click="openBooking('consulting')">
                 {{ t.calcBtn }}
               </button>
             </div>
@@ -222,7 +223,7 @@
                 +34 676 625 595
               </a>
             </div>
-            <button class="btn btn-primary" @click="emit('open-booking', 'consulting')">
+            <button class="btn btn-primary" @click="openBooking('consulting')">
               {{ t.bookBtn }}
             </button>
           </div>
@@ -235,9 +236,23 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import CalendarWidget from '../components/CalendarWidget.vue'
+import HeroSection from '../components/HeroSection.vue'
 import { useLanguage } from '../composables/useLanguage'
+import { useBooking } from '../composables/useBooking'
+import { usePageMeta } from '../composables/useMeta'
 
-const emit = defineEmits<{ 'open-booking': [type: string] }>()
+usePageMeta({
+  es: {
+    title: 'Yacht Logistics',
+    description: 'Traslados de embarcaciones por mar y tierra. Flota completa o barco individual con seguimiento total desde origen a destino.',
+  },
+  en: {
+    title: 'Yacht Logistics',
+    description: 'Boat transport by sea and land. Full fleet or single yacht with end-to-end tracking from origin to destination.',
+  },
+})
+
+const { open: openBooking } = useBooking()
 const { useT } = useLanguage()
 const t = useT('logistics')
 
@@ -266,39 +281,11 @@ const formattedPrice = computed(() => {
 })
 
 const handleDateSelect = (data: { date: unknown; time: string | null }) => {
-  if (data.date && data.time) emit('open-booking', 'consulting')
+  if (data.date && data.time) openBooking('consulting')
 }
 </script>
 
 <style scoped>
-.hero {
-  min-height: 65vh;
-  display: flex;
-  align-items: center;
-  position: relative;
-  background: var(--color-meteorite-dark);
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background: url('https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1920,fit=crop/AMqDOgByPghjN30x/img_1681-zR73hJx3RTqLfd01.jpg') center/cover no-repeat;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(8, 16, 24, 0.88) 0%, rgba(66, 104, 135, 0.6) 100%);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  color: var(--color-light);
-  padding: 140px 20px 80px;
-  max-width: 820px;
-}
-
 .hero-label {
   font-family: var(--font-heading);
   font-size: 0.8rem;

@@ -51,7 +51,7 @@
       <div class="container">
         <h2>{{ t.ctaTitle }}</h2>
         <p>{{ t.ctaText }}</p>
-        <button class="btn btn-primary btn-large" @click="emit('open-booking', 'consulting')">
+        <button class="btn btn-primary btn-large" @click="openBooking('consulting')">
           {{ t.ctaBtn }}
         </button>
       </div>
@@ -61,8 +61,21 @@
 
 <script setup lang="ts">
 import { useLanguage } from '../composables/useLanguage'
+import { useBooking } from '../composables/useBooking'
+import { usePageMeta } from '../composables/useMeta'
 
-const emit = defineEmits<{ 'open-booking': [type: string] }>()
+usePageMeta({
+  es: {
+    title: 'Proyectos',
+    description: 'Casos reales de gestión, mantenimiento y traslado de embarcaciones por Boat Solutions International.',
+  },
+  en: {
+    title: 'Projects',
+    description: 'Real cases of yacht management, maintenance and transport delivered by Boat Solutions International.',
+  },
+})
+
+const { open: openBooking } = useBooking()
 const { useT } = useLanguage()
 const t = useT('proyectos')
 </script>

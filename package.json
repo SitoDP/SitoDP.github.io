@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "build": "vue-tsc && vite build && tsx scripts/generate-sitemap.ts",
     "preview": "vite preview",
     "type-check": "vue-tsc --noEmit",
     "test": "vitest",
@@ -14,10 +14,12 @@
     "sync:products": "tsx scripts/sync-products.ts"
   },
   "dependencies": {
+    "@unhead/vue": "^3.0.5",
     "vue": "^3.5.32",
     "vue-router": "^4.6.4"
   },
   "devDependencies": {
+    "@types/node": "^25.6.0",
     "@vitejs/plugin-vue": "^6.0.5",
     "@vitest/coverage-v8": "^3.2.0",
     "@vue/test-utils": "^2.4.6",
@@ -26,6 +28,7 @@
     "typescript": "^5.8.3",
     "vite": "^8.0.4",
     "vitest": "^3.2.0",
-    "vue-tsc": "^2.2.10"
+    "vue-tsc": "^2.2.10",
+    "zod": "^4.3.6"
   }
 }

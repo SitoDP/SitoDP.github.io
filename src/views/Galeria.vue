@@ -52,6 +52,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useLanguage } from '../composables/useLanguage'
+import { usePageMeta } from '../composables/useMeta'
 import imgDulcinea1 from '../assets/dulcinea1.jpeg'
 import imgDulcineaConsulting from '../assets/dulcineaConsulting.jpeg'
 import imgMarcela1 from '../assets/marcela1.jpeg'
@@ -59,6 +60,17 @@ import imgMarcela2 from '../assets/marcela2.jpeg'
 
 const { useT } = useLanguage()
 const t = useT('galeria')
+
+usePageMeta({
+  es: {
+    title: 'Galería',
+    description: 'Galería de proyectos náuticos: gestión, traslados, detailing y experiencias en las Rías Baixas.',
+  },
+  en: {
+    title: 'Gallery',
+    description: 'Nautical project gallery: management, transport, detailing and experiences in Galicia.',
+  },
+})
 
 interface GalleryImage {
   src: string

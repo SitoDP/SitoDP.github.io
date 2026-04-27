@@ -74,8 +74,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed, reactive, ref, watch } from 'vue'
+import { reactive, ref, toRef, watch } from 'vue'
 import { useLanguage } from '../composables/useLanguage'
+import { useModal } from '../composables/useModal'
+import { requireEnv } from '../lib/env'
 
 interface Props {
   isOpen: boolean
@@ -86,9 +88,11 @@ interface Props {
 const props = defineProps<Props>()
 const emit = defineEmits<{ close: [] }>()
 
-const { lang } = useLanguage()
+const { useT } = useLanguage()
+const t = useT('quote')
+const SCRIPT_URL = requireEnv('VITE_SCRIPT_URL')
 
-const SCRIPT_URL = import.meta.env.VITE_SCRIPT_URL as string
+useModal({ isOpen: toRef(props, 'isOpen'), onClose: () => emit('close') })
 
 const form = reactive({ name: '', email: '', phone: '', specs: '' })
 const errors = reactive({ name: '', email: '', specs: '' })
@@ -165,43 +169,6 @@ async function handleSubmit() {
   }
 }
 
-const t = computed(() =>
-  lang.value === 'en'
-    ? {
-        title: 'Request a quote',
-        name: 'Full name',
-        namePlaceholder: 'Your name',
-        email: 'Email',
-        phone: 'Phone',
-        specs: 'Customization details',
-        specsPlaceholder: 'Dimensions, fabric colour, custom text/logo, desired quantity...',
-        submit: 'Request quote',
-        sending: 'Sending...',
-        successTitle: 'Request sent',
-        successMessage: "We'll reply with a personalized quote within 24h.",
-        error: 'Something went wrong. Please try again or email us directly.',
-        errName: 'Please enter your name',
-        errEmail: 'Please enter a valid email',
-        errSpecs: 'Describe what you need (min. 10 characters)',
-      }
-    : {
-        title: 'Solicitar presupuesto',
-        name: 'Nombre completo',
-        namePlaceholder: 'Tu nombre',
-        email: 'Email',
-        phone: 'Teléfono',
-        specs: 'Detalles de personalización',
-        specsPlaceholder: 'Medidas, color de tela, texto/logo a bordar, cantidad deseada...',
-        submit: 'Solicitar presupuesto',
-        sending: 'Enviando...',
-        successTitle: 'Solicitud enviada',
-        successMessage: 'Te responderemos con un presupuesto personalizado en menos de 24h.',
-        error: 'Ha ocurrido un error. Intenta de nuevo o escríbenos directamente.',
-        errName: 'Introduce tu nombre',
-        errEmail: 'Introduce un email válido',
-        errSpecs: 'Describe lo que necesitas (mín. 10 caracteres)',
-      },
-)
 </script>
 
 <style scoped>

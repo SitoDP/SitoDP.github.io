@@ -1,4 +1,5 @@
 import { mkdir, writeFile } from 'node:fs/promises'
+import { z } from 'zod'
 import { flushCache, hasDeepLKey, translate, translateMany } from './translate.js'
 
 const PRODUCTS_URL = 'https://fender-design.com/products.json?limit=250'
@@ -7,47 +8,54 @@ const PRODUCTS_OUTPUT = new URL('../src/data/products.json', import.meta.url)
 const COLLECTIONS_OUTPUT = new URL('../src/data/collections.json', import.meta.url)
 const DATA_DIR = new URL('../src/data/', import.meta.url)
 
-interface ShopifyVariant {
-  id: number
-  title: string
-  price: string
-  sku: string | null
-  available: boolean
-}
+// Runtime validation schemas — fail fast and loud if Fender Design's
+// Shopify response shape changes (better than letting Vue crash later).
+const ShopifyVariantSchema = z.object({
+  id: z.number(),
+  title: z.string(),
+  price: z.string(),
+  sku: z.string().nullable(),
+  available: z.boolean(),
+})
 
-interface ShopifyImage {
-  src: string
-  alt: string | null
-}
+const ShopifyImageSchema = z.object({
+  src: z.string().url(),
+  alt: z.string().nullable().optional(),
+})
 
-interface ShopifyProduct {
-  id: number
-  title: string
-  handle: string
-  body_html: string
-  vendor: string
-  product_type: string
-  tags: string[]
-  variants: ShopifyVariant[]
-  images: ShopifyImage[]
-}
+const ShopifyProductSchema = z.object({
+  id: z.number(),
+  title: z.string(),
+  handle: z.string(),
+  body_html: z.string(),
+  vendor: z.string(),
+  product_type: z.string(),
+  tags: z.array(z.string()),
+  variants: z.array(ShopifyVariantSchema),
+  images: z.array(ShopifyImageSchema),
+})
 
-interface ShopifyProductsResponse {
-  products: ShopifyProduct[]
-}
+const ShopifyProductsResponseSchema = z.object({
+  products: z.array(ShopifyProductSchema),
+})
 
-interface ShopifyCollection {
-  id: number
-  title: string
-  handle: string
-  description: string
-  image: ShopifyImage | null
-  products_count: number
-}
+const ShopifyCollectionSchema = z.object({
+  id: z.number(),
+  title: z.string(),
+  handle: z.string(),
+  description: z.string(),
+  image: ShopifyImageSchema.nullable(),
+  products_count: z.number(),
+})
 
-interface ShopifyCollectionsResponse {
-  collections: ShopifyCollection[]
-}
+const ShopifyCollectionsResponseSchema = z.object({
+  collections: z.array(ShopifyCollectionSchema),
+})
+
+type ShopifyProduct = z.infer<typeof ShopifyProductSchema>
+type ShopifyProductsResponse = z.infer<typeof ShopifyProductsResponseSchema>
+type ShopifyCollection = z.infer<typeof ShopifyCollectionSchema>
+type ShopifyCollectionsResponse = z.infer<typeof ShopifyCollectionsResponseSchema>
 
 interface Product {
   id: number
@@ -72,10 +80,17 @@ interface Collection {
   productIds: number[]
 }
 
-async function fetchJson<T>(url: string): Promise<T> {
+async function fetchValidated<T>(url: string, schema: z.ZodType<T>): Promise<T> {
   const res = await fetch(url)
   if (!res.ok) throw new Error(`Failed to fetch ${url}: ${res.status} ${res.statusText}`)
-  return res.json() as Promise<T>
+  const json = await res.json()
+  const result = schema.safeParse(json)
+  if (!result.success) {
+    console.error(`Validation failed for ${url}:`)
+    console.error(JSON.stringify(result.error.issues.slice(0, 5), null, 2))
+    throw new Error(`Response from ${url} did not match expected schema`)
+  }
+  return result.data
 }
 
 function mapProduct(p: ShopifyProduct): Product {
@@ -98,7 +113,7 @@ function mapProduct(p: ShopifyProduct): Product {
       sku: v.sku,
       available: v.available,
     })),
-    images: p.images.map((i) => ({ src: i.src, alt: i.alt })),
+    images: p.images.map((i) => ({ src: i.src, alt: i.alt ?? null })),
   }
 }
 
@@ -145,7 +160,7 @@ async function translateCollections(collections: Collection[]): Promise<void> {
 
 async function syncProducts(): Promise<Product[]> {
   console.log(`Fetching ${PRODUCTS_URL}`)
-  const { products: raw } = await fetchJson<ShopifyProductsResponse>(PRODUCTS_URL)
+  const { products: raw } = await fetchValidated(PRODUCTS_URL, ShopifyProductsResponseSchema)
   const products: Product[] = raw.map(mapProduct)
   console.log(`Fetched ${products.length} products`)
   return products
@@ -153,18 +168,18 @@ async function syncProducts(): Promise<Product[]> {
 
 async function syncCollections(): Promise<Collection[]> {
   console.log(`Fetching ${COLLECTIONS_URL}`)
-  const { collections: raw } = await fetchJson<ShopifyCollectionsResponse>(COLLECTIONS_URL)
+  const { collections: raw } = await fetchValidated(COLLECTIONS_URL, ShopifyCollectionsResponseSchema)
 
   const collections: Collection[] = await Promise.all(
     raw.map(async (c) => {
       const url = `https://fender-design.com/collections/${c.handle}/products.json?limit=250`
-      const { products } = await fetchJson<ShopifyProductsResponse>(url)
+      const { products } = await fetchValidated(url, ShopifyProductsResponseSchema)
       return {
         id: c.id,
         title: c.title,
         handle: c.handle,
         description: c.description,
-        image: c.image ? { src: c.image.src, alt: c.image.alt } : null,
+        image: c.image ? { src: c.image.src, alt: c.image.alt ?? null } : null,
         productIds: products.map((p) => p.id),
       }
     }),

@@ -140,6 +140,9 @@ interface FormErrors {
   time: string
 }
 
+import { toRef } from 'vue'
+import { useModal } from '../composables/useModal'
+
 const props = defineProps<{
   isOpen: boolean
   isConsulting: boolean
@@ -149,7 +152,10 @@ const emit = defineEmits<{
   close: []
 }>()
 
-const SCRIPT_URL = import.meta.env.VITE_SCRIPT_URL
+import { requireEnv } from '../lib/env'
+const SCRIPT_URL = requireEnv('VITE_SCRIPT_URL')
+
+useModal({ isOpen: toRef(props, 'isOpen'), onClose: () => emit('close') })
 
 const emptyForm = (): BookingForm => ({
   name: '', email: '', phone: '', boatType: '', date: '', time: '', comments: '',

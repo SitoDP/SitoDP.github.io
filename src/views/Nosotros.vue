@@ -106,7 +106,7 @@
         <div class="cta-box">
           <h2>{{ t.ctaTitle }}</h2>
           <p>{{ t.ctaText }}</p>
-          <button class="btn btn-primary btn-lg" @click="emit('open-booking', 'consulting')">{{ t.ctaBtn }}</button>
+          <button class="btn btn-primary btn-lg" @click="openBooking('consulting')">{{ t.ctaBtn }}</button>
         </div>
       </div>
     </section>
@@ -115,7 +115,21 @@
 
 <script setup lang="ts">
 import { useLanguage } from '../composables/useLanguage'
-const emit = defineEmits<{ 'open-booking': [type: string] }>()
+import { useBooking } from '../composables/useBooking'
+import { usePageMeta } from '../composables/useMeta'
+
+usePageMeta({
+  es: {
+    title: 'Sobre nosotros',
+    description: 'Alejandro y Calixto, especialistas en gestión náutica, traslados y detailing en las Rías Baixas.',
+  },
+  en: {
+    title: 'About us',
+    description: 'Alejandro and Calixto, experts in yacht management, transport and detailing in Galicia, Spain.',
+  },
+})
+
+const { open: openBooking } = useBooking()
 const { useT } = useLanguage()
 const t = useT('nosotros')
 </script>

@@ -1,38 +1,46 @@
 <template>
   <div class="calendar-widget">
     <div class="calendar-header">
-      <button @click="prevMonth" class="cal-nav" aria-label="Mes anterior">&lt;</button>
-      <h3>{{ monthNames[currentMonth] }} {{ currentYear }}</h3>
-      <button @click="nextMonth" class="cal-nav" aria-label="Mes siguiente">&gt;</button>
+      <button @click="prevMonth" class="cal-nav" :aria-label="t.prev" type="button">&lt;</button>
+      <h3>{{ monthName }} {{ currentYear }}</h3>
+      <button @click="nextMonth" class="cal-nav" :aria-label="t.next" type="button">&gt;</button>
     </div>
 
-    <div class="calendar-weekdays">
-      <span v-for="day in weekdays" :key="day">{{ day }}</span>
+    <div class="calendar-weekdays" role="row">
+      <span v-for="day in weekdays" :key="day" role="columnheader">{{ day }}</span>
     </div>
 
-    <div class="calendar-days">
-      <span
-        v-for="(day, index) in calendarDays"
-        :key="index"
-        :class="{
-          empty: !day,
-          today: isToday(day),
-          selected: isSelected(day),
-          disabled: isDisabled(day),
-        }"
-        @click="selectDay(day)"
-      >
-        {{ day || '' }}
-      </span>
+    <div class="calendar-days" role="grid" :aria-label="t.gridLabel">
+      <template v-for="(day, index) in calendarDays" :key="index">
+        <span v-if="!day" class="day empty" aria-hidden="true"></span>
+        <button
+          v-else
+          type="button"
+          class="day"
+          :class="{
+            today: isToday(day),
+            selected: isSelected(day),
+            disabled: isDisabled(day),
+          }"
+          :disabled="isDisabled(day)"
+          :aria-label="dayLabel(day)"
+          :aria-pressed="isSelected(day)"
+          @click="selectDay(day)"
+        >
+          {{ day }}
+        </button>
+      </template>
     </div>
 
     <div class="time-slots" v-if="selectedDate">
-      <h4>Selecciona una hora:</h4>
+      <h4>{{ t.selectTime }}</h4>
       <div class="slots-grid">
         <button
           v-for="slot in timeSlots"
           :key="slot"
+          type="button"
           :class="{ active: selectedTime === slot }"
+          :aria-pressed="selectedTime === slot"
           @click="selectTime(slot)"
         >
           {{ slot }}
@@ -44,6 +52,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { useLanguage } from '../composables/useLanguage'
 
 interface DateSelection {
   day: number
@@ -55,9 +64,24 @@ const emit = defineEmits<{
   select: [{ date: DateSelection | null; time: string | null }]
 }>()
 
-const weekdays = ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom']
-const monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-                    'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+const { lang } = useLanguage()
+
+const t = computed(() =>
+  lang.value === 'en'
+    ? {
+        prev: 'Previous month',
+        next: 'Next month',
+        gridLabel: 'Calendar grid, use arrow keys to navigate days',
+        selectTime: 'Select a time:',
+      }
+    : {
+        prev: 'Mes anterior',
+        next: 'Mes siguiente',
+        gridLabel: 'Cuadrícula del calendario, usa las flechas del teclado para navegar',
+        selectTime: 'Selecciona una hora:',
+      },
+)
+
 const timeSlots = ['09:00', '10:00', '11:00', '12:00', '14:00', '15:00', '16:00', '17:00']
 
 const today = new Date()
@@ -65,6 +89,23 @@ const currentMonth = ref(today.getMonth())
 const currentYear = ref(today.getFullYear())
 const selectedDate = ref<DateSelection | null>(null)
 const selectedTime = ref<string | null>(null)
+
+const localeCode = computed(() => (lang.value === 'en' ? 'en-GB' : 'es-ES'))
+
+const weekdays = computed(() => {
+  // Build localized short weekday names starting on Monday
+  const fmt = new Intl.DateTimeFormat(localeCode.value, { weekday: 'short' })
+  // 2024-01-01 was a Monday — use it as anchor
+  return Array.from({ length: 7 }, (_, i) => {
+    const d = new Date(2024, 0, 1 + i)
+    return fmt.format(d).replace('.', '')
+  })
+})
+
+const monthName = computed(() => {
+  const fmt = new Intl.DateTimeFormat(localeCode.value, { month: 'long' })
+  return fmt.format(new Date(currentYear.value, currentMonth.value, 1))
+})
 
 const calendarDays = computed(() => {
   const firstDay = new Date(currentYear.value, currentMonth.value, 1)
@@ -81,7 +122,7 @@ const calendarDays = computed(() => {
   return days
 })
 
-const prevMonth = () => {
+function prevMonth() {
   if (currentMonth.value === 0) {
     currentMonth.value = 11
     currentYear.value--
@@ -90,7 +131,7 @@ const prevMonth = () => {
   }
 }
 
-const nextMonth = () => {
+function nextMonth() {
   if (currentMonth.value === 11) {
     currentMonth.value = 0
     currentYear.value++
@@ -99,35 +140,40 @@ const nextMonth = () => {
   }
 }
 
-const isToday = (day: number | null): boolean => {
+function isToday(day: number | null): boolean {
   if (!day) return false
   return day === today.getDate() &&
     currentMonth.value === today.getMonth() &&
     currentYear.value === today.getFullYear()
 }
 
-const isSelected = (day: number | null): boolean => {
+function isSelected(day: number | null): boolean {
   if (!day || !selectedDate.value) return false
   return day === selectedDate.value.day &&
     currentMonth.value === selectedDate.value.month &&
     currentYear.value === selectedDate.value.year
 }
 
-const isDisabled = (day: number | null): boolean => {
+function isDisabled(day: number | null): boolean {
   if (!day) return true
   const date = new Date(currentYear.value, currentMonth.value, day)
   const todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate())
   return date < todayStart
 }
 
-const selectDay = (day: number | null) => {
+function dayLabel(day: number): string {
+  const date = new Date(currentYear.value, currentMonth.value, day)
+  return new Intl.DateTimeFormat(localeCode.value, { dateStyle: 'full' }).format(date)
+}
+
+function selectDay(day: number | null) {
   if (!day || isDisabled(day)) return
   selectedDate.value = { day, month: currentMonth.value, year: currentYear.value }
   selectedTime.value = null
   emit('select', { date: selectedDate.value, time: null })
 }
 
-const selectTime = (slot: string) => {
+function selectTime(slot: string) {
   selectedTime.value = slot
   emit('select', { date: selectedDate.value, time: slot })
 }
@@ -151,6 +197,7 @@ const selectTime = (slot: string) => {
 .calendar-header h3 {
   color: var(--color-meteorite-dark);
   font-size: 1.25rem;
+  text-transform: capitalize;
 }
 
 .cal-nav {
@@ -164,9 +211,11 @@ const selectTime = (slot: string) => {
   transition: all 0.3s;
 }
 
-.cal-nav:hover {
+.cal-nav:hover,
+.cal-nav:focus-visible {
   background: var(--color-primary);
   color: white;
+  outline: none;
 }
 
 .calendar-weekdays {
@@ -182,6 +231,7 @@ const selectTime = (slot: string) => {
   font-weight: 600;
   color: var(--color-gray);
   padding: 8px 0;
+  text-transform: capitalize;
 }
 
 .calendar-days {
@@ -190,36 +240,45 @@ const selectTime = (slot: string) => {
   gap: 4px;
 }
 
-.calendar-days span {
+.day {
   text-align: center;
   padding: 10px;
   border-radius: 8px;
-  cursor: pointer;
   font-weight: 500;
   transition: all 0.2s;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
 }
 
-.calendar-days span:not(.empty):not(.disabled):hover {
+.day:not(.empty):not(:disabled):hover,
+.day:not(.empty):not(:disabled):focus-visible {
   background: var(--color-primary-light);
   color: var(--color-primary);
+  outline: none;
 }
 
-.calendar-days span.today {
+.day.today {
   border: 2px solid var(--color-primary);
 }
 
-.calendar-days span.selected {
+.day.selected {
   background: var(--color-primary);
   color: white;
 }
 
-.calendar-days span.disabled {
+.day:disabled,
+.day.disabled {
   color: var(--color-gray-border);
   cursor: not-allowed;
 }
 
-.calendar-days span.empty {
+.day.empty {
   cursor: default;
+  pointer-events: none;
 }
 
 .time-slots {
@@ -249,9 +308,11 @@ const selectTime = (slot: string) => {
   transition: all 0.2s;
 }
 
-.slots-grid button:hover {
+.slots-grid button:hover,
+.slots-grid button:focus-visible {
   border-color: var(--color-primary);
   color: var(--color-primary);
+  outline: none;
 }
 
 .slots-grid button.active {

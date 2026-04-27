@@ -1,6 +1,16 @@
-import { useCart } from './useCart'
+import type { ComputedRef } from 'vue'
+import { optionalEnv } from '../lib/env'
+import type { Product, ProductVariant } from '../types/shop'
 
-const CHECKOUT_ENDPOINT = import.meta.env.VITE_STRIPE_CHECKOUT_URL as string | undefined
+const CHECKOUT_ENDPOINT = optionalEnv('VITE_STRIPE_CHECKOUT_URL')
+
+interface DetailedCartItem {
+  productId: number
+  variantId: number
+  quantity: number
+  product: Product
+  variant: ProductVariant
+}
 
 interface CheckoutLineItem {
   productId: number
@@ -12,9 +22,12 @@ interface CheckoutLineItem {
   image: string | null
 }
 
-export function useCheckout() {
-  const { detailedItems } = useCart()
-
+/**
+ * Stripe checkout hook. Takes the detailed cart items as input so it
+ * doesn't need to import products.json itself, keeping the composable
+ * tree-shakeable.
+ */
+export function useCheckout(detailedItems: ComputedRef<DetailedCartItem[]>) {
   async function checkout(): Promise<void> {
     if (!CHECKOUT_ENDPOINT) {
       throw new Error(

@@ -100,14 +100,18 @@ import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useLanguage } from '../composables/useLanguage'
 import { useCart } from '../composables/useCart'
+import { useToast } from '../composables/useToast'
+import { usePageMeta } from '../composables/useMeta'
 import productsData from '../data/products.json'
 import type { Product } from '../types/shop'
 import QuoteModal from '../components/QuoteModal.vue'
 
 const route = useRoute()
 const router = useRouter()
-const { lang, to } = useLanguage()
+const { lang, to, useT } = useLanguage()
+const t = useT('product')
 const { addItem } = useCart()
+const { show: showToast } = useToast()
 
 function goBack() {
   // Vue Router stores the previous URL in history.state.back when navigating within the SPA.
@@ -122,6 +126,20 @@ function goBack() {
 
 const products = productsData as Product[]
 const product = computed(() => products.find((p) => p.handle === route.params.handle))
+
+usePageMeta(
+  computed(() => {
+    const title = product.value?.title ?? 'Producto'
+    const description = product.value
+      ? `${product.value.title} — disponible en Boat Solutions International. Pedido gestionado por nosotros, envío directo de Fender Design.`
+      : 'Ficha de producto en la tienda Fender Design.'
+    const image = product.value?.images[0]?.src
+    return {
+      es: { title, description, image },
+      en: { title, description, image },
+    }
+  }),
+)
 
 const selectedVariantId = ref<number | null>(null)
 const quantity = ref(1)
@@ -156,37 +174,9 @@ function handleAdd() {
   addItem(product.value.id, selectedVariant.value.id, quantity.value)
   justAdded.value = true
   setTimeout(() => (justAdded.value = false), 2000)
+  showToast(t.value.added, 'success')
 }
 
-const t = computed(() =>
-  lang.value === 'en'
-    ? {
-        back: 'Back to shop',
-        variant: 'Variant',
-        quantity: 'Quantity',
-        addToCart: 'Add to cart',
-        unavailable: 'Unavailable',
-        added: '✓ Added to cart',
-        notFound: 'Product not found',
-        configurable: 'Made to order',
-        quotePrice: 'Request a quote',
-        configurableNote: 'This product is made to measure. Price depends on dimensions, fabric and personalization. Request a quote and we will reply within 24h.',
-        requestQuote: 'Request quote',
-      }
-    : {
-        back: 'Volver a la tienda',
-        variant: 'Variante',
-        quantity: 'Cantidad',
-        addToCart: 'Añadir al carrito',
-        unavailable: 'No disponible',
-        added: '✓ Añadido al carrito',
-        notFound: 'Producto no encontrado',
-        configurable: 'Hecho a medida',
-        quotePrice: 'Consultar precio',
-        configurableNote: 'Este producto se fabrica a medida. El precio depende de las dimensiones, el tejido y la personalización. Solicita un presupuesto y te responderemos en menos de 24h.',
-        requestQuote: 'Solicitar presupuesto',
-      },
-)
 </script>
 
 <style scoped>

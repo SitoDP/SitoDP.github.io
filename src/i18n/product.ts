@@ -1,0 +1,28 @@
+export const product = {
+  es: {
+    back: 'Volver a la tienda',
+    variant: 'Variante',
+    quantity: 'Cantidad',
+    addToCart: 'Añadir al carrito',
+    unavailable: 'No disponible',
+    added: '✓ Añadido al carrito',
+    notFound: 'Producto no encontrado',
+    configurable: 'Hecho a medida',
+    quotePrice: 'Consultar precio',
+    configurableNote: 'Este producto se fabrica a medida. El precio depende de las dimensiones, el tejido y la personalización. Solicita un presupuesto y te responderemos en menos de 24h.',
+    requestQuote: 'Solicitar presupuesto',
+  },
+  en: {
+    back: 'Back to shop',
+    variant: 'Variant',
+    quantity: 'Quantity',
+    addToCart: 'Add to cart',
+    unavailable: 'Unavailable',
+    added: '✓ Added to cart',
+    notFound: 'Product not found',
+    configurable: 'Made to order',
+    quotePrice: 'Request a quote',
+    configurableNote: 'This product is made to measure. Price depends on dimensions, fabric and personalization. Request a quote and we will reply within 24h.',
+    requestQuote: 'Request quote',
+  },
+}
