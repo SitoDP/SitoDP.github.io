@@ -77,7 +77,7 @@
 import { reactive, ref, toRef, watch } from 'vue'
 import { useLanguage } from '../composables/useLanguage'
 import { useModal } from '../composables/useModal'
-import { requireEnv } from '../lib/env'
+import { optionalEnv } from '../lib/env'
 
 interface Props {
   isOpen: boolean
@@ -90,7 +90,7 @@ const emit = defineEmits<{ close: [] }>()
 
 const { useT } = useLanguage()
 const t = useT('quote')
-const SCRIPT_URL = requireEnv('VITE_SCRIPT_URL')
+const SCRIPT_URL = optionalEnv('VITE_SCRIPT_URL')
 
 useModal({ isOpen: toRef(props, 'isOpen'), onClose: () => emit('close') })
 
@@ -140,6 +140,7 @@ function validate(): boolean {
 
 async function handleSubmit() {
   if (!validate()) return
+  if (!SCRIPT_URL) { submitError.value = true; return }
   submitting.value = true
   submitError.value = false
 

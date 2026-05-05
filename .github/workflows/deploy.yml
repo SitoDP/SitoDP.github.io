@@ -22,6 +22,8 @@ jobs:
       - run: npm ci
 
       - run: npm run build
+        env:
+          VITE_SCRIPT_URL: ${{ secrets.VITE_SCRIPT_URL }}
 
       - uses: peaceiris/actions-gh-pages@v3
         with:
