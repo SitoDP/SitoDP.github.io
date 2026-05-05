@@ -27,10 +27,21 @@
               v-model="form.email"
               type="email"
               placeholder="tu@email.com"
-              :class="{ 'input-error': errors.email }"
-              @input="errors.email = ''"
+              autocomplete="email"
+              inputmode="email"
+              :class="{ 'input-error': errors.email || emailFeedback?.errorCode }"
+              @input="errors.email = ''; emailFeedback = null"
+              @blur="onEmailBlur"
             />
             <span v-if="errors.email" class="field-error">{{ errors.email }}</span>
+            <span v-else-if="emailFeedback?.errorCode === 'typo'" class="field-error">
+              ¿Quizás quisiste escribir
+              <button type="button" class="email-suggestion" @click="applyEmailSuggestion">
+                {{ emailFeedback.suggestion }}</button>?
+            </span>
+            <span v-else-if="emailFeedback?.errorCode" class="field-error">
+              {{ emailErrorMessage }}
+            </span>
           </div>
 
           <div class="form-group">
@@ -120,7 +131,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { computed, ref, toRef } from 'vue'
+import { useModal } from '../composables/useModal'
+import { useLanguage } from '../composables/useLanguage'
+import { optionalEnv } from '../lib/env'
+import { validateEmail, type EmailValidation } from '../lib/email'
 
 interface BookingForm {
   name: string
@@ -140,9 +155,6 @@ interface FormErrors {
   time: string
 }
 
-import { toRef } from 'vue'
-import { useModal } from '../composables/useModal'
-
 const props = defineProps<{
   isOpen: boolean
   isConsulting: boolean
@@ -152,8 +164,9 @@ const emit = defineEmits<{
   close: []
 }>()
 
-import { optionalEnv } from '../lib/env'
 const SCRIPT_URL = optionalEnv('VITE_SCRIPT_URL')
+
+const { lang } = useLanguage()
 
 useModal({ isOpen: toRef(props, 'isOpen'), onClose: () => emit('close') })
 
@@ -170,19 +183,48 @@ const errors = ref<FormErrors>(emptyErrors())
 const submitting = ref(false)
 const success = ref(false)
 const submitError = ref(false)
+const emailFeedback = ref<EmailValidation | null>(null)
 
 const minDate = computed(() => new Date().toISOString().split('T')[0])
 
+const emailErrorMessage = computed(() => {
+  switch (emailFeedback.value?.errorCode) {
+    case 'empty':       return 'El email es obligatorio'
+    case 'format':      return 'El formato del correo no es válido'
+    case 'localPart':   return 'El nombre antes de la @ no parece correcto'
+    case 'domainDots':  return 'El dominio del correo tiene un punto mal puesto'
+    case 'tldShort':    return 'La extensión del dominio debe tener al menos 2 letras'
+    case 'tldInvalid':  return 'Ese dominio no se usa para correo real'
+    default:            return ''
+  }
+})
+
+const onEmailBlur = () => {
+  if (!form.value.email.trim()) { emailFeedback.value = null; return }
+  emailFeedback.value = validateEmail(form.value.email)
+}
+
+const applyEmailSuggestion = () => {
+  const sugg = emailFeedback.value?.suggestion
+  if (!sugg) return
+  form.value.email = sugg
+  emailFeedback.value = null
+}
+
 const validate = (): boolean => {
   const e = emptyErrors()
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   const phoneRegex = /^\+?[\d\s\-().]{7,}$/
 
   if (!form.value.name.trim()) e.name = 'El nombre es obligatorio'
   else if (form.value.name.trim().length < 2) e.name = 'Mínimo 2 caracteres'
 
-  if (!form.value.email.trim()) e.email = 'El email es obligatorio'
-  else if (!emailRegex.test(form.value.email)) e.email = 'El email no es válido'
+  const emailCheck = validateEmail(form.value.email)
+  if (!emailCheck.valid) {
+    e.email = emailCheck.errorCode === 'empty' ? 'El email es obligatorio' : 'El email no es válido'
+    emailFeedback.value = emailCheck
+  } else {
+    emailFeedback.value = null
+  }
 
   if (!form.value.phone.trim()) e.phone = 'El teléfono es obligatorio'
   else if (!phoneRegex.test(form.value.phone)) e.phone = 'El teléfono no es válido'
@@ -215,20 +257,26 @@ const handleSubmit = async () => {
   const timeout = setTimeout(() => controller.abort(), 10000)
 
   try {
-    await fetch(SCRIPT_URL, {
+    // Sin Content-Type para evitar el preflight CORS de Apps Script.
+    const res = await fetch(SCRIPT_URL, {
       method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         type: 'reserva',
+        language: lang.value,
         isConsulting: props.isConsulting,
         ...form.value,
       }),
       signal: controller.signal,
+      redirect: 'follow',
     })
+    if (!res.ok) throw new Error(`HTTP ${res.status}`)
+    const json = (await res.json().catch(() => ({ ok: true }))) as { ok?: boolean; error?: string }
+    if (json.ok === false) throw new Error(json.error || 'unknown')
     success.value = true
     setTimeout(close, 3500)
-  } catch {
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.error('[BookingModal] envío fallido:', err)
     submitError.value = true
   } finally {
     clearTimeout(timeout)
@@ -334,6 +382,18 @@ const handleSubmit = async () => {
   color: #dc2626;
   margin-top: 2px;
 }
+.email-suggestion {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+.email-suggestion:hover { color: var(--color-primary-dark); }
 
 .btn-full {
   width: 100%;

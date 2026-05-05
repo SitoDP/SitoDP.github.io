@@ -27,10 +27,21 @@
               v-model="form.email"
               type="email"
               placeholder="tu@email.com"
-              :class="{ 'input-error': errors.email }"
-              @input="errors.email = ''"
+              autocomplete="email"
+              inputmode="email"
+              :class="{ 'input-error': errors.email || emailFeedback?.errorCode }"
+              @input="errors.email = ''; emailFeedback = null"
+              @blur="onEmailBlur"
             />
             <span v-if="errors.email" class="field-error">{{ errors.email }}</span>
+            <span v-else-if="emailFeedback?.errorCode === 'typo'" class="field-error">
+              {{ t.didYouMean }}
+              <button type="button" class="email-suggestion" @click="applyEmailSuggestion">
+                {{ emailFeedback.suggestion }}</button>?
+            </span>
+            <span v-else-if="emailFeedback?.errorCode" class="field-error">
+              {{ emailErrorMessage }}
+            </span>
           </div>
 
           <div class="form-group">
@@ -74,10 +85,11 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref, toRef, watch } from 'vue'
+import { computed, reactive, ref, toRef, watch } from 'vue'
 import { useLanguage } from '../composables/useLanguage'
 import { useModal } from '../composables/useModal'
 import { optionalEnv } from '../lib/env'
+import { validateEmail, type EmailValidation } from '../lib/email'
 
 interface Props {
   isOpen: boolean
@@ -88,7 +100,7 @@ interface Props {
 const props = defineProps<Props>()
 const emit = defineEmits<{ close: [] }>()
 
-const { useT } = useLanguage()
+const { lang, useT } = useLanguage()
 const t = useT('quote')
 const SCRIPT_URL = optionalEnv('VITE_SCRIPT_URL')
 
@@ -99,6 +111,31 @@ const errors = reactive({ name: '', email: '', specs: '' })
 const submitting = ref(false)
 const submitError = ref(false)
 const success = ref(false)
+const emailFeedback = ref<EmailValidation | null>(null)
+
+const emailErrorMessage = computed(() => {
+  switch (emailFeedback.value?.errorCode) {
+    case 'empty':       return t.value.errEmail
+    case 'format':      return t.value.errEmailFormat
+    case 'localPart':   return t.value.errEmailLocalPart
+    case 'domainDots':  return t.value.errEmailDomainDots
+    case 'tldShort':    return t.value.errEmailTldShort
+    case 'tldInvalid':  return t.value.errEmailTldInvalid
+    default:            return ''
+  }
+})
+
+const onEmailBlur = () => {
+  if (!form.email.trim()) { emailFeedback.value = null; return }
+  emailFeedback.value = validateEmail(form.email)
+}
+
+const applyEmailSuggestion = () => {
+  const sugg = emailFeedback.value?.suggestion
+  if (!sugg) return
+  form.email = sugg
+  emailFeedback.value = null
+}
 
 watch(
   () => props.isOpen,
@@ -126,9 +163,13 @@ function validate(): boolean {
     errors.name = t.value.errName
     valid = false
   }
-  if (!form.email.trim() || !/^\S+@\S+\.\S+$/.test(form.email)) {
-    errors.email = t.value.errEmail
+  const emailCheck = validateEmail(form.email)
+  if (!emailCheck.valid) {
+    errors.email = emailCheck.errorCode === 'empty' ? t.value.errEmail : t.value.errEmail
+    emailFeedback.value = emailCheck
     valid = false
+  } else {
+    emailFeedback.value = null
   }
   if (!form.specs.trim() || form.specs.trim().length < 10) {
     errors.specs = t.value.errSpecs
@@ -148,21 +189,27 @@ async function handleSubmit() {
   const timeout = setTimeout(() => controller.abort(), 10000)
 
   try {
-    await fetch(SCRIPT_URL, {
+    // Sin Content-Type para evitar el preflight CORS de Apps Script.
+    const res = await fetch(SCRIPT_URL, {
       method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         type: 'quote',
+        language: lang.value,
         product: props.productTitle,
         productHandle: props.productHandle,
         ...form,
       }),
       signal: controller.signal,
+      redirect: 'follow',
     })
+    if (!res.ok) throw new Error(`HTTP ${res.status}`)
+    const json = (await res.json().catch(() => ({ ok: true }))) as { ok?: boolean; error?: string }
+    if (json.ok === false) throw new Error(json.error || 'unknown')
     success.value = true
     setTimeout(close, 4000)
-  } catch {
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.error('[QuoteModal] envío fallido:', err)
     submitError.value = true
   } finally {
     clearTimeout(timeout)
@@ -257,6 +304,18 @@ async function handleSubmit() {
   font-size: 0.78rem;
   font-family: var(--font-body);
 }
+.email-suggestion {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+.email-suggestion:hover { color: var(--color-primary-dark); }
 
 .submit-btn {
   margin-top: 8px;

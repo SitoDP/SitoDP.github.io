@@ -27,8 +27,19 @@
                 <div class="form-group">
                   <label for="c-email">{{ t.emailLabel }}</label>
                   <input id="c-email" v-model="form.email" type="email" :placeholder="t.emailPlaceholder"
-                    :class="{ 'input-error': errors.email }" @input="errors.email = ''" />
+                    autocomplete="email" inputmode="email"
+                    :class="{ 'input-error': errors.email || emailFeedback?.errorCode }"
+                    @input="errors.email = ''; emailFeedback = null"
+                    @blur="onEmailBlur" />
                   <span v-if="errors.email" class="field-error">{{ errors.email }}</span>
+                  <span v-else-if="emailFeedback?.errorCode === 'typo'" class="field-error">
+                    {{ t.emailDidYouMean }}
+                    <button type="button" class="email-suggestion" @click="applyEmailSuggestion">
+                      {{ emailFeedback.suggestion }}</button>?
+                  </span>
+                  <span v-else-if="emailFeedback?.errorCode" class="field-error">
+                    {{ emailErrorMessage }}
+                  </span>
                 </div>
               </div>
 
@@ -152,11 +163,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import CalendarWidget from '../components/CalendarWidget.vue'
 import { useLanguage } from '../composables/useLanguage'
 import { useBooking } from '../composables/useBooking'
 import { usePageMeta } from '../composables/useMeta'
+import { validateEmail, type EmailValidation } from '../lib/email'
 
 usePageMeta({
   es: {
@@ -179,7 +191,7 @@ interface FormErrors {
 }
 
 const { open: openBooking } = useBooking()
-const { useT } = useLanguage()
+const { lang, useT } = useLanguage()
 const t = useT('contacto')
 
 const SCRIPT_URL = import.meta.env.VITE_SCRIPT_URL
@@ -194,14 +206,46 @@ const errors = ref<FormErrors>(emptyErrors())
 const submitting = ref(false)
 const success = ref(false)
 const submitError = ref(false)
+const emailFeedback = ref<EmailValidation | null>(null)
+
+const emailErrorMessage = computed(() => {
+  const code = emailFeedback.value?.errorCode
+  if (!code) return ''
+  switch (code) {
+    case 'empty': return t.value.emailRequired
+    case 'format': return t.value.emailInvalid
+    case 'localPart': return t.value.emailLocalPart
+    case 'domainDots': return t.value.emailDomainDots
+    case 'tldShort': return t.value.emailTldShort
+    case 'tldInvalid': return t.value.emailTldInvalid
+    default: return t.value.emailInvalid
+  }
+})
+
+const onEmailBlur = () => {
+  if (!form.value.email.trim()) { emailFeedback.value = null; return }
+  emailFeedback.value = validateEmail(form.value.email)
+}
+
+const applyEmailSuggestion = () => {
+  const sugg = emailFeedback.value?.suggestion
+  if (!sugg) return
+  form.value.email = sugg
+  emailFeedback.value = null
+}
 
 const validate = (): boolean => {
   const e = emptyErrors()
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   if (!form.value.name.trim()) e.name = t.value.nameRequired
   else if (form.value.name.trim().length < 2) e.name = t.value.nameMinLength
-  if (!form.value.email.trim()) e.email = t.value.emailRequired
-  else if (!emailRegex.test(form.value.email)) e.email = t.value.emailInvalid
+  const emailCheck = validateEmail(form.value.email)
+  if (!emailCheck.valid) {
+    if (emailCheck.errorCode === 'empty') e.email = t.value.emailRequired
+    else e.email = t.value.emailInvalid
+    emailFeedback.value = emailCheck
+  } else {
+    emailFeedback.value = null
+  }
   if (!form.value.subject) e.subject = t.value.subjectRequired
   if (!form.value.message.trim()) e.message = t.value.messageRequired
   else if (form.value.message.trim().length < 10) e.message = t.value.messageTooShort
@@ -215,18 +259,26 @@ const handleSubmit = async () => {
   submitting.value = true
   submitError.value = false
   const controller = new AbortController()
-  const timeout = setTimeout(() => controller.abort(), 10000)
+  const timeout = setTimeout(() => controller.abort(), 15000)
   try {
-    await fetch(SCRIPT_URL, {
-      method: 'POST', mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ type: 'contacto', ...form.value }),
+    // Sin Content-Type para evitar el preflight CORS de Apps Script.
+    // El script lee el body crudo desde e.postData.contents.
+    const res = await fetch(SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify({ type: 'contacto', language: lang.value, ...form.value }),
       signal: controller.signal,
+      redirect: 'follow',
     })
+    if (!res.ok) throw new Error(`HTTP ${res.status}`)
+    const json = (await res.json().catch(() => ({ ok: true }))) as { ok?: boolean; error?: string }
+    if (json.ok === false) throw new Error(json.error || 'unknown')
     success.value = true
     form.value = emptyForm()
-    setTimeout(() => { success.value = false }, 6000)
-  } catch {
+    emailFeedback.value = null
+    setTimeout(() => { success.value = false }, 8000)
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.error('[Contacto] envío fallido:', err)
     submitError.value = true
   } finally {
     clearTimeout(timeout)
@@ -321,6 +373,18 @@ const handleDateSelect = (data: { date: unknown; time: string | null }) => {
 
 .input-error { border-color: #dc2626 !important; }
 .field-error { font-size: 0.8rem; color: #dc2626; }
+.email-suggestion {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+.email-suggestion:hover { color: var(--color-primary-dark); }
 
 .checkbox-group { flex-direction: row; align-items: flex-start; gap: 12px; }
 .checkbox-group input { width: 20px; height: 20px; margin-top: 2px; flex-shrink: 0; }
