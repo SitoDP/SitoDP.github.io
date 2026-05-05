@@ -1,0 +1,1 @@
+import{J as e,f as t}from"./_plugin-vue_export-helper-wZjU6Hsb.js";var n=e(!1),r=e(`booking`);function i(){let e=t(()=>r.value===`consulting`);function i(e=`booking`){r.value=e,n.value=!0}function a(){n.value=!1}return{isOpen:n,bookingType:r,isConsulting:e,open:i,close:a}}export{i as t};
