@@ -1444,14 +1444,14 @@
         "title": "azul/gris / 40 x 155 cm",
         "price": "25.13",
         "sku": null,
-        "available": true
+        "available": false
       },
       {
         "id": 57208687722841,
         "title": "azul/gris / 100 x 110 cm",
         "price": "41.93",
         "sku": null,
-        "available": true
+        "available": false
       },
       {
         "id": 57826717401433,
