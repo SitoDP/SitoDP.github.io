@@ -1444,7 +1444,7 @@
         "title": "azul/gris / 40 x 155 cm",
         "price": "25.13",
         "sku": null,
-        "available": false
+        "available": true
       },
       {
         "id": 57208687722841,
@@ -1458,7 +1458,7 @@
         "title": "azul/gris / por metro lineal (ancho: 155 cm)",
         "price": "50.34",
         "sku": null,
-        "available": true
+        "available": false
       }
     ],
     "images": [
