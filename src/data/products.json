@@ -1,5 +1,136 @@
 [
   {
+    "id": 16343632511321,
+    "title": "FlexiCover: un aspecto renovado para la tapicería de tu caravana",
+    "handle": "flexicover-frischer-look-fur-ihre-wohnwagenpolster",
+    "description": "<p class=\"isSelectedEnd\"><span>Convierte los cojines de tu autocaravana, furgoneta o caravana en un moderno y elegante conjunto de asientos en tan solo unos minutos. Nuestra innovadora funda tubular garantiza un ajuste perfecto, protege los cojines originales y le da a tu vehículo un aspecto renovado y personalizado.</span></p>\n<p class=\"isSelectedEnd\"><span>🔄 </span><strong><span>Ajuste</span></strong><br><strong><span>universal</span></strong><span>. Apto para tapizados con una anchura de entre 45 y 75 cm; se adapta con flexibilidad a casi cualquier forma y tamaño.</span></p>\n<p class=\"isSelectedEnd\"><span>🚐 </span><strong><span>Sin costuras y ajuste</span></strong><br><strong><span>perfecto </span></strong><span>Gracias a su elasticidad superior al 100 % y a la innovadora técnica de tejido circular, la funda se adapta de forma óptima a tus tapizados. Sin costuras molestas, sin arrugas: simplemente colócala y disfruta de la comodidad.</span></p>\n<p class=\"isSelectedEnd\"><span>💧 </span><strong><span>Repelente al agua y fácil</span></strong><br><strong><span>de cuidar</span></strong><span>. ¿Se te ha caído el café? ¿Se te ha volcado el vaso de agua? No hay problema. Los líquidos resbalan por la superficie y, en la mayoría de los casos, se limpian fácilmente. Ideal para el día a día en el camping con niños, mascotas y cuando estás de viaje. El tejido tiene un tratamiento repelente al agua, pero no es impermeable.</span></p>\n<p class=\"isSelectedEnd\"><span>🧼 </span><strong><span>Protege tus tapizados</span></strong><br><strong><span>originales</span></strong><span>. Protege de forma fiable tus tapizados contra la suciedad, los rayos UV, el desgaste, el pelo de mascotas y las marcas de uso diario. La funda se puede lavar a máquina y se puede cambiar en cualquier momento si es necesario.</span></p>\n<p class=\"isSelectedEnd\"><span>🌞 </span><strong><span>Robusto y duradero</span></strong><br><span>Diseñado para el uso diario en los desplazamientos. El material de alta calidad mantiene su forma, no destiñe y es agradablemente suave, incluso después de muchos viajes.</span></p>\n<p class=\"isSelectedEnd\"><span>🌱 </span><strong><span>Fabricado</span></strong><br><strong><span>de forma sostenible</span></strong><span>. Fabricado con un 90 % de poliéster reciclado procedente de botellas de PET y redes de pesca. Certificado según la norma OEKO-TEX® Standard 100 y totalmente reciclable.</span></p>\n<p><span>💰 </span><strong><span>La alternativa inteligente al retapizado</span></strong><br><span>: un aspecto renovado en lugar de un costoso retapizado. Ahorra tiempo y dinero y dale a tu autocaravana un nuevo aspecto en cualquier momento, a un coste significativamente menor que el de un cambio completo de tapicería.</span></p>",
+    "vendor": "fender-design",
+    "type": "",
+    "tags": [
+      "innovaciones"
+    ],
+    "price": "92.35",
+    "configurable": false,
+    "variants": [
+      {
+        "id": 58239613075801,
+        "title": "845 MUD - Gris / ⭐ 5m value pack🔖",
+        "price": "92.35",
+        "sku": null,
+        "available": true
+      },
+      {
+        "id": 58239613108569,
+        "title": "845 MUD - Gris / longitud en m libremente seleccionable",
+        "price": "20.08",
+        "sku": null,
+        "available": true
+      },
+      {
+        "id": 58239613141337,
+        "title": "510 SAHARA / ⭐ Paquete económico de 5 m🔖",
+        "price": "92.35",
+        "sku": null,
+        "available": true
+      },
+      {
+        "id": 58239613174105,
+        "title": "510 SAHARA / longitud en m libremente seleccionable",
+        "price": "20.08",
+        "sku": null,
+        "available": true
+      },
+      {
+        "id": 58239613206873,
+        "title": "014 OFFWHITE / ⭐ 5m value pack🔖",
+        "price": "92.35",
+        "sku": null,
+        "available": true
+      },
+      {
+        "id": 58239613239641,
+        "title": "014 OFFWHITE / longitud en m libremente seleccionable",
+        "price": "20.08",
+        "sku": null,
+        "available": true
+      },
+      {
+        "id": 58239613272409,
+        "title": "025 AZUL MARINO / ⭐ 5m value pack🔖",
+        "price": "92.35",
+        "sku": null,
+        "available": true
+      },
+      {
+        "id": 58239613305177,
+        "title": "025 AZUL NAVY / longitud en m libremente seleccionable",
+        "price": "20.08",
+        "sku": null,
+        "available": true
+      },
+      {
+        "id": 58239613337945,
+        "title": "099 NEGRO / ⭐ 5m value pack🔖",
+        "price": "92.35",
+        "sku": null,
+        "available": true
+      },
+      {
+        "id": 58239613370713,
+        "title": "099 NEGRO / longitud en m libremente seleccionable",
+        "price": "20.08",
+        "sku": null,
+        "available": true
+      }
+    ],
+    "images": [
+      {
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/ChatGPT_Image_7._Juni_2026_23_55_55.png?v=1780869618",
+        "alt": null
+      },
+      {
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/400458F6-178A-43CE-9803-942251D56434.png?v=1778791308",
+        "alt": null
+      },
+      {
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_8068.jpg?v=1775770098",
+        "alt": null
+      },
+      {
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/HoneycombStruktur.png?v=1775770098",
+        "alt": null
+      },
+      {
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/KonturierendesKissenmitTextur_1.png?v=1775770098",
+        "alt": null
+      },
+      {
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Snapshot_3.png?v=1775770098",
+        "alt": null
+      },
+      {
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/Snapshot_4.png?v=1775770098",
+        "alt": null
+      },
+      {
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/168de2c4-a621-4b7b-8a49-9466c99305ae.jpg?v=1775770098",
+        "alt": null
+      },
+      {
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/294cd5c9-87d3-4ce7-8ce1-9baafa2a316e.jpg?v=1775770098",
+        "alt": null
+      },
+      {
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/9e3e44d0-4321-4619-9d78-f2a13c82eabd.jpg?v=1775770098",
+        "alt": null
+      },
+      {
+        "src": "https://cdn.shopify.com/s/files/1/0897/3182/6009/files/IMG_8206_jpg.heic?v=1775770098",
+        "alt": null
+      }
+    ]
+  },
+  {
     "id": 16215052779865,
     "title": "vale de diseño de guardabarros",
     "handle": "fender-design-wertgutschein-1",
