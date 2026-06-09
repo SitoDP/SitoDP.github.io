@@ -64,7 +64,7 @@
 
         <div class="project-card">
           <div class="project-image">
-            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=800,fit=crop/AMqDOgByPghjN30x/img_23233-yxk0N83Y27Icf47I.jpg" alt="Dulcinea" loading="lazy" />
+            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=1366,fit=crop/AMqDOgByPghjN30x/dji_fly_20250715_135058_892_1752580280260_photo_optimized-pVFBPFMOjxZr06es.JPG"alt="Dulcinea" loading="lazy" />
           </div>
           <div class="project-info">
             <h3>DULCINEA</h3>
@@ -76,7 +76,7 @@
 
         <div class="project-card reverse">
           <div class="project-image">
-            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=800,fit=crop/AMqDOgByPghjN30x/img_1681-zR73hJx3RTqLfd01.jpg" alt="Marcela" loading="lazy" />
+            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1440,h=1917,fit=crop/AMqDOgByPghjN30x/img_3592-mp84x25VeJCLqWJL.JPG" alt="Marcela" loading="lazy" />
           </div>
           <div class="project-info">
             <h3>MARCELA</h3>

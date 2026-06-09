@@ -70,10 +70,25 @@ function doPost(e) {
     const data = JSON.parse(e.postData.contents);
 
     const category =
-      data.type === 'contacto' ? 'Contacto' :
-      data.type === 'quote'    ? 'Presupuesto' :
-      data.isConsulting        ? 'Consulta' :
-                                 'Reserva';
+      data.type === 'contacto'           ? 'Contacto' :
+      data.type === 'quote'              ? 'Presupuesto' :
+      data.type === 'transport-request'  ? 'Solicitud traslado' :
+      data.type === 'detailing-request'  ? 'Solicitud detailing' :
+      data.isConsulting                  ? 'Consulta' :
+                                           'Reserva';
+
+    // Resumen específico por tipo para que la fila tenga la info clave
+    let subjectCol = data.subject || '';
+    let commentsCol = data.comments || data.product || '';
+
+    if (data.type === 'transport-request') {
+      const route = (data.originLabel || '') + ' → ' + (data.destinationLabel || '');
+      subjectCol = route + (data.distance ? ' (' + data.distance + ' ' + (data.distanceUnit || '') + ')' : '');
+      commentsCol = 'Modo: ' + (data.transportType || '') + ' · Eslora: ' + (data.length || '') + 'm';
+    } else if (data.type === 'detailing-request') {
+      subjectCol = 'Detailing: ' + (data.levelLabel || data.level || '');
+      commentsCol = 'Eslora: ' + (data.length || '') + 'm · Material: ' + (data.materialLabel || data.material || '');
+    }
 
     const row = [
       new Date(),
@@ -83,9 +98,9 @@ function doPost(e) {
       data.email || '',
       data.phone || '',
       data.boatType || '',
-      data.subject || '',
+      subjectCol,
       data.message || data.specs || '',
-      data.comments || data.product || '',
+      commentsCol,
       data.date || '',
       data.time || ''
     ];
@@ -102,6 +117,10 @@ function doPost(e) {
           handleReservaEmails(data, lang); break;
         case 'quote':
           handleQuoteEmails(data, lang); break;
+        case 'transport-request':
+          handleTransportRequestEmails(data, lang); break;
+        case 'detailing-request':
+          handleDetailingRequestEmails(data, lang); break;
       }
     } catch (mailErr) {
       console.error('[' + (data.type || 'unknown') + '] email error:', mailErr);
@@ -506,6 +525,204 @@ function adminEmailQuote(p) {
       fields +
       adminMessageBlock('Detalles / personalización', p.specs || '—') +
       adminReplyButton(p, 'Re: Tu solicitud de presupuesto — ' + BUSINESS_NAME) +
+    '</td></tr>' +
+    adminFooter();
+
+  return emailWrap('es', inner);
+}
+
+// =============================================================
+// TRANSPORT REQUEST · Handler + emails
+// =============================================================
+
+function handleTransportRequestEmails(data, lang) {
+  const p = {
+    type: 'transport-request', lang: lang,
+    name:           String(data.name || '').slice(0, 200).trim(),
+    email:          String(data.email || '').slice(0, 200).trim(),
+    phone:          String(data.phone || '').slice(0, 50).trim(),
+    transportType:  data.transportType === 'terrestre' ? 'terrestre' : 'maritimo',
+    boatType:       String(data.boatType || '').trim(),
+    boatTypeLabel:  (BOAT_LABELS[data.boatType] && BOAT_LABELS[data.boatType][lang]) || '',
+    length:         Number(data.length) || 0,
+    originLabel:    String(data.originLabel || '').trim(),
+    originDetail:   String(data.originDetail || '').trim(),
+    destinationLabel: String(data.destinationLabel || '').trim(),
+    destinationDetail: String(data.destinationDetail || '').trim(),
+    distance:       Number(data.distance) || 0,
+    distanceUnit:   data.distanceUnit === 'km' ? 'km' : 'mn',
+    date:           String(data.date || '').trim(),
+    message:        String(data.message || '').slice(0, 4000).trim(),
+  };
+  if (!p.name || !p.email || !p.originLabel || !p.destinationLabel) return;
+
+  const en = lang === 'en';
+  const customerSubject = en
+    ? 'Transfer quote received — ' + BUSINESS_NAME
+    : 'Hemos recibido tu solicitud de traslado — ' + BUSINESS_NAME;
+  const adminSubject =
+    'Nueva solicitud de traslado — ' + p.name + ' · ' + p.originLabel + ' → ' + p.destinationLabel;
+
+  GmailApp.sendEmail(p.email, customerSubject, '', {
+    htmlBody: customerEmailTransport(p),
+    name: BUSINESS_NAME, replyTo: REPLY_TO,
+  });
+  GmailApp.sendEmail(NOTIFY_EMAIL, adminSubject, '', {
+    htmlBody: adminEmailTransport(p),
+    name: BUSINESS_NAME + ' (web)', replyTo: p.email,
+  });
+}
+
+function customerEmailTransport(p) {
+  const en = p.lang === 'en';
+  const greeting = (en ? 'Hi ' : 'Hola ') + escapeHtml(firstName(p.name)) + ',';
+  const intro = en
+    ? 'Thanks for your transfer request at <strong>' + BUSINESS_NAME + '</strong>. We have received your enquiry correctly.'
+    : 'Gracias por tu solicitud de traslado en <strong>' + BUSINESS_NAME + '</strong>. Hemos recibido tu consulta correctamente.';
+  const next = en
+    ? "We'll send you an exact quote within <strong>24 working hours</strong>."
+    : 'Te enviaremos un presupuesto exacto en <strong>menos de 24 h laborables</strong>.';
+  const urgent = en
+    ? 'For anything urgent, write or WhatsApp us at <strong>' + PHONE_DISPLAY + '</strong>.'
+    : 'Para cualquier urgencia, escríbenos o llámanos por WhatsApp al <strong>' + PHONE_DISPLAY + '</strong>.';
+
+  const summary =
+    summaryRow(en ? 'Mode' : 'Modalidad', p.transportType === 'terrestre' ? (en ? 'Land' : 'Terrestre') : (en ? 'Maritime' : 'Marítimo')) +
+    summaryRow(en ? 'Origin' : 'Origen', escapeHtml(p.originLabel)) +
+    summaryRow(en ? 'Destination' : 'Destino', escapeHtml(p.destinationLabel)) +
+    (p.distance ? summaryRow(en ? 'Distance' : 'Distancia', p.distance + ' ' + p.distanceUnit) : '') +
+    (p.boatTypeLabel ? summaryRow(en ? 'Vessel' : 'Embarcación', escapeHtml(p.boatTypeLabel)) : '') +
+    (p.length ? summaryRow(en ? 'Length' : 'Eslora', p.length + ' m') : '') +
+    (p.date ? summaryRow(en ? 'Date' : 'Fecha', escapeHtml(formatDate(p.date, p.lang))) : '');
+
+  const body =
+    '<tr><td style="padding:40px 36px;">' +
+    '<h1 style="margin:0 0 18px;font-family:Georgia,serif;font-size:26px;color:' + BRAND_DARK + ';font-weight:600;">' + greeting + '</h1>' +
+    '<p style="margin:0 0 16px;font-size:16px;line-height:1.65;">' + intro + '</p>' +
+    '<p style="margin:0 0 16px;font-size:16px;line-height:1.65;">' + next + '</p>' +
+    summaryBox(p.lang, summary) +
+    '<p style="margin:0;font-size:16px;line-height:1.65;">' + urgent + '</p>' +
+    customerSignature(p.lang) +
+    '</td></tr>';
+
+  return emailWrap(p.lang, customerHeader(p.lang) + body + customerDisclaimer(p.lang) + customerFooter(p.lang));
+}
+
+function adminEmailTransport(p) {
+  const phoneDigits = p.phone.replace(/[^+0-9]/g, '');
+  const fullOrigin = p.originLabel + (p.originDetail ? ' — ' + p.originDetail : '');
+  const fullDest = p.destinationLabel + (p.destinationDetail ? ' — ' + p.destinationDetail : '');
+
+  const fields =
+    adminFieldRow('Nombre', escapeHtml(p.name)) +
+    adminFieldRow('Email', '<a href="mailto:' + escapeAttr(p.email) + '" style="color:' + BRAND_PRIMARY + ';text-decoration:none;">' + escapeHtml(p.email) + '</a>') +
+    (p.phone ? adminFieldRow('Teléfono', '<a href="tel:' + escapeAttr(phoneDigits) + '" style="color:' + BRAND_PRIMARY + ';text-decoration:none;">' + escapeHtml(p.phone) + '</a>') : '') +
+    adminFieldRow('Modalidad', p.transportType === 'terrestre' ? 'Terrestre (carretera)' : 'Marítimo') +
+    adminFieldRow('Origen', escapeHtml(fullOrigin)) +
+    adminFieldRow('Destino', escapeHtml(fullDest)) +
+    (p.distance ? adminFieldRow('Distancia estimada', p.distance + ' ' + p.distanceUnit) : '') +
+    (p.boatTypeLabel ? adminFieldRow('Tipo de embarcación', escapeHtml(p.boatTypeLabel)) : '') +
+    (p.length ? adminFieldRow('Eslora', p.length + ' m') : '') +
+    (p.date ? adminFieldRow('Fecha aproximada', escapeHtml(formatDate(p.date, 'es'))) : '');
+
+  const inner =
+    adminHeader('Nueva solicitud de traslado', p) +
+    '<tr><td style="padding:32px;">' +
+      fields +
+      (p.message ? adminMessageBlock('Comentarios', p.message) : '') +
+      adminReplyButton(p, 'Re: Tu solicitud de traslado — ' + BUSINESS_NAME) +
+    '</td></tr>' +
+    adminFooter();
+
+  return emailWrap('es', inner);
+}
+
+// =============================================================
+// DETAILING REQUEST · Handler + emails
+// =============================================================
+
+function handleDetailingRequestEmails(data, lang) {
+  const p = {
+    type: 'detailing-request', lang: lang,
+    name:           String(data.name || '').slice(0, 200).trim(),
+    email:          String(data.email || '').slice(0, 200).trim(),
+    phone:          String(data.phone || '').slice(0, 50).trim(),
+    level:          String(data.level || '').trim(),
+    levelLabel:     String(data.levelLabel || data.level || '').trim(),
+    length:         Number(data.length) || 0,
+    material:       String(data.material || '').trim(),
+    materialLabel:  String(data.materialLabel || data.material || '').trim(),
+    date:           String(data.date || '').trim(),
+    message:        String(data.message || '').slice(0, 4000).trim(),
+  };
+  if (!p.name || !p.email || !p.level) return;
+
+  const en = lang === 'en';
+  const customerSubject = en
+    ? 'Detailing request received — ' + BUSINESS_NAME
+    : 'Hemos recibido tu solicitud de detailing — ' + BUSINESS_NAME;
+  const adminSubject = 'Nueva solicitud de detailing — ' + p.name + ' · ' + p.levelLabel;
+
+  GmailApp.sendEmail(p.email, customerSubject, '', {
+    htmlBody: customerEmailDetailing(p),
+    name: BUSINESS_NAME, replyTo: REPLY_TO,
+  });
+  GmailApp.sendEmail(NOTIFY_EMAIL, adminSubject, '', {
+    htmlBody: adminEmailDetailing(p),
+    name: BUSINESS_NAME + ' (web)', replyTo: p.email,
+  });
+}
+
+function customerEmailDetailing(p) {
+  const en = p.lang === 'en';
+  const greeting = (en ? 'Hi ' : 'Hola ') + escapeHtml(firstName(p.name)) + ',';
+  const intro = en
+    ? 'Thanks for your detailing enquiry at <strong>' + BUSINESS_NAME + '</strong>. We have received your request correctly.'
+    : 'Gracias por tu solicitud de detailing en <strong>' + BUSINESS_NAME + '</strong>. Hemos recibido tu consulta correctamente.';
+  const next = en
+    ? "We'll get back to you within <strong>24 working hours</strong> to schedule the inspection and send the quote."
+    : 'Te contactaremos en <strong>menos de 24 h laborables</strong> para coordinar la inspección y enviarte el presupuesto.';
+  const urgent = en
+    ? 'For anything urgent, write or WhatsApp us at <strong>' + PHONE_DISPLAY + '</strong>.'
+    : 'Para cualquier urgencia, escríbenos o llámanos por WhatsApp al <strong>' + PHONE_DISPLAY + '</strong>.';
+
+  const summary =
+    (p.levelLabel ? summaryRow(en ? 'Service' : 'Servicio', escapeHtml(p.levelLabel)) : '') +
+    (p.length ? summaryRow(en ? 'Length' : 'Eslora', p.length + ' m') : '') +
+    (p.materialLabel ? summaryRow(en ? 'Material' : 'Material', escapeHtml(p.materialLabel)) : '') +
+    (p.date ? summaryRow(en ? 'Date' : 'Fecha', escapeHtml(formatDate(p.date, p.lang))) : '');
+
+  const body =
+    '<tr><td style="padding:40px 36px;">' +
+    '<h1 style="margin:0 0 18px;font-family:Georgia,serif;font-size:26px;color:' + BRAND_DARK + ';font-weight:600;">' + greeting + '</h1>' +
+    '<p style="margin:0 0 16px;font-size:16px;line-height:1.65;">' + intro + '</p>' +
+    '<p style="margin:0 0 16px;font-size:16px;line-height:1.65;">' + next + '</p>' +
+    summaryBox(p.lang, summary) +
+    '<p style="margin:0;font-size:16px;line-height:1.65;">' + urgent + '</p>' +
+    customerSignature(p.lang) +
+    '</td></tr>';
+
+  return emailWrap(p.lang, customerHeader(p.lang) + body + customerDisclaimer(p.lang) + customerFooter(p.lang));
+}
+
+function adminEmailDetailing(p) {
+  const phoneDigits = p.phone.replace(/[^+0-9]/g, '');
+
+  const fields =
+    adminFieldRow('Nombre', escapeHtml(p.name)) +
+    adminFieldRow('Email', '<a href="mailto:' + escapeAttr(p.email) + '" style="color:' + BRAND_PRIMARY + ';text-decoration:none;">' + escapeHtml(p.email) + '</a>') +
+    (p.phone ? adminFieldRow('Teléfono', '<a href="tel:' + escapeAttr(phoneDigits) + '" style="color:' + BRAND_PRIMARY + ';text-decoration:none;">' + escapeHtml(p.phone) + '</a>') : '') +
+    adminFieldRow('Servicio', escapeHtml(p.levelLabel)) +
+    (p.length ? adminFieldRow('Eslora', p.length + ' m') : '') +
+    (p.materialLabel ? adminFieldRow('Material', escapeHtml(p.materialLabel)) : '') +
+    (p.date ? adminFieldRow('Fecha aproximada', escapeHtml(formatDate(p.date, 'es'))) : '');
+
+  const inner =
+    adminHeader('Nueva solicitud de detailing', p) +
+    '<tr><td style="padding:32px;">' +
+      fields +
+      (p.message ? adminMessageBlock('Más información', p.message) : '') +
+      adminReplyButton(p, 'Re: Tu solicitud de detailing — ' + BUSINESS_NAME) +
     '</td></tr>' +
     adminFooter();
 

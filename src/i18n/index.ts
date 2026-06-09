@@ -15,6 +15,8 @@ import { shop } from './shop'
 import { product } from './product'
 import { quote } from './quote'
 import { notFound } from './notFound'
+import { transportRequest } from './transportRequest'
+import { detailingRequest } from './detailingRequest'
 
 export const i18n = {
   es: {
@@ -35,6 +37,8 @@ export const i18n = {
     product: product.es,
     quote: quote.es,
     notFound: notFound.es,
+    transportRequest: transportRequest.es,
+    detailingRequest: detailingRequest.es,
   },
   en: {
     home: home.en,
@@ -54,6 +58,8 @@ export const i18n = {
     product: product.en,
     quote: quote.en,
     notFound: notFound.en,
+    transportRequest: transportRequest.en,
+    detailingRequest: detailingRequest.en,
   },
 }
 

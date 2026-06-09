@@ -9,7 +9,7 @@
       <p class="hero-label">{{ t.heroLabel }}</p>
       <h1 class="hero-title">{{ t.heroTitle }}</h1>
       <p class="hero-subtitle">{{ t.heroSubtitle }}</p>
-      <button class="btn btn-primary" @click="openBooking('consulting')">{{ t.heroBtn }}</button>
+      <button class="btn btn-primary" @click="openTransportRequest()">{{ t.heroBtn }}</button>
     </HeroSection>
 
     <section class="section intro">
@@ -120,28 +120,61 @@
                 </div>
               </div>
 
-              <div class="calc-field" v-if="calc.type === 'maritimo'">
-                <label>{{ t.calcDistLabel }}</label>
-                <div class="slider-wrap">
-                  <input type="range" v-model.number="calc.distance" min="10" max="2000" step="10" />
-                  <span class="slider-value">{{ calc.distance }} mn</span>
+              <div class="calc-field calc-field--route">
+                <div class="route-grid">
+                  <div class="route-col">
+                    <label>{{ t.calcOriginLabel }}</label>
+                    <LocationAutocomplete
+                      v-model="calc.origin"
+                      :placeholder="t.calcOriginPlaceholder"
+                      :lang="lang"
+                    />
+                  </div>
+                  <div class="route-col">
+                    <label>{{ t.calcDestinationLabel }}</label>
+                    <LocationAutocomplete
+                      v-model="calc.destination"
+                      :placeholder="t.calcDestinationPlaceholder"
+                      :lang="lang"
+                    />
+                  </div>
                 </div>
-              </div>
-
-              <div class="calc-field" v-if="calc.type === 'terrestre'">
-                <label>{{ t.calcKmLabel }}</label>
-                <div class="slider-wrap">
-                  <input type="range" v-model.number="calc.km" min="50" max="2000" step="50" />
-                  <span class="slider-value">{{ calc.km }} km</span>
+                <div class="route-feedback" v-if="calc.origin && calc.destination">
+                  <span v-if="distanceLoading" class="route-feedback-loading">
+                    <span class="route-spinner" aria-hidden></span>
+                    {{ t.calcDistanceLoading }}
+                  </span>
+                  <span v-else-if="distanceError" class="route-feedback-error">
+                    {{ t.calcDistanceError }}
+                  </span>
+                  <span v-else-if="distanceValue" class="route-feedback-ok">
+                    <strong>{{ t.calcDistanceCalculated }}:</strong>
+                    {{ distanceValue }} {{ calc.type === 'maritimo' ? 'mn' : 'km' }}
+                    <span class="route-note">
+                      {{ calc.type === 'maritimo' ? t.calcDistanceMaritimeNote : t.calcDistanceLandNote }}
+                    </span>
+                  </span>
                 </div>
               </div>
             </div>
 
             <div class="calc-result">
               <p class="result-label">{{ t.resultLabel }}</p>
-              <p class="result-price">{{ formattedPrice }}</p>
-              <p class="result-note">{{ t.resultNote }}</p>
-              <button class="btn btn-primary" @click="openBooking('consulting')">
+              <p v-if="hasRoute" class="result-price">{{ formattedPrice }}</p>
+              <p v-else class="result-placeholder">{{ t.calcMissingPoints }}</p>
+              <p v-if="hasRoute" class="result-note">{{ t.resultNote }}</p>
+              <button
+                class="btn btn-primary"
+                @click="openTransportRequest({
+                  type: calc.type,
+                  boatType: calc.boatType,
+                  length: calc.length,
+                  origin: calc.origin,
+                  destination: calc.destination,
+                  distance: distanceValue,
+                  estimate: hasRoute ? formattedPrice : '',
+                })"
+              >
                 {{ t.calcBtn }}
               </button>
             </div>
@@ -204,7 +237,8 @@
       </div>
     </section>
 
-    <section class="section booking" id="contacto">
+   
+    <!--<section class="section booking" id="contacto">
       <div class="container">
         <h2 class="section-title">{{ t.bookingTitle }}</h2>
         <p class="section-subtitle">{{ t.bookingSubtitle }}</p>
@@ -223,23 +257,30 @@
                 +34 676 625 595
               </a>
             </div>
-            <button class="btn btn-primary" @click="openBooking('consulting')">
+            <button class="btn btn-primary" @click="openTransportRequest()">
               {{ t.bookBtn }}
             </button>
           </div>
         </div>
       </div>
-    </section>
-  </div>
+    </section>-->
+  </div> 
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import CalendarWidget from '../components/CalendarWidget.vue'
+import { computed, ref, watch } from 'vue'
+//import CalendarWidget from '../components/CalendarWidget.vue'
 import HeroSection from '../components/HeroSection.vue'
+import LocationAutocomplete from '../components/LocationAutocomplete.vue'
 import { useLanguage } from '../composables/useLanguage'
 import { useBooking } from '../composables/useBooking'
+import { useTransportRequest } from '../composables/useTransportRequest'
 import { usePageMeta } from '../composables/useMeta'
+import {
+  drivingDistanceKm,
+  haversineNauticalMiles,
+  type GeoLocation,
+} from '../lib/geocoding'
 
 usePageMeta({
   es: {
@@ -253,31 +294,82 @@ usePageMeta({
 })
 
 const { open: openBooking } = useBooking()
-const { useT } = useLanguage()
+const { open: openTransportRequest } = useTransportRequest()
+const { lang, useT } = useLanguage()
 const t = useT('logistics')
 
-const calc = ref({
-  type: 'maritimo' as 'maritimo' | 'terrestre',
+const calc = ref<{
+  type: 'maritimo' | 'terrestre'
+  boatType: string
+  length: number
+  origin: GeoLocation | null
+  destination: GeoLocation | null
+}>({
+  type: 'maritimo',
   boatType: 'velero',
   length: 10,
-  distance: 300,
-  km: 500,
+  origin: null,
+  destination: null,
 })
+
+const distanceValue = ref<number>(0)
+const distanceLoading = ref(false)
+const distanceError = ref(false)
+
+const hasRoute = computed(() => !!calc.value.origin && !!calc.value.destination && distanceValue.value > 0)
+
+let aborter: AbortController | null = null
+
+const recalcDistance = async () => {
+  const o = calc.value.origin
+  const d = calc.value.destination
+  distanceError.value = false
+  distanceValue.value = 0
+  if (!o || !d) return
+  if (calc.value.type === 'maritimo') {
+    distanceValue.value = haversineNauticalMiles(o, d)
+    return
+  }
+  // Terrestre → OSRM
+  if (aborter) aborter.abort()
+  aborter = new AbortController()
+  distanceLoading.value = true
+  try {
+    distanceValue.value = await drivingDistanceKm(o, d, { signal: aborter.signal })
+  } catch (err) {
+    if ((err as Error)?.name === 'AbortError') return
+    // eslint-disable-next-line no-console
+    console.error('[YachtLogistics] OSRM error', err)
+    distanceError.value = true
+  } finally {
+    distanceLoading.value = false
+    aborter = null
+  }
+}
+
+watch(
+  () => [calc.value.type, calc.value.origin?.id, calc.value.destination?.id],
+  () => { void recalcDistance() },
+)
 
 const BASE_BY_LENGTH: Record<string, number> = {
   velero: 120, yate: 150, catamaran: 180, lancha: 80,
 }
 
 const formattedPrice = computed(() => {
+  if (!hasRoute.value) return ''
   const base = BASE_BY_LENGTH[calc.value.boatType] ?? 120
+  const dist = distanceValue.value
   let price: number
   if (calc.value.type === 'maritimo') {
-    price = base * calc.value.length + calc.value.distance * 2.8
+    // dist viene en millas náuticas
+    price = base * calc.value.length + dist * 2.8
   } else {
-    price = base * calc.value.length * 0.6 + calc.value.km * 1.4
+    // dist viene en km
+    price = base * calc.value.length * 0.6 + dist * 1.4
   }
   price = Math.round(price / 50) * 50
-  return `${price.toLocaleString('es-ES')} €`
+  return `${price.toLocaleString(lang.value === 'en' ? 'en-GB' : 'es-ES')} €`
 })
 
 const handleDateSelect = (data: { date: unknown; time: string | null }) => {
@@ -389,9 +481,9 @@ const handleDateSelect = (data: { date: unknown; time: string | null }) => {
 .calculator-wrap {
   background: var(--color-light);
   border-radius: 24px;
-  overflow: hidden;
+  /* overflow visible para que las sugerencias del autocompletado no queden recortadas */
   box-shadow: 0 16px 56px rgba(0, 0, 0, 0.1);
-  max-width: 900px;
+  max-width: 1080px;
   margin: 0 auto;
 }
 
@@ -399,6 +491,7 @@ const handleDateSelect = (data: { date: unknown; time: string | null }) => {
   background: var(--color-primary);
   padding: 36px 44px;
   color: white;
+  border-radius: 24px 24px 0 0;
 }
 
 .calculator-header h2 { font-size: 1.8rem; margin-bottom: 8px; color: white; }
@@ -489,6 +582,63 @@ const handleDateSelect = (data: { date: unknown; time: string | null }) => {
   text-align: right;
 }
 
+.calc-field--route { gap: 14px; }
+
+.route-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.route-col { display: flex; flex-direction: column; gap: 8px; }
+
+.route-feedback {
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  flex-wrap: wrap;
+}
+
+.route-feedback-error {
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.route-feedback-ok strong { font-family: var(--font-heading); }
+.route-note { display: block; opacity: 0.75; margin-top: 2px; font-size: 0.78rem; }
+
+.route-spinner {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--color-gray-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  display: inline-block;
+  animation: route-spin 0.7s linear infinite;
+}
+
+@keyframes route-spin { to { transform: rotate(360deg); } }
+
+.result-placeholder {
+  font-size: 0.95rem;
+  color: var(--color-gray);
+  margin-bottom: 28px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .route-grid { grid-template-columns: 1fr; }
+}
+
 .calc-result {
   background: var(--color-gray-light);
   padding: 40px 36px;
@@ -497,7 +647,10 @@ const handleDateSelect = (data: { date: unknown; time: string | null }) => {
   justify-content: center;
   text-align: center;
   border-left: 1px solid var(--color-gray-border);
+  border-radius: 0 0 24px 0;
 }
+
+.calc-form { border-radius: 0 0 0 24px; }
 
 .result-label {
   font-family: var(--font-heading);
@@ -630,7 +783,12 @@ const handleDateSelect = (data: { date: unknown; time: string | null }) => {
 @media (max-width: 968px) {
   .intro-stats { gap: 40px; }
   .calculator-body { grid-template-columns: 1fr; }
-  .calc-result { border-left: none; border-top: 1px solid var(--color-gray-border); }
+  .calc-result {
+    border-left: none;
+    border-top: 1px solid var(--color-gray-border);
+    border-radius: 0 0 24px 24px;
+  }
+  .calc-form { border-radius: 0; }
   .project-card { grid-template-columns: 1fr; direction: ltr; }
   .project-card.reverse { direction: ltr; }
   .booking-grid { grid-template-columns: 1fr; }

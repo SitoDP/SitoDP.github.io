@@ -6,6 +6,8 @@
   </main>
   <Footer />
   <BookingModal :isOpen="isOpen" :isConsulting="isConsulting" @close="close" />
+  <TransportRequestModal />
+  <DetailingRequestModal />
   <ToastContainer />
   <WhatsAppButton />
 </template>
@@ -14,6 +16,8 @@
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
 import BookingModal from './components/BookingModal.vue'
+import TransportRequestModal from './components/TransportRequestModal.vue'
+import DetailingRequestModal from './components/DetailingRequestModal.vue'
 import ToastContainer from './components/ToastContainer.vue'
 import WhatsAppButton from './components/WhatsAppButton.vue'
 import RouteLoader from './components/RouteLoader.vue'

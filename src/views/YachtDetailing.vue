@@ -4,7 +4,7 @@
       <p class="hero-label">{{ t.heroLabel }}</p>
       <h1 class="hero-title">{{ t.heroTitle }}</h1>
       <p class="hero-subtitle">{{ t.heroSubtitle }}</p>
-      <button class="btn btn-primary" @click="openBooking('consulting')">{{ t.heroBtn }}</button>
+      <button class="btn btn-primary" @click="openDetailingRequest()">{{ t.heroBtn }}</button>
     </HeroSection>
 
     <section class="section levels">
@@ -99,7 +99,7 @@
               <p class="result-price">{{ formattedPrice }}</p>
               <p class="result-detail"><strong>{{ t.levelLabels[calc.level] }}</strong> · {{ calc.length }} m</p>
               <p class="result-note">{{ t.resultNote }}</p>
-              <button class="btn btn-primary" @click="openBooking('consulting')">
+              <button class="btn btn-primary" @click="openDetailingRequest({ level: calc.level, length: calc.length, material: calc.material })">
                 {{ t.calcBtn }}
               </button>
             </div>
@@ -197,7 +197,7 @@
                 +34 676 625 595
               </a>
             </div>
-            <button class="btn btn-primary" @click="openBooking('consulting')">
+            <button class="btn btn-primary" @click="openDetailingRequest()">
               {{ t.bookBtn }}
             </button>
           </div>
@@ -213,6 +213,7 @@ import CalendarWidget from '../components/CalendarWidget.vue'
 import HeroSection from '../components/HeroSection.vue'
 import { useLanguage } from '../composables/useLanguage'
 import { useBooking } from '../composables/useBooking'
+import { useDetailingRequest } from '../composables/useDetailingRequest'
 import { usePageMeta } from '../composables/useMeta'
 import { cdnVideo } from '../config'
 
@@ -228,6 +229,7 @@ usePageMeta({
 })
 
 const { open: openBooking } = useBooking()
+const { open: openDetailingRequest } = useDetailingRequest()
 const { useT } = useLanguage()
 const t = useT('detailing')
 
