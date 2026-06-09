@@ -17,7 +17,6 @@ const ROUTES_ES = [
   '/yacht-management',
   '/yacht-logistics',
   '/yacht-detailing',
-  '/tienda',
   '/politica-de-privacidad',
   '/terminos-y-condiciones',
 ]
@@ -40,7 +39,7 @@ function buildEntries(): UrlEntry[] {
         { hreflang: 'en', href: `${SITE_URL}${enPath}` },
         { hreflang: 'x-default', href: `${SITE_URL}${path}` },
       ],
-      priority: path === '/' ? 1.0 : path === '/tienda' ? 0.9 : 0.7,
+      priority: path === '/' ? 1.0 : 0.7,
     }
   })
 }

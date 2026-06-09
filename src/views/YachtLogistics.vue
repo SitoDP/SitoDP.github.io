@@ -120,6 +120,24 @@
                 </div>
               </div>
 
+              <template v-if="calc.type === 'terrestre'">
+                <div class="calc-field">
+                  <label>{{ t.calcBeamLabel }}</label>
+                  <div class="slider-wrap">
+                    <input type="range" v-model.number="calc.manga" min="1.5" max="6" step="0.1" />
+                    <span class="slider-value">{{ calc.manga.toFixed(1) }} m</span>
+                  </div>
+                </div>
+
+                <div class="calc-field">
+                  <label>{{ t.calcWeightLabel }}</label>
+                  <div class="slider-wrap">
+                    <input type="range" v-model.number="calc.peso" min="500" max="15000" step="100" />
+                    <span class="slider-value">{{ calc.peso.toLocaleString() }} kg</span>
+                  </div>
+                </div>
+              </template>
+
               <div class="calc-field calc-field--route">
                 <div class="route-grid">
                   <div class="route-col">
@@ -169,6 +187,8 @@
                   type: calc.type,
                   boatType: calc.boatType,
                   length: calc.length,
+                  manga: calc.type === 'terrestre' ? calc.manga : undefined,
+                  peso: calc.type === 'terrestre' ? calc.peso : undefined,
                   origin: calc.origin,
                   destination: calc.destination,
                   distance: distanceValue,
@@ -190,7 +210,7 @@
 
         <div class="project-card">
           <div class="project-image">
-            <img src="..\\assets\\marcela2.jpeg" alt="MARCELA traslado anual" />
+            <img :src="marcela2Img" alt="MARCELA traslado anual" />
           </div>
           <div class="project-info">
             <span class="project-tag">{{ t.marcela.tag }}</span>
@@ -268,11 +288,13 @@
 </template>
 
 <script setup lang="ts">
+import marcela2Img from '../assets/marcela2.jpeg'
 import { computed, ref, watch } from 'vue'
 //import CalendarWidget from '../components/CalendarWidget.vue'
 import HeroSection from '../components/HeroSection.vue'
 import LocationAutocomplete from '../components/LocationAutocomplete.vue'
 import { useLanguage } from '../composables/useLanguage'
+import { useCalcConfig } from '../composables/useCalcConfig'
 
 import { useTransportRequest } from '../composables/useTransportRequest'
 import { usePageMeta } from '../composables/useMeta'
@@ -302,12 +324,16 @@ const calc = ref<{
   type: 'maritimo' | 'terrestre'
   boatType: string
   length: number
+  manga: number
+  peso: number
   origin: GeoLocation | null
   destination: GeoLocation | null
 }>({
   type: 'maritimo',
   boatType: 'velero',
   length: 10,
+  manga: 2.5,
+  peso: 3000,
   origin: null,
   destination: null,
 })
@@ -352,22 +378,35 @@ watch(
   () => { void recalcDistance() },
 )
 
-const BASE_BY_LENGTH: Record<string, number> = {
-  velero: 120, yate: 150, catamaran: 180, lancha: 80,
-}
+const calcConfig = useCalcConfig()
 
 const formattedPrice = computed(() => {
   if (!hasRoute.value) return ''
-  const base = BASE_BY_LENGTH[calc.value.boatType] ?? 120
   const dist = distanceValue.value
+  const eslora = calc.value.length
+  const cfg = calcConfig.value
   let price: number
+
   if (calc.value.type === 'maritimo') {
-    // dist viene en millas náuticas
-    price = base * calc.value.length + dist * 2.8
+    const m = cfg.maritime
+    const p = m.params[calc.value.boatType] ?? m.params.velero
+    const hours = dist / p.speed
+    const days = Math.ceil(hours / 10)
+    const patron = days * m.patronPerDay
+    const fuel = hours * p.motorPct * p.lph * m.fuelPricePerLiter
+    const moorings = Math.max(0, days - 1) * eslora * m.mooringRatePerNightPerMeter
+    const diets = days * m.dietPerDay
+    price = (patron + fuel + moorings + diets) * 1.21
   } else {
-    // dist viene en km
-    price = base * calc.value.length * 0.6 + dist * 1.4
+    const { manga, peso } = calc.value
+    const l = cfg.land
+    const isBE = eslora <= 7.5 && manga <= 2.55 && peso <= 2000
+    let base = isBE ? Math.max(l.beMin, dist * 1.20) : Math.max(l.gondolaMin, dist * 2.50 * 1.5)
+    if (manga > 2.55) base += l.supplementBeam
+    if (manga > 3.50) base += dist * 1.20
+    price = base * 1.21
   }
+
   price = Math.round(price / 50) * 50
   return `${price.toLocaleString(lang.value === 'en' ? 'en-GB' : 'es-ES')} €`
 })

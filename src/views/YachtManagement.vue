@@ -86,7 +86,7 @@
 
         <div class="project-card">
           <div class="project-image">
-            <img src="..\\assets\\dulcinea1.jpeg" alt="Dulcinea" />
+            <img :src="dulcineaImg" alt="Dulcinea" />
           </div>
           <div class="project-info">
             <h3>DULCINEA</h3>
@@ -98,7 +98,7 @@
 
         <div class="project-card reverse">
           <div class="project-image">
-            <img src="..\\assets\\marcela1.jpeg" alt="Marcela" />
+            <img :src="marcelaImg" alt="Marcela" />
           </div>
           <div class="project-info">
             <h3>MARCELA</h3>
@@ -145,6 +145,8 @@
 </template>
 
 <script setup lang="ts">
+import dulcineaImg from '../assets/dulcinea1.jpeg'
+import marcelaImg from '../assets/marcela1.jpeg'
 import { ref, computed } from 'vue'
 import CalendarWidget from '../components/CalendarWidget.vue'
 import HeroSection from '../components/HeroSection.vue'

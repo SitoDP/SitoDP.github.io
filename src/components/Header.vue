@@ -65,7 +65,6 @@
         </div>
 
         <router-link :to="to('/galeria')" class="nav-link" @click="close">{{ lbl.gallery }}</router-link>
-        <router-link :to="to('/tienda')" class="nav-link" @click="close">{{ lbl.shop }}</router-link>
         <router-link :to="to('/contacto')" class="nav-link" @click="close">{{ lbl.contact }}</router-link>
 
         <!-- Mobile-only services list -->
@@ -78,15 +77,6 @@
         </div>
 
       </nav>
-
-      <router-link :to="to('/carrito')" class="cart-icon" :aria-label="cartAriaLabel">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <circle cx="9" cy="21" r="1"/>
-          <circle cx="20" cy="21" r="1"/>
-          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-        </svg>
-        <span v-if="itemCount > 0" class="cart-badge" aria-hidden="true">{{ itemCount }}</span>
-      </router-link>
 
       <button class="btn btn-primary btn-reserve" @click="openBooking('consulting')">
         {{ lbl.reserve }}
@@ -110,14 +100,12 @@
 import { ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useLanguage } from '../composables/useLanguage'
-import { useCart } from '../composables/useCart'
 import { useBooking } from '../composables/useBooking'
 
 const { open: openBooking } = useBooking()
 
 const route = useRoute()
 const { lang, to, switchLang, useT } = useLanguage()
-const { itemCount } = useCart()
 const lbl = useT('header')
 
 const menuOpen = ref(false)
@@ -127,12 +115,6 @@ const serviceRoutes = ['/yacht-consulting', '/yacht-management', '/yacht-logisti
 const isServicesActive = computed(() => {
   const normalizedPath = route.path.replace(/^\/en/, '') || '/'
   return serviceRoutes.includes(normalizedPath)
-})
-
-const cartAriaLabel = computed(() => {
-  if (itemCount.value === 0) return lbl.value.cart
-  const itemsWord = itemCount.value === 1 ? lbl.value.cartItem : lbl.value.cartItems
-  return `${lbl.value.cart} ${lbl.value.cartWith} ${itemCount.value} ${itemsWord}`
 })
 
 const close = () => {

@@ -6,7 +6,6 @@
       <p class="message">{{ t.message }}</p>
       <div class="actions">
         <router-link :to="to('/')" class="btn btn-primary">{{ t.home }}</router-link>
-        <router-link :to="to('/tienda')" class="btn btn-outline">{{ t.shop }}</router-link>
       </div>
     </div>
   </div>

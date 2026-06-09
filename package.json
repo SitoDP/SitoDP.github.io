@@ -10,8 +10,7 @@
     "type-check": "vue-tsc --noEmit",
     "test": "vitest",
     "test:run": "vitest run",
-    "test:coverage": "vitest run --coverage",
-    "sync:products": "tsx scripts/sync-products.ts"
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@unhead/vue": "^3.0.5",

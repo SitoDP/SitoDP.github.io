@@ -10,10 +10,6 @@ import { contacto } from './contacto'
 import { checklist } from './checklist'
 import { header } from './header'
 import { footer } from './footer'
-import { cart } from './cart'
-import { shop } from './shop'
-import { product } from './product'
-import { quote } from './quote'
 import { notFound } from './notFound'
 import { transportRequest } from './transportRequest'
 import { detailingRequest } from './detailingRequest'
@@ -32,10 +28,6 @@ export const i18n = {
     checklist: checklist.es,
     header: header.es,
     footer: footer.es,
-    cart: cart.es,
-    shop: shop.es,
-    product: product.es,
-    quote: quote.es,
     notFound: notFound.es,
     transportRequest: transportRequest.es,
     detailingRequest: detailingRequest.es,
@@ -53,10 +45,6 @@ export const i18n = {
     checklist: checklist.en,
     header: header.en,
     footer: footer.en,
-    cart: cart.en,
-    shop: shop.en,
-    product: product.en,
-    quote: quote.en,
     notFound: notFound.en,
     transportRequest: transportRequest.en,
     detailingRequest: detailingRequest.en,

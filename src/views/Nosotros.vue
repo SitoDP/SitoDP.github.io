@@ -32,7 +32,7 @@
         <div class="founders-grid">
           <div class="founder-card">
             <div class="founder-img-wrap">
-              <img src="..\\assets\\alex.png" alt="Alejandro" />
+              <img :src="alexImg" alt="Alejandro" />
             </div>
             <h3>{{ t.alex }}</h3>
             <p class="founder-role">{{ t.alexRole }}</p>
@@ -40,7 +40,7 @@
           </div>
           <div class="founder-card">
             <div class="founder-img-wrap">
-              <img src="..\\assets\\calix.jpeg" alt="Calixto" />
+              <img :src="calixImg" alt="Calixto" />
             </div>
             <h3>{{ t.calixto }}</h3>
             <p class="founder-role">{{ t.calixtoRole }}</p>
@@ -114,6 +114,8 @@
 </template>
 
 <script setup lang="ts">
+import alexImg from '../assets/alex.png'
+import calixImg from '../assets/calix.jpeg'
 import { useLanguage } from '../composables/useLanguage'
 import { useBooking } from '../composables/useBooking'
 import { usePageMeta } from '../composables/useMeta'

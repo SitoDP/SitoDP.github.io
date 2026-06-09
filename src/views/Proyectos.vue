@@ -35,7 +35,7 @@
           <div class="project-info">
             <div class="project-tag">{{ t.marcelaTag }}</div>
             <h2>MARCELA</h2>
-            <p class="project-type">VonDutch 42</p>
+            <p class="project-type">VanDutch 42</p>
             <p>{{ t.marcelaDesc1 }}</p>
             <p>{{ t.marcelaDesc2 }}</p>
             <ul class="project-features">

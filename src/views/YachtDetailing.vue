@@ -166,7 +166,7 @@
 
         <div class="project-card reverse">
           <div class="project-image">
-            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=800,fit=crop/AMqDOgByPghjN30x/img_1681-zR73hJx3RTqLfd01.jpg" alt="Marcela detailing premium" />
+            <img :src="imgMarcela1" alt="Marcela en el mar" />
           </div>
           <div class="project-info">
             <span class="project-tag">{{ t.marcela.tag }}</span>
@@ -209,6 +209,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { useCalcConfig } from '../composables/useCalcConfig'
 import CalendarWidget from '../components/CalendarWidget.vue'
 import HeroSection from '../components/HeroSection.vue'
 import { useLanguage } from '../composables/useLanguage'
@@ -216,6 +217,7 @@ import { useBooking } from '../composables/useBooking'
 import { useDetailingRequest } from '../composables/useDetailingRequest'
 import { usePageMeta } from '../composables/useMeta'
 import { cdnVideo } from '../config'
+import imgMarcela1 from '../assets/marcela1.jpeg'
 
 usePageMeta({
   es: {
@@ -235,20 +237,19 @@ const t = useT('detailing')
 
 type Level = 'basica' | 'pulido' | 'completo' | 'premium'
 
-const prices: Record<Level, number> = { basica: 80, pulido: 150, completo: 250, premium: 400 }
+const calcConfig = useCalcConfig()
 
-const materialFactor: Record<string, number> = {
-  fibra: 1, aluminio: 1.15, acero: 1.2, carbono: 1.35,
-}
+const prices = computed(() => calcConfig.value.detailing.prices)
+const materialFactor = computed(() => calcConfig.value.detailing.materialFactor)
 
 const selectedLevel = ref<Level>('completo')
 
 const calc = ref({ length: 12, level: 'completo' as Level, material: 'fibra' })
 
 const formattedPrice = computed(() => {
-  const pricePerMeter = prices[calc.value.level]
-  const factor = materialFactor[calc.value.material] ?? 1
-  const total = Math.round((pricePerMeter * calc.value.length * factor) / 50) * 50
+  const pricePerMeter = prices.value[calc.value.level]
+  const factor = materialFactor.value[calc.value.material] ?? 1
+  const total = Math.round((pricePerMeter * calc.value.length * factor * 1.21) / 50) * 50
   return `${total.toLocaleString('es-ES')} €`
 })
 

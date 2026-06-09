@@ -9,6 +9,8 @@ export interface TransportPrefill {
   type?: 'maritimo' | 'terrestre'
   boatType?: string
   length?: number
+  manga?: number
+  peso?: number
   origin?: GeoLocation | null
   destination?: GeoLocation | null
   distance?: number

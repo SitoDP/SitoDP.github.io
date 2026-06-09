@@ -2,18 +2,18 @@
   <Teleport to="body">
     <div v-if="isOpen" class="modal-overlay" @click.self="close">
       <div class="modal-content">
-        <button class="modal-close" @click="close" aria-label="Cerrar">&times;</button>
-        <h2>{{ isConsulting ? 'Agenda tu Consultoria Nautica' : 'Reserva tu Cita' }}</h2>
-        <p class="modal-subtitle">La primera es gratuita</p>
+        <button class="modal-close" @click="close" :aria-label="t.ariaClose">&times;</button>
+        <h2>{{ isConsulting ? t.titleConsulting : t.titleBooking }}</h2>
+        <p class="modal-subtitle">{{ t.subtitle }}</p>
 
         <form v-if="!success" @submit.prevent="handleSubmit" class="booking-form" novalidate>
           <div class="form-group">
-            <label for="bm-name">Nombre completo</label>
+            <label for="bm-name">{{ t.labelName }}</label>
             <input
               id="bm-name"
               v-model="form.name"
               type="text"
-              placeholder="Tu nombre"
+              :placeholder="t.placeholderName"
               :class="{ 'input-error': errors.name }"
               @input="errors.name = ''"
             />
@@ -21,7 +21,7 @@
           </div>
 
           <div class="form-group">
-            <label for="bm-email">Email</label>
+            <label for="bm-email">{{ t.labelEmail }}</label>
             <input
               id="bm-email"
               v-model="form.email"
@@ -35,9 +35,9 @@
             />
             <span v-if="errors.email" class="field-error">{{ errors.email }}</span>
             <span v-else-if="emailFeedback?.errorCode === 'typo'" class="field-error">
-              ¿Quizás quisiste escribir
+              {{ t.emailTypoPrefix }}
               <button type="button" class="email-suggestion" @click="applyEmailSuggestion">
-                {{ emailFeedback.suggestion }}</button>?
+                {{ emailFeedback.suggestion }}</button>{{ t.emailTypoSuffix }}
             </span>
             <span v-else-if="emailFeedback?.errorCode" class="field-error">
               {{ emailErrorMessage }}
@@ -45,7 +45,7 @@
           </div>
 
           <div class="form-group">
-            <label for="bm-phone">Telefono</label>
+            <label for="bm-phone">{{ t.labelPhone }}</label>
             <input
               id="bm-phone"
               v-model="form.phone"
@@ -58,19 +58,19 @@
           </div>
 
           <div class="form-group">
-            <label for="bm-boat">Tipo de embarcacion</label>
+            <label for="bm-boat">{{ t.labelBoatType }}</label>
             <select id="bm-boat" v-model="form.boatType">
-              <option value="">Selecciona...</option>
-              <option value="velero">Velero</option>
-              <option value="yate">Yate</option>
-              <option value="lancha">Lancha</option>
-              <option value="catamaran">Catamaran</option>
-              <option value="otro">Otro</option>
+              <option value="">{{ t.selectPlaceholder }}</option>
+              <option value="velero">{{ t.boatVelero }}</option>
+              <option value="yate">{{ t.boatYate }}</option>
+              <option value="lancha">{{ t.boatLancha }}</option>
+              <option value="catamaran">{{ t.boatCatamaran }}</option>
+              <option value="otro">{{ t.boatOtro }}</option>
             </select>
           </div>
 
           <div class="form-group">
-            <label for="bm-date">Fecha preferida</label>
+            <label for="bm-date">{{ t.labelDate }}</label>
             <input
               id="bm-date"
               v-model="form.date"
@@ -83,14 +83,14 @@
           </div>
 
           <div class="form-group">
-            <label for="bm-time">Hora preferida</label>
+            <label for="bm-time">{{ t.labelTime }}</label>
             <select
               id="bm-time"
               v-model="form.time"
               :class="{ 'input-error': errors.time }"
               @change="errors.time = ''"
             >
-              <option value="">Selecciona...</option>
+              <option value="">{{ t.selectPlaceholder }}</option>
               <option value="09:00">09:00</option>
               <option value="10:00">10:00</option>
               <option value="11:00">11:00</option>
@@ -104,16 +104,16 @@
           </div>
 
           <div class="form-group">
-            <label for="bm-comments">Comentarios adicionales</label>
-            <textarea id="bm-comments" v-model="form.comments" rows="3" placeholder="Describe tu consulta o necesidades..."></textarea>
+            <label for="bm-comments">{{ t.labelComments }}</label>
+            <textarea id="bm-comments" v-model="form.comments" rows="3" :placeholder="t.placeholderComments"></textarea>
           </div>
 
           <div v-if="submitError" class="error-message">
-            <p>Hubo un error al enviar tu solicitud. Por favor, intenta de nuevo o contactanos por telefono.</p>
+            <p>{{ t.submitError }}</p>
           </div>
 
           <button type="submit" class="btn btn-primary btn-full" :disabled="submitting">
-            {{ submitting ? 'Enviando...' : 'Confirmar Reserva' }}
+            {{ submitting ? t.btnSending : t.btnConfirm }}
           </button>
         </form>
 
@@ -122,8 +122,8 @@
             <circle cx="12" cy="12" r="10"/>
             <polyline points="9 12 11 14 15 10"/>
           </svg>
-          <p>Tu solicitud ha sido enviada con exito.</p>
-          <p>Te contactaremos pronto para confirmar la cita.</p>
+          <p>{{ t.successMsg1 }}</p>
+          <p>{{ t.successMsg2 }}</p>
         </div>
       </div>
     </div>
@@ -168,6 +168,98 @@ const SCRIPT_URL = optionalEnv('VITE_SCRIPT_URL')
 
 const { lang } = useLanguage()
 
+const t = computed(() => lang.value === 'en' ? {
+  titleConsulting: 'Book a Nautical Consultation',
+  titleBooking: 'Book an Appointment',
+  subtitle: 'The first one is free',
+  labelName: 'Full name',
+  placeholderName: 'Your name',
+  labelEmail: 'Email',
+  labelPhone: 'Phone',
+  labelBoatType: 'Boat type',
+  selectPlaceholder: 'Select...',
+  boatVelero: 'Sailboat',
+  boatYate: 'Yacht',
+  boatLancha: 'Motorboat',
+  boatCatamaran: 'Catamaran',
+  boatOtro: 'Other',
+  labelDate: 'Preferred date',
+  labelTime: 'Preferred time',
+  labelComments: 'Additional comments',
+  placeholderComments: 'Describe your query or needs...',
+  submitError: 'There was an error sending your request. Please try again or contact us by phone.',
+  btnSending: 'Sending…',
+  btnConfirm: 'Confirm Booking',
+  successMsg1: 'Your request has been sent successfully.',
+  successMsg2: 'We will contact you shortly to confirm the appointment.',
+  emailTypoPrefix: 'Did you mean',
+  emailTypoSuffix: '?',
+  ariaClose: 'Close',
+  errors: {
+    nameRequired: 'Name is required',
+    nameMin: 'Minimum 2 characters',
+    emailRequired: 'Email is required',
+    emailInvalid: 'Email is not valid',
+    phoneRequired: 'Phone is required',
+    phoneInvalid: 'Phone is not valid',
+    dateRequired: 'Date is required',
+    timeRequired: 'Time is required',
+  },
+  emailErrors: {
+    empty: 'Email is required',
+    format: 'Email format is not valid',
+    localPart: 'The part before @ seems incorrect',
+    domainDots: 'The email domain has a misplaced dot',
+    tldShort: 'Domain extension must be at least 2 letters',
+    tldInvalid: 'That domain is not used for real email',
+  },
+} : {
+  titleConsulting: 'Agenda tu Consultoría Náutica',
+  titleBooking: 'Reserva tu Cita',
+  subtitle: 'La primera es gratuita',
+  labelName: 'Nombre completo',
+  placeholderName: 'Tu nombre',
+  labelEmail: 'Email',
+  labelPhone: 'Teléfono',
+  labelBoatType: 'Tipo de embarcación',
+  selectPlaceholder: 'Selecciona...',
+  boatVelero: 'Velero',
+  boatYate: 'Yate',
+  boatLancha: 'Lancha',
+  boatCatamaran: 'Catamarán',
+  boatOtro: 'Otro',
+  labelDate: 'Fecha preferida',
+  labelTime: 'Hora preferida',
+  labelComments: 'Comentarios adicionales',
+  placeholderComments: 'Describe tu consulta o necesidades...',
+  submitError: 'Hubo un error al enviar tu solicitud. Por favor, intenta de nuevo o contáctanos por teléfono.',
+  btnSending: 'Enviando...',
+  btnConfirm: 'Confirmar Reserva',
+  successMsg1: 'Tu solicitud ha sido enviada con éxito.',
+  successMsg2: 'Te contactaremos pronto para confirmar la cita.',
+  emailTypoPrefix: '¿Quizás quisiste escribir',
+  emailTypoSuffix: '?',
+  ariaClose: 'Cerrar',
+  errors: {
+    nameRequired: 'El nombre es obligatorio',
+    nameMin: 'Mínimo 2 caracteres',
+    emailRequired: 'El email es obligatorio',
+    emailInvalid: 'El email no es válido',
+    phoneRequired: 'El teléfono es obligatorio',
+    phoneInvalid: 'El teléfono no es válido',
+    dateRequired: 'La fecha es obligatoria',
+    timeRequired: 'La hora es obligatoria',
+  },
+  emailErrors: {
+    empty: 'El email es obligatorio',
+    format: 'El formato del correo no es válido',
+    localPart: 'El nombre antes de la @ no parece correcto',
+    domainDots: 'El dominio del correo tiene un punto mal puesto',
+    tldShort: 'La extensión del dominio debe tener al menos 2 letras',
+    tldInvalid: 'Ese dominio no se usa para correo real',
+  },
+})
+
 useModal({ isOpen: toRef(props, 'isOpen'), onClose: () => emit('close') })
 
 const emptyForm = (): BookingForm => ({
@@ -188,15 +280,9 @@ const emailFeedback = ref<EmailValidation | null>(null)
 const minDate = computed(() => new Date().toISOString().split('T')[0])
 
 const emailErrorMessage = computed(() => {
-  switch (emailFeedback.value?.errorCode) {
-    case 'empty':       return 'El email es obligatorio'
-    case 'format':      return 'El formato del correo no es válido'
-    case 'localPart':   return 'El nombre antes de la @ no parece correcto'
-    case 'domainDots':  return 'El dominio del correo tiene un punto mal puesto'
-    case 'tldShort':    return 'La extensión del dominio debe tener al menos 2 letras'
-    case 'tldInvalid':  return 'Ese dominio no se usa para correo real'
-    default:            return ''
-  }
+  const code = emailFeedback.value?.errorCode
+  if (!code) return ''
+  return t.value.emailErrors[code as keyof typeof t.value.emailErrors] ?? ''
 })
 
 const onEmailBlur = () => {
@@ -215,22 +301,23 @@ const validate = (): boolean => {
   const e = emptyErrors()
   const phoneRegex = /^\+?[\d\s\-().]{7,}$/
 
-  if (!form.value.name.trim()) e.name = 'El nombre es obligatorio'
-  else if (form.value.name.trim().length < 2) e.name = 'Mínimo 2 caracteres'
+  const te = t.value.errors
+  if (!form.value.name.trim()) e.name = te.nameRequired
+  else if (form.value.name.trim().length < 2) e.name = te.nameMin
 
   const emailCheck = validateEmail(form.value.email)
   if (!emailCheck.valid) {
-    e.email = emailCheck.errorCode === 'empty' ? 'El email es obligatorio' : 'El email no es válido'
+    e.email = emailCheck.errorCode === 'empty' ? te.emailRequired : te.emailInvalid
     emailFeedback.value = emailCheck
   } else {
     emailFeedback.value = null
   }
 
-  if (!form.value.phone.trim()) e.phone = 'El teléfono es obligatorio'
-  else if (!phoneRegex.test(form.value.phone)) e.phone = 'El teléfono no es válido'
+  if (!form.value.phone.trim()) e.phone = te.phoneRequired
+  else if (!phoneRegex.test(form.value.phone)) e.phone = te.phoneInvalid
 
-  if (!form.value.date) e.date = 'La fecha es obligatoria'
-  if (!form.value.time) e.time = 'La hora es obligatoria'
+  if (!form.value.date) e.date = te.dateRequired
+  if (!form.value.time) e.time = te.timeRequired
 
   errors.value = e
   return !Object.values(e).some(Boolean)
