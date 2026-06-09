@@ -1,0 +1,1 @@
+import{J as e}from"./_plugin-vue_export-helper-CE2gk1cy.js";var t=e(!1),n=e({});function r(){function e(e={}){n.value=e,t.value=!0}function r(){t.value=!1}return{isOpen:t,prefill:n,open:e,close:r}}export{r as t};
