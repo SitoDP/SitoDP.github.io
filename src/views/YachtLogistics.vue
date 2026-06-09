@@ -273,7 +273,7 @@ import { computed, ref, watch } from 'vue'
 import HeroSection from '../components/HeroSection.vue'
 import LocationAutocomplete from '../components/LocationAutocomplete.vue'
 import { useLanguage } from '../composables/useLanguage'
-import { useBooking } from '../composables/useBooking'
+
 import { useTransportRequest } from '../composables/useTransportRequest'
 import { usePageMeta } from '../composables/useMeta'
 import {
@@ -293,7 +293,7 @@ usePageMeta({
   },
 })
 
-const { open: openBooking } = useBooking()
+
 const { open: openTransportRequest } = useTransportRequest()
 const { lang, useT } = useLanguage()
 const t = useT('logistics')
@@ -372,9 +372,6 @@ const formattedPrice = computed(() => {
   return `${price.toLocaleString(lang.value === 'en' ? 'en-GB' : 'es-ES')} €`
 })
 
-const handleDateSelect = (data: { date: unknown; time: string | null }) => {
-  if (data.date && data.time) openBooking('consulting')
-}
 </script>
 
 <style scoped>
