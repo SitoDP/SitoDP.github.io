@@ -2,8 +2,8 @@
   <div class="legal-page">
     <section class="hero">
       <div class="container hero-content">
-        <h1>Política de Privacidad</h1>
-        <p>Última actualización: enero de 2025</p>
+        <h1>{{ t.title }}</h1>
+        <p>{{ t.updated }}</p>
       </div>
     </section>
 
@@ -11,52 +11,43 @@
       <div class="container">
         <div class="legal-body">
 
-          <p class="lead">El sitio web de BSI - Boat Solutions International es propiedad de Boat Solutions International S.L., que actúa como responsable del tratamiento de sus datos personales.</p>
+          <p class="lead">{{ t.lead }}</p>
+          <p>{{ t.intro1 }}</p>
+          <p>{{ t.intro2 }}</p>
 
-          <p>Hemos adoptado esta Política de Privacidad, que determina cómo tratamos la información recopilada por BSI - Boat Solutions International, y explica los motivos por los que necesitamos recopilar ciertos datos personales sobre usted. Por tanto, debe leer esta Política de Privacidad antes de utilizar el sitio web.</p>
+          <h2>{{ t.s1Title }}</h2>
+          <p>{{ t.s1p1 }}</p>
+          <p>{{ t.s1p2 }}</p>
 
-          <p>Nos preocupamos por sus datos personales y nos comprometemos a garantizar su confidencialidad y seguridad.</p>
+          <h2>{{ t.s2Title }}</h2>
+          <p>{{ t.s2p1 }}</p>
+          <p>{{ t.s2p2 }}</p>
+          <p>{{ t.s2p3 }} <a href="mailto:info@boat-solutions.es">info@boat-solutions.es</a>.</p>
 
-          <h2>Información personal que recopilamos</h2>
-          <p>Cuando visita el sitio web de BSI - Boat Solutions International, recopilamos automáticamente cierta información sobre su dispositivo, incluida información sobre su navegador web, dirección IP, zona horaria y algunas de las cookies instaladas en su dispositivo. Además, mientras navega por el sitio, recopilamos información sobre las páginas web o productos individuales que visualiza, los sitios web o términos de búsqueda que le han referido al sitio, y cómo interactúa con él. Nos referimos a esta información recopilada automáticamente como «Información del dispositivo».</p>
-          <p>Asimismo, podemos recopilar los datos personales que usted nos proporcione (incluyendo, entre otros, nombre, apellidos, dirección e información de pago) durante el registro, con el fin de poder cumplir el contrato.</p>
-
-          <h2>¿Por qué tratamos sus datos?</h2>
-          <p>Nuestra prioridad es la seguridad de los datos de los usuarios. Por ello, únicamente tratamos los datos mínimos imprescindibles para mantener el sitio web. La información recopilada automáticamente se utiliza exclusivamente para identificar posibles casos de abuso y establecer información estadística sobre el uso del sitio web. Esta información estadística no se agrega de manera que permita identificar a ningún usuario concreto.</p>
-          <p>Puede visitar el sitio web sin indicarnos quién es ni revelar ninguna información que permita identificarle. Sin embargo, si desea utilizar alguna de las funciones del sitio web, recibir nuestra newsletter o proporcionarnos detalles a través de un formulario, puede que necesite facilitarnos datos personales como su correo electrónico, nombre, apellidos, ciudad de residencia, organización o número de teléfono.</p>
-          <p>Puede optar por no facilitarnos sus datos personales, pero en ese caso es posible que no pueda utilizar algunas funciones del sitio web. Los usuarios que tengan dudas sobre qué información es obligatoria pueden contactarnos en <a href="mailto:info@boat-solutions.es">info@boat-solutions.es</a>.</p>
-
-          <h2>Sus derechos</h2>
-          <p>Si es residente en el Espacio Económico Europeo, tiene los siguientes derechos en relación con sus datos personales:</p>
+          <h2>{{ t.s3Title }}</h2>
+          <p>{{ t.s3intro }}</p>
           <ul>
-            <li>Derecho a ser informado</li>
-            <li>Derecho de acceso</li>
-            <li>Derecho de rectificación</li>
-            <li>Derecho de supresión</li>
-            <li>Derecho a la limitación del tratamiento</li>
-            <li>Derecho a la portabilidad de los datos</li>
-            <li>Derecho de oposición</li>
-            <li>Derechos en relación con la toma de decisiones automatizada y la elaboración de perfiles</li>
+            <li v-for="right in t.s3rights" :key="right">{{ right }}</li>
           </ul>
-          <p>Si desea ejercer alguno de estos derechos, póngase en contacto con nosotros a través de la información de contacto que figura al final de este documento.</p>
+          <p>{{ t.s3outro }}</p>
 
-          <h2>Enlaces a otros sitios web</h2>
-          <p>Nuestro sitio web puede contener enlaces a otros sitios web que no son de nuestra propiedad ni están bajo nuestro control. Tenga en cuenta que no somos responsables de las prácticas de privacidad de dichos sitios web ni de terceros. Le recomendamos que esté atento cuando abandone nuestro sitio web y que lea las declaraciones de privacidad de cada sitio que pueda recopilar información personal.</p>
+          <h2>{{ t.s4Title }}</h2>
+          <p>{{ t.s4p1 }}</p>
 
-          <h2>Seguridad de la información</h2>
-          <p>Protegemos la información que usted nos facilita en servidores informáticos en un entorno controlado y seguro, protegido contra el acceso, uso o divulgación no autorizados. Mantenemos salvaguardias administrativas, técnicas y físicas razonables para proteger contra el acceso no autorizado, el uso, la modificación y la divulgación de datos personales bajo nuestro control y custodia.</p>
+          <h2>{{ t.s5Title }}</h2>
+          <p>{{ t.s5p1 }}</p>
 
-          <h2>Divulgación legal</h2>
-          <p>Divulgaremos cualquier información que recopilemos, utilicemos o recibamos si así lo exige o permite la ley, por ejemplo, para cumplir una citación u otro proceso legal similar, y cuando creamos de buena fe que la divulgación es necesaria para proteger nuestros derechos, proteger su seguridad o la de otras personas, investigar fraudes o responder a una solicitud gubernamental.</p>
+          <h2>{{ t.s6Title }}</h2>
+          <p>{{ t.s6p1 }}</p>
 
-          <h2>Información de contacto</h2>
-          <p>Si desea ponerse en contacto con nosotros para obtener más información sobre esta Política o tratar cualquier asunto relacionado con sus derechos individuales y sus datos personales, puede enviarnos un correo electrónico a <a href="mailto:info@boat-solutions.es">info@boat-solutions.es</a>.</p>
+          <h2>{{ t.s7Title }}</h2>
+          <p>{{ t.s7p1 }} <a href="mailto:info@boat-solutions.es">info@boat-solutions.es</a>.</p>
 
           <div class="legal-contact-box">
-            <p><strong>Responsable del tratamiento:</strong> Boat Solutions International S.L.</p>
-            <p><strong>Email de contacto:</strong> <a href="mailto:info@boat-solutions.es">info@boat-solutions.es</a></p>
-            <p><strong>Teléfono:</strong> <a href="tel:+34676625595">+34 676 625 595</a></p>
-            <p><strong>Ubicación:</strong> Vigo, Pontevedra, España</p>
+            <p><strong>{{ t.contactController }}</strong> Boat Solutions International S.L.</p>
+            <p><strong>{{ t.contactEmail }}</strong> <a href="mailto:info@boat-solutions.es">info@boat-solutions.es</a></p>
+            <p><strong>{{ t.contactPhone }}</strong> <a href="tel:+34676625595">+34 676 625 595</a></p>
+            <p><strong>{{ t.contactLocation }}</strong> Vigo, Pontevedra, España</p>
           </div>
 
         </div>
@@ -66,7 +57,89 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useLanguage } from '../composables/useLanguage'
 import { usePageMeta } from '../composables/useMeta'
+
+const { lang } = useLanguage()
+
+const t = computed(() => lang.value === 'en' ? {
+  title: 'Privacy Policy',
+  updated: 'Last updated: January 2025',
+  lead: 'The BSI – Boat Solutions International website is owned by Boat Solutions International S.L., which acts as the data controller for your personal data.',
+  intro1: 'We have adopted this Privacy Policy, which determines how we process information collected by BSI – Boat Solutions International, and explains why we need to collect certain personal data about you. You should therefore read this Privacy Policy before using the website.',
+  intro2: 'We care about your personal data and are committed to ensuring its confidentiality and security.',
+  s1Title: 'Personal information we collect',
+  s1p1: 'When you visit the BSI – Boat Solutions International website, we automatically collect certain information about your device, including information about your web browser, IP address, time zone, and some of the cookies installed on your device. Additionally, as you browse the site, we collect information about the individual web pages or products you view, the websites or search terms that referred you to the site, and how you interact with it. We refer to this automatically collected information as "Device Information".',
+  s1p2: 'We may also collect the personal data you provide to us (including, but not limited to, name, surname, address and payment information) during registration, in order to fulfil the contract.',
+  s2Title: 'Why do we process your data?',
+  s2p1: 'Our priority is the security of user data. We therefore only process the minimum data necessary to maintain the website. Automatically collected information is used solely to identify potential cases of abuse and to establish statistical information about website usage. This statistical information is not aggregated in a way that would identify any individual user.',
+  s2p2: 'You may visit the website without telling us who you are or revealing any information that could identify you. However, if you wish to use any of the website\'s features, receive our newsletter, or provide us with details via a form, you may need to provide us with personal data such as your email address, name, city of residence, organisation or phone number.',
+  s2p3: 'You may choose not to provide us with your personal data, but in that case you may not be able to use some of the website\'s features. Users who have questions about what information is mandatory may contact us at',
+  s3Title: 'Your rights',
+  s3intro: 'If you are a resident of the European Economic Area, you have the following rights regarding your personal data:',
+  s3rights: [
+    'Right to be informed',
+    'Right of access',
+    'Right to rectification',
+    'Right to erasure',
+    'Right to restriction of processing',
+    'Right to data portability',
+    'Right to object',
+    'Rights in relation to automated decision-making and profiling',
+  ],
+  s3outro: 'If you wish to exercise any of these rights, please contact us using the contact information at the end of this document.',
+  s4Title: 'Links to other websites',
+  s4p1: 'Our website may contain links to other websites that are not owned or controlled by us. Please be aware that we are not responsible for the privacy practices of such websites or third parties. We encourage you to be aware when you leave our website and to read the privacy statements of each website that may collect personal information.',
+  s5Title: 'Information security',
+  s5p1: 'We protect the information you provide to us on computer servers in a controlled, secure environment, protected against unauthorised access, use or disclosure. We maintain reasonable administrative, technical and physical safeguards to protect against unauthorised access, use, modification and disclosure of personal data under our control and custody.',
+  s6Title: 'Legal disclosure',
+  s6p1: 'We will disclose any information we collect, use or receive if required or permitted by law, such as to comply with a subpoena or similar legal process, and when we believe in good faith that disclosure is necessary to protect our rights, protect your safety or the safety of others, investigate fraud, or respond to a government request.',
+  s7Title: 'Contact information',
+  s7p1: 'If you wish to contact us to obtain more information about this Policy or to discuss any matter relating to your individual rights and your personal data, you may send us an email at',
+  contactController: 'Data controller:',
+  contactEmail: 'Contact email:',
+  contactPhone: 'Phone:',
+  contactLocation: 'Location:',
+} : {
+  title: 'Política de Privacidad',
+  updated: 'Última actualización: enero de 2025',
+  lead: 'El sitio web de BSI - Boat Solutions International es propiedad de Boat Solutions International S.L., que actúa como responsable del tratamiento de sus datos personales.',
+  intro1: 'Hemos adoptado esta Política de Privacidad, que determina cómo tratamos la información recopilada por BSI - Boat Solutions International, y explica los motivos por los que necesitamos recopilar ciertos datos personales sobre usted. Por tanto, debe leer esta Política de Privacidad antes de utilizar el sitio web.',
+  intro2: 'Nos preocupamos por sus datos personales y nos comprometemos a garantizar su confidencialidad y seguridad.',
+  s1Title: 'Información personal que recopilamos',
+  s1p1: 'Cuando visita el sitio web de BSI - Boat Solutions International, recopilamos automáticamente cierta información sobre su dispositivo, incluida información sobre su navegador web, dirección IP, zona horaria y algunas de las cookies instaladas en su dispositivo. Además, mientras navega por el sitio, recopilamos información sobre las páginas web o productos individuales que visualiza, los sitios web o términos de búsqueda que le han referido al sitio, y cómo interactúa con él. Nos referimos a esta información recopilada automáticamente como «Información del dispositivo».',
+  s1p2: 'Asimismo, podemos recopilar los datos personales que usted nos proporcione (incluyendo, entre otros, nombre, apellidos, dirección e información de pago) durante el registro, con el fin de poder cumplir el contrato.',
+  s2Title: '¿Por qué tratamos sus datos?',
+  s2p1: 'Nuestra prioridad es la seguridad de los datos de los usuarios. Por ello, únicamente tratamos los datos mínimos imprescindibles para mantener el sitio web. La información recopilada automáticamente se utiliza exclusivamente para identificar posibles casos de abuso y establecer información estadística sobre el uso del sitio web. Esta información estadística no se agrega de manera que permita identificar a ningún usuario concreto.',
+  s2p2: 'Puede visitar el sitio web sin indicarnos quién es ni revelar ninguna información que permita identificarle. Sin embargo, si desea utilizar alguna de las funciones del sitio web, recibir nuestra newsletter o proporcionarnos detalles a través de un formulario, puede que necesite facilitarnos datos personales como su correo electrónico, nombre, apellidos, ciudad de residencia, organización o número de teléfono.',
+  s2p3: 'Puede optar por no facilitarnos sus datos personales, pero en ese caso es posible que no pueda utilizar algunas funciones del sitio web. Los usuarios que tengan dudas sobre qué información es obligatoria pueden contactarnos en',
+  s3Title: 'Sus derechos',
+  s3intro: 'Si es residente en el Espacio Económico Europeo, tiene los siguientes derechos en relación con sus datos personales:',
+  s3rights: [
+    'Derecho a ser informado',
+    'Derecho de acceso',
+    'Derecho de rectificación',
+    'Derecho de supresión',
+    'Derecho a la limitación del tratamiento',
+    'Derecho a la portabilidad de los datos',
+    'Derecho de oposición',
+    'Derechos en relación con la toma de decisiones automatizada y la elaboración de perfiles',
+  ],
+  s3outro: 'Si desea ejercer alguno de estos derechos, póngase en contacto con nosotros a través de la información de contacto que figura al final de este documento.',
+  s4Title: 'Enlaces a otros sitios web',
+  s4p1: 'Nuestro sitio web puede contener enlaces a otros sitios web que no son de nuestra propiedad ni están bajo nuestro control. Tenga en cuenta que no somos responsables de las prácticas de privacidad de dichos sitios web ni de terceros. Le recomendamos que esté atento cuando abandone nuestro sitio web y que lea las declaraciones de privacidad de cada sitio que pueda recopilar información personal.',
+  s5Title: 'Seguridad de la información',
+  s5p1: 'Protegemos la información que usted nos facilita en servidores informáticos en un entorno controlado y seguro, protegido contra el acceso, uso o divulgación no autorizados. Mantenemos salvaguardias administrativas, técnicas y físicas razonables para proteger contra el acceso no autorizado, el uso, la modificación y la divulgación de datos personales bajo nuestro control y custodia.',
+  s6Title: 'Divulgación legal',
+  s6p1: 'Divulgaremos cualquier información que recopilemos, utilicemos o recibamos si así lo exige o permite la ley, por ejemplo, para cumplir una citación u otro proceso legal similar, y cuando creamos de buena fe que la divulgación es necesaria para proteger nuestros derechos, proteger su seguridad o la de otras personas, investigar fraudes o responder a una solicitud gubernamental.',
+  s7Title: 'Información de contacto',
+  s7p1: 'Si desea ponerse en contacto con nosotros para obtener más información sobre esta Política o tratar cualquier asunto relacionado con sus derechos individuales y sus datos personales, puede enviarnos un correo electrónico a',
+  contactController: 'Responsable del tratamiento:',
+  contactEmail: 'Email de contacto:',
+  contactPhone: 'Teléfono:',
+  contactLocation: 'Ubicación:',
+})
 
 usePageMeta({
   es: {

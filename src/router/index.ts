@@ -41,6 +41,8 @@ const router = createRouter({
     { path: '/en/yacht-management', name: 'yacht-management-en', component: YachtManagement },
     { path: '/en/yacht-logistics', name: 'yacht-logistics-en', component: YachtLogistics },
     { path: '/en/yacht-detailing', name: 'yacht-detailing-en', component: YachtDetailing },
+    { path: '/en/politica-de-privacidad', name: 'politica-privacidad-en', component: PoliticaPrivacidad },
+    { path: '/en/terminos-y-condiciones', name: 'terminos-condiciones-en', component: TerminosCondiciones },
     // Catch-all
     { path: '/:pathMatch(.*)*', name: 'not-found', component: NotFound },
   ],
