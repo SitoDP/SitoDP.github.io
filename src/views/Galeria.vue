@@ -57,6 +57,15 @@ import imgDulcinea1 from '../assets/dulcinea1.jpeg'
 import imgDulcineaConsulting from '../assets/dulcineaConsulting.jpeg'
 import imgMarcela1 from '../assets/marcela1.jpeg'
 import imgMarcela2 from '../assets/marcela2.jpeg'
+import imgDulcineaAerea from '../assets/dulcineaAerea.jpeg'
+import imgDulcineaAlAgua from '../assets/dulcineaAlAgua.jpeg'
+import imgPulidoAna from '../assets/pulidoAna.jpeg'
+import imgDulcineaStorage from '../assets/dulcineaStorage.jpeg'
+import imgDulcineaPalaTimon from '../assets/dulcineaPalaTimon.jpeg'
+import imgDulcineaStorage2 from '../assets/dulcineaStorage2.jpeg'
+import imgMarcelaTravel from '../assets/marcelaTravel.jpeg'
+import imgDulcineaInSide from '../assets/dulcineaInSide.jpeg'
+import imgDulcineaAmarre from '../assets/dulcineaAmarre.jpeg'
 
 const { useT } = useLanguage()
 const t = useT('galeria')
@@ -92,6 +101,15 @@ const images: GalleryImage[] = [
   { src: imgDulcineaConsulting, alt: 'Dulcinea — Yacht Consulting' },
   { src: imgMarcela1, alt: 'Marcela en el mar' },
   { src: imgMarcela2, alt: 'Marcela — traslado' },
+  { src: imgDulcineaAerea, alt: 'Vista aérea de Dulcinea navegando' },
+  { src: imgDulcineaAlAgua, alt: 'Botadura de Dulcinea' },
+  { src: imgPulidoAna, alt: 'Detailing profesional — pulido de casco' },
+  { src: imgDulcineaStorage, alt: 'Dulcinea en almacenaje en seco' },
+  { src: imgDulcineaPalaTimon, alt: 'Cubierta de teca a bordo de Dulcinea' },
+  { src: imgDulcineaStorage2, alt: 'Embarcaciones en varadero cubierto' },
+  { src: imgMarcelaTravel, alt: 'Marcela en travel-lift — Marina Davila' },
+  { src: imgDulcineaInSide, alt: 'Obra viva de Dulcinea en taller' },
+  { src: imgDulcineaAmarre, alt: 'Dulcinea y Marcela en el amarre' },
 ]
 
 const lightboxOpen = ref(false)

@@ -426,6 +426,7 @@ const handleDateSelect = (data: { date: unknown; time: string | null }) => {
 
 .slider-wrap input[type="range"] {
   flex: 1;
+  appearance: none;
   -webkit-appearance: none;
   height: 4px;
   background: var(--color-gray-border);
