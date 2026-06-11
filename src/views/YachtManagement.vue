@@ -186,8 +186,12 @@ const checklist = computed(() =>
   tc.value.categories.map((cat, i) => ({ ...cat, icon: checklistIcons[i] ?? '' }))
 )
 
-const handleDateSelect = (data: { date: unknown; time: string | null }) => {
-  if (data.date && data.time) openBooking('consulting')
+const handleDateSelect = (data: { date: { day: number; month: number; year: number } | null; time: string | null }) => {
+  if (data.date && data.time) {
+    const { day, month, year } = data.date
+    const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`
+    openBooking('consulting', { date: dateStr, time: data.time })
+  }
 }
 </script>
 

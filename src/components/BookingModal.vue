@@ -73,11 +73,14 @@
             <label for="bm-date">{{ t.labelDate }}</label>
             <input
               id="bm-date"
-              v-model="form.date"
-              type="date"
-              :min="minDate"
+              :value="form.date"
+              type="text"
+              inputmode="numeric"
+              placeholder="DD/MM/AAAA"
+              maxlength="10"
+              autocomplete="off"
               :class="{ 'input-error': errors.date }"
-              @change="errors.date = ''"
+              @input="onDateInput"
             />
             <span v-if="errors.date" class="field-error">{{ errors.date }}</span>
           </div>
@@ -131,11 +134,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, toRef } from 'vue'
+import { computed, ref, toRef, watch } from 'vue'
 import { useModal } from '../composables/useModal'
 import { useLanguage } from '../composables/useLanguage'
 import { optionalEnv } from '../lib/env'
 import { validateEmail, type EmailValidation } from '../lib/email'
+import type { BookingPrefill } from '../composables/useBooking'
 
 interface BookingForm {
   name: string
@@ -158,6 +162,7 @@ interface FormErrors {
 const props = defineProps<{
   isOpen: boolean
   isConsulting: boolean
+  prefill?: BookingPrefill
 }>()
 
 const emit = defineEmits<{
@@ -203,6 +208,8 @@ const t = computed(() => lang.value === 'en' ? {
     phoneRequired: 'Phone is required',
     phoneInvalid: 'Phone is not valid',
     dateRequired: 'Date is required',
+    dateInvalid: 'Enter a valid date (DD/MM/YYYY)',
+    datePast: 'The date cannot be in the past',
     timeRequired: 'Time is required',
   },
   emailErrors: {
@@ -248,6 +255,8 @@ const t = computed(() => lang.value === 'en' ? {
     phoneRequired: 'El teléfono es obligatorio',
     phoneInvalid: 'El teléfono no es válido',
     dateRequired: 'La fecha es obligatoria',
+    dateInvalid: 'Introduce una fecha válida (DD/MM/AAAA)',
+    datePast: 'La fecha no puede ser anterior a hoy',
     timeRequired: 'La hora es obligatoria',
   },
   emailErrors: {
@@ -277,7 +286,35 @@ const success = ref(false)
 const submitError = ref(false)
 const emailFeedback = ref<EmailValidation | null>(null)
 
-const minDate = computed(() => new Date().toISOString().split('T')[0])
+watch(() => props.isOpen, (opened) => {
+  if (opened) {
+    // prefill.date llega en YYYY-MM-DD desde CalendarWidget; convertir a DD/MM/AAAA
+    const rawDate = props.prefill?.date ?? ''
+    let displayDate = ''
+    if (rawDate) {
+      const [y, m, d] = rawDate.split('-')
+      if (y && m && d) displayDate = `${d}/${m}/${y}`
+    }
+    form.value = { ...emptyForm(), date: displayDate, time: props.prefill?.time ?? '' }
+    errors.value = emptyErrors()
+    emailFeedback.value = null
+    success.value = false
+    submitError.value = false
+  }
+})
+
+function onDateInput(e: Event) {
+  errors.value.date = ''
+  const input = e.target as HTMLInputElement
+  // Conservar solo dígitos y reconstruir con barras
+  let digits = input.value.replace(/\D/g, '').slice(0, 8)
+  let formatted = digits
+  if (digits.length > 2) formatted = digits.slice(0, 2) + '/' + digits.slice(2)
+  if (digits.length > 4) formatted = digits.slice(0, 2) + '/' + digits.slice(2, 4) + '/' + digits.slice(4)
+  form.value.date = formatted
+  // Sincronizar el DOM manualmente (usamos :value en lugar de v-model para poder interceptar)
+  input.value = formatted
+}
 
 const emailErrorMessage = computed(() => {
   const code = emailFeedback.value?.errorCode
@@ -316,7 +353,22 @@ const validate = (): boolean => {
   if (!form.value.phone.trim()) e.phone = te.phoneRequired
   else if (!phoneRegex.test(form.value.phone)) e.phone = te.phoneInvalid
 
-  if (!form.value.date) e.date = te.dateRequired
+  if (!form.value.date) {
+    e.date = te.dateRequired
+  } else {
+    const parts = form.value.date.split('/')
+    const [dd, mm, yyyy] = parts.map(Number)
+    const inputDate = parts.length === 3 && parts[2].length === 4
+      ? new Date(yyyy, mm - 1, dd)
+      : null
+    if (!inputDate || isNaN(inputDate.getTime()) || inputDate.getDate() !== dd || inputDate.getMonth() !== mm - 1) {
+      e.date = te.dateInvalid
+    } else {
+      const todayStart = new Date()
+      todayStart.setHours(0, 0, 0, 0)
+      if (inputDate < todayStart) e.date = te.datePast
+    }
+  }
   if (!form.value.time) e.time = te.timeRequired
 
   errors.value = e

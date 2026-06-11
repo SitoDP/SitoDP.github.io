@@ -5,7 +5,7 @@
     <router-view />
   </main>
   <Footer />
-  <BookingModal :isOpen="isOpen" :isConsulting="isConsulting" @close="close" />
+  <BookingModal :isOpen="isOpen" :isConsulting="isConsulting" :prefill="prefill" @close="close" />
   <TransportRequestModal />
   <DetailingRequestModal />
   <ToastContainer />
@@ -23,7 +23,7 @@ import WhatsAppButton from './components/WhatsAppButton.vue'
 import RouteLoader from './components/RouteLoader.vue'
 import { useBooking } from './composables/useBooking'
 
-const { isOpen, isConsulting, close } = useBooking()
+const { isOpen, isConsulting, prefill, close } = useBooking()
 </script>
 
 <style>
